@@ -1,0 +1,9 @@
+.imagediv{
+    cursor: pointer;
+}
+.imagediv img{
+    cursor: pointer;
+}
+.allcategory .imagediv:hover{
+    opacity: 0.8;
+}

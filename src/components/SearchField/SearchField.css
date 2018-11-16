@@ -1,0 +1,52 @@
+/* Container holding the image and the text */
+.containerSearch {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+/* Centered text */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* Style the search field */
+.centered input[type=text] {
+    padding: 17px;
+    font-size: 25px;
+    border: none;
+    float: left;
+    width: 90%;
+    background: white;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+  }
+  
+.centered input[type=text]:hover {
+    background: white;
+  }
+.centered input[type=text]:focus {
+    outline: none;
+  }
+/* Style the submit button */
+.centered button {
+    color: #807b7e;
+    float: left;
+    width: 10%;
+    padding: 17px;
+    background: #ddd;
+    font-size: 25px;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+  }
+  
+.centered button:hover {
+    background: white;
+  }
+.centered button:focus {
+    outline: none;
+  }
