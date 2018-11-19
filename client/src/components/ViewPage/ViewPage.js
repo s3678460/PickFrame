@@ -18,7 +18,6 @@ class ViewPage extends Component {
                                 </Mask>
                             </View>
                         </div>
-
                         <div className="mt-5 container">
                             <div className="row">
                                 <div className="col-3">
@@ -127,11 +126,237 @@ class ViewPage extends Component {
             case "illustrations":
                 return (
                     <div>
-                        <h1>illustrations</h1>
+                        <div>
+                            <View>
+                                <img src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg" className="img-fluid" alt="photos" style={{ width: "100%", height: "600px" }} />
+                                <Mask className="flex-center">
+                                    <h2 className="white-text">Plenty of illustrations</h2>
+                                </Mask>
+                            </View>
+                        </div>
+                        <div className="mt-5 container">
+                            <div className="row">
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                );
+                case "vectors":
+                return (
+                    <div>
+                        <div>
+                            <View>
+                                <img src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg" className="img-fluid" alt="photos" style={{ width: "100%", height: "600px" }} />
+                                <Mask className="flex-center">
+                                    <h2 className="white-text">Plenty of vectors</h2>
+                                </Mask>
+                            </View>
+                        </div>
+                        <div className="mt-5 container">
+                            <div className="row">
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-3">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                                <div className="col-4">
+                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 );
             default:
-                break;
+                return (
+                    <h1>Page not found</h1>
+                );
         }
     }
 }
