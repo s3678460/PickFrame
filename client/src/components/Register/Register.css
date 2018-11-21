@@ -1,0 +1,81 @@
+
+
+.bodyregister{
+	
+	background-image: url(http://4.bp.blogspot.com/-izxIf1Vhtxc/U6w0vmFFgfI/AAAAAAAAEyQ/GP62Kyl1mC0/s1600/3d-colorful-squares-full-hd-wallpaper-04.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    	
+}
+  .reg-container{
+    position:relative;
+    height:100vh;
+    overflow:hidden;
+  }
+  
+  .inner {
+    position: absolute;
+  }
+  .inner-reg-container{
+    width:1000px;
+    height:620px;
+    position:absolute;
+    top:calc(50vh - 290px);
+    left:calc(50vh - 200px);
+    overflow:hidden;
+  }
+  
+  .boxreg{
+    position:absolute;
+    height:100%;
+    width:100%;
+    font-family:Helvetica;
+    color:#fff;
+    background:rgba(0,0,0,0.50);
+    padding:0px 0px;
+  }
+  .boxreg h1{
+    text-align:center;
+    margin:30px 0;
+    font-size:30px;
+  }
+  .boxreg input{
+    display:block;
+    width:300px;
+    margin:20px auto;
+    padding:15px;
+    background:whitesmoke;
+    
+    border:0;
+  }
+  .boxreg input:focus,.box input:active,.box button:focus,.box button:active{
+    outline:none;
+  }
+  .boxreg button{
+    background:darkgray;
+    border:0;
+    color:#fff;
+    padding:10px;
+    font-size:20px;
+    width:330px;
+    margin:20px auto;
+    display:block;
+    cursor:pointer;
+  }
+
+  .boxreg button:hover{
+      background:lightgray;
+  }
+  .boxreg button:active{
+    background:lightskyblue;
+  }
+  .boxreg p{
+    font-size:14px;
+    text-align:center;
+  }
+  .boxreg p span{
+    cursor:pointer;
+    color:white;
+  }
+
+  

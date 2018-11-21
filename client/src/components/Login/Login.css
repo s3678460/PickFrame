@@ -1,0 +1,79 @@
+
+
+.bodylogin{
+	
+	background-image: url(https://chainimage.com/images/colorful-robots-images-free-wallpaper-1920x1080-full-hd-wallpapers.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    	
+}
+  .vid-container{
+    position:relative;
+    height:100vh;
+    overflow:hidden;
+  }
+  
+  .inner {
+    position: absolute;
+  }
+  .inner-container{
+    width:400px;
+    height:400px;
+    position:absolute;
+    top:calc(50vh - 200px);
+    left:calc(50vw - 200px);
+    overflow:hidden;
+  }
+  
+  .box{
+    position:absolute;
+    height:100%;
+    width:100%;
+    font-family:Helvetica;
+    color:#fff;
+    background:rgba(0,0,0,0.50);
+    padding:30px 0px;
+  }
+  .box h1{
+    text-align:center;
+    margin:30px 0;
+    font-size:30px;
+  }
+  .box input{
+    display:block;
+    width:300px;
+    margin:20px auto;
+    padding:15px;
+    background:whitesmoke;
+    
+    border:0;
+  }
+  .box input:focus,.box input:active,.box button:focus,.box button:active{
+    outline:none;
+  }
+  .box button{
+    background:darkgrey;
+    border:0;
+    color:#fff;
+    padding:10px;
+    font-size:20px;
+    width:330px;
+    margin:20px auto;
+    display:block;
+    cursor:pointer;
+  }
+
+  .box button:hover{
+      background:lightgray;
+  }
+  .box button:active{
+    background:lightseagreen;
+  }
+  .box p{
+    font-size:14px;
+    text-align:center;
+  }
+  .box p span{
+    cursor:pointer;
+    color:white;
+  }
