@@ -5,8 +5,6 @@ import AddOrder from "./orders/AddOrder";
 
 import { Provider } from "./context";
 
-
-
 class App extends Component {
   render() {
     return (
