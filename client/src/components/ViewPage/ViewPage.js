@@ -22,33 +22,33 @@ class ViewPage extends Component {
                             <div className="row">
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                     {/* <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div> */}
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                 <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -57,21 +57,21 @@ class ViewPage extends Component {
                             <div className="row mt-4">
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -80,28 +80,28 @@ class ViewPage extends Component {
                             <div className="row mt-4">
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -110,21 +110,21 @@ class ViewPage extends Component {
                             <div className="row mt-4">
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -133,28 +133,28 @@ class ViewPage extends Component {
                             <div className="row mt-4">
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -163,21 +163,21 @@ class ViewPage extends Component {
                             <div className="row mt-4">
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -186,28 +186,28 @@ class ViewPage extends Component {
                             <div className="row mt-4">
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -216,21 +216,21 @@ class ViewPage extends Component {
                             <div className="row mt-4">
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -255,28 +255,28 @@ class ViewPage extends Component {
                             <div className="row">
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -285,21 +285,21 @@ class ViewPage extends Component {
                             <div className="row mt-4">
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -308,28 +308,28 @@ class ViewPage extends Component {
                             <div className="row mt-4">
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -338,21 +338,21 @@ class ViewPage extends Component {
                             <div className="row mt-4">
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -361,28 +361,28 @@ class ViewPage extends Component {
                             <div className="row mt-4">
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -391,21 +391,21 @@ class ViewPage extends Component {
                             <div className="row mt-4">
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -414,28 +414,28 @@ class ViewPage extends Component {
                             <div className="row mt-4">
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -444,21 +444,21 @@ class ViewPage extends Component {
                             <div className="row mt-4">
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -482,28 +482,28 @@ class ViewPage extends Component {
                             <div className="row">
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -512,21 +512,21 @@ class ViewPage extends Component {
                             <div className="row mt-4">
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -535,28 +535,28 @@ class ViewPage extends Component {
                             <div className="row mt-4">
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -565,21 +565,21 @@ class ViewPage extends Component {
                             <div className="row mt-4">
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -588,28 +588,28 @@ class ViewPage extends Component {
                             <div className="row mt-4">
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -618,21 +618,21 @@ class ViewPage extends Component {
                             <div className="row mt-4">
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -641,28 +641,28 @@ class ViewPage extends Component {
                             <div className="row mt-4">
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
@@ -671,21 +671,21 @@ class ViewPage extends Component {
                             <div className="row mt-4">
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
                                 </div>
                                 <div className="col-4">
                                     <div className="containerImage">
-                                        <img src="https://picsum.photos/1000/500" alt="Avatar" className="imageCata" />
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
                                         <div className="overlayCata">Category type</div>
                                         <div className="overlayID">#123456</div>
                                     </div>
