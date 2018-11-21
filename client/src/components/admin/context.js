@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 const Context = React.createContext();
 const reducer = (state, action) => {
@@ -7,6 +8,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         orders: state.orders.filter(order => order.id !== action.payload)
+      };
+    case "ADD_ORDER":
+      return {
+        ...state,
+        orders: [action.payload, ...state.orders]
       };
     default:
       return state;
@@ -42,6 +48,11 @@ export class Provider extends Component {
     ],
     dispatch: action => this.setState(state => reducer(state, action))
   };
+
+  // componentDidMount() {
+  //   axious.get()
+  //   .then(res => this.setState({orders: res.data}))
+  // }
 
   render() {
     return (
