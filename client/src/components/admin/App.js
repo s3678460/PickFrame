@@ -5,7 +5,7 @@ import AddOrder from "./orders/AddOrder";
 
 import { Provider } from "./context";
 
-import "bootstrap/dist/css/bootstrap.min.css";
+
 
 class App extends Component {
   render() {
