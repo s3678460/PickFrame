@@ -16,14 +16,7 @@
   .inner {
     position: absolute;
   }
-  .inner-reg-container{
-    width:1000px;
-    height:620px;
-    position:absolute;
-    top:calc(50vh - 290px);
-    left:calc(50vh - 200px);
-    overflow:hidden;
-  }
+  
   
   .boxreg{
     position:absolute;

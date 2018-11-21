@@ -5,7 +5,7 @@ class Login extends Component {
     render() {
         return (
 
-            <div className="bodylogin mb-0">
+            <div className="bodylogin">
 
                 <div className="vid-container">
 

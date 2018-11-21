@@ -18,7 +18,6 @@ class RouterURL extends Component {
                     <Route path="/register" component={Register}/>
                     <Route path="/admin/" component={AdminPage} />
                     <Route component={HomePage}/> 
-                    
                 </Switch>
             </div>
         );
