@@ -9,7 +9,7 @@ class ViewPage extends Component {
         switch (type) {
             case "photos":
                 return (
-                    <div>
+                    <div className="pb-5">
                         <div>
                             <View>
                                 <img src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg" className="img-fluid" alt="photos" style={{ width: "100%", height: "600px" }} />
@@ -21,102 +21,219 @@ class ViewPage extends Component {
                         <div className="mt-5 container">
                             <div className="row">
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
+                                    {/* <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div> */}
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mt-4">
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mt-4">
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mt-4">
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mt-4">
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mt-4">
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mt-4">
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mt-4">
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -125,7 +242,7 @@ class ViewPage extends Component {
                 );
             case "illustrations":
                 return (
-                    <div>
+                    <div className="pb-5">
                         <div>
                             <View>
                                 <img src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg" className="img-fluid" alt="photos" style={{ width: "100%", height: "600px" }} />
@@ -137,110 +254,222 @@ class ViewPage extends Component {
                         <div className="mt-5 container">
                             <div className="row">
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mt-4">
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mt-4">
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mt-4">
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mt-4">
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mt-4">
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mt-4">
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mt-4">
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 );
-                case "vectors":
+            case "vectors":
                 return (
-                    <div>
+                    <div className="pb-5">
                         <div>
                             <View>
                                 <img src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg" className="img-fluid" alt="photos" style={{ width: "100%", height: "600px" }} />
@@ -252,102 +481,214 @@ class ViewPage extends Component {
                         <div className="mt-5 container">
                             <div className="row">
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mt-4">
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mt-4">
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mt-4">
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mt-4">
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mt-4">
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mt-4">
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-3">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mt-4">
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <img style={{ width: "100%", height: "200px" }} src="https://picsum.photos/1000/500" className="img-fluid" alt="Responsive image" />
+                                    <div className="containerImage">
+                                        <img src="https://picsum.photos/1000/500/?random" alt="Avatar" className="imageCata" />
+                                        <div className="overlayCata">Category type</div>
+                                        <div className="overlayID">#123456</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

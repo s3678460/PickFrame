@@ -10,7 +10,7 @@ const Admin = require("../../models/Admin")
 //@access Public
 
 router.get("/", (req,res)=>{
-    User.find()
+    Admin.find()
     .then(admins => res.json(admins))
 })
 

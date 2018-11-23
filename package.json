@@ -20,10 +20,15 @@
   },
   "homepage": "https://github.com/s3678460/pickframe#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
-    "mongoose": "^5.3.12"
+    "mongoose": "^5.3.12",
+    "react-router-dom": "^4.3.1",
+    "time-stamp": "^2.2.0",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "nodemon": "^1.18.6"

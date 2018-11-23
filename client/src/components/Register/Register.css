@@ -1,0 +1,107 @@
+.container-reg{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    
+
+    width: 70%;
+    
+    
+    font-family:Helvetica;
+    border: 10px solid rgba(12,13,13,0.25);
+    border-radius: 10px;
+    background: white;
+    background-clip: padding-box;
+    
+    
+}
+.container-reg h1{
+    text-align:center;
+    background-color: black;
+    height: 60px;
+    position: relative;
+    top: -0px;
+    
+  }
+
+.image-reg{
+    background-image: url(https://images7.alphacoders.com/291/291512.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin:0 auto;
+    overflow: auto;
+}
+
+.form-registration{
+    margin-left: 4%;
+    margin-top: 4%;
+    margin-right: 3%;
+    margin-bottom: 4%;
+}
+
+.form-registration{
+    margin-left: 4%;
+    margin-top: 4%;
+    margin-right: 3%;
+    margin-bottom: 4%;
+    display: block;
+    overflow:auto;
+}
+
+.form-registration input{
+    display:block;
+    width:300px;
+    margin:20px auto ;
+    padding:15px;
+    background:white;
+    
+    border: 2px #FFD900 solid;
+}
+
+.form-registration input:focus,.box input:active,.box button:focus,.box button:active{
+    outline:none;
+  }
+
+
+  .form-registration span{
+      display: block;
+      overflow: auto;
+  }
+
+
+  .form-registration button{
+    background-color: #02a388;
+    border: 1px solid #02937a;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 0 2px 0 rgba(255,255,255,0.5);
+    box-shadow: inset 0 0 2px 0 rgba(255,255,255,0.5);
+    color: white;
+    cursor: pointer;
+    padding:10px;
+    font-size:20px;
+    width:330px;
+    margin:20px auto;
+    display:block;
+    cursor:pointer;
+    overflow: hidden;
+  }
+
+  .form-registration button:hover{
+      background:greenyellow;
+  }
+  .form-registration button:active{
+    background:lightseagreen;
+  }
+
+
+
+    
+    
+    
+
+  
+  
+  
+    

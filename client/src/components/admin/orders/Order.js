@@ -11,7 +11,21 @@ class Order extends Component {
   };
 
   render() {
-    const { id, date, company, cart, total, status } = this.props.order;
+    const {
+      _id,
+      companyName,
+      address,
+      companyPhone,
+      accountHolder,
+      cardNumber,
+      bankName,
+      bankBranch,
+      email,
+      productId,
+      total,
+      status,
+      date
+    } = this.props.order;
     const { showOrderInfo } = this.state;
     return (
       <Consumer>
@@ -20,7 +34,7 @@ class Order extends Component {
           return (
             <div className="card card-body mb-3">
               <h4>
-                #{id}{" "}
+                {_id}{" "}
                 <i
                   onClick={() =>
                     this.setState({ showOrderInfo: !this.state.showOrderInfo })
@@ -31,15 +45,26 @@ class Order extends Component {
                 <i
                   className="fas fa-times"
                   style={{ cursor: "pointer", float: "right", color: "red" }}
-                  onClick={this.onDeleteClick.bind(this, id, dispatch)}
+                  onClick={this.onDeleteClick.bind(this, _id, dispatch)}
                 />
               </h4>
               {showOrderInfo ? (
                 <ul className="list-group">
                   <li className="list-group-item">Date: {date}</li>
-                  <li className="list-group-item">Company: {company}</li>
-                  <li className="list-group-item">Cart: {cart}</li>
-                  <li className="list-group-item">Total bill: {total}</li>
+                  <li className="list-group-item">Company: {companyName}</li>
+                  <li className="list-group-item">Address: {address}</li>
+                  <li className="list-group-item">Phone: {companyPhone}</li>
+                  <li className="list-group-item">
+                    Account Holder: {accountHolder}
+                  </li>
+                  <li className="list-group-item">
+                    Account Number: {cardNumber}
+                  </li>
+                  <li className="list-group-item">Bank Name: {bankName}</li>
+                  <li className="list-group-item">Bank Branch: {bankBranch}</li>
+                  <li className="list-group-item">Email: {email}</li>
+                  <li className="list-group-item">Product: {productId}</li>
+                  <li className="list-group-item">Total: {total} VND</li>
                   <li className="list-group-item">Status: {status}</li>
                 </ul>
               ) : null}

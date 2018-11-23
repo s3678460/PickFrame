@@ -1,0 +1,96 @@
+
+
+.bodylogin{
+	
+	background-image: url(https://images7.alphacoders.com/291/291512.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  
+    	
+}
+  .vid-container{
+    position:relative;
+    height:100vh;
+    overflow: auto;
+  }
+  
+  .inner {
+    position: absolute;
+  }
+  .inner-container{
+    width:400px;
+    height:400px;
+    position:absolute;
+    top:calc(50vh - 200px);
+    left:calc(50vw - 200px);
+    overflow:auto;
+  }
+  
+  .box{
+    position:absolute;
+    height:100%;
+    width:100%;
+    font-family:Helvetica;
+    
+    
+    padding:30px 0px;
+    border: 10px solid rgba(12,13,13,0.25);
+    border-radius: 10px;
+    background: white;
+    background-clip: padding-box;
+    
+    
+  }
+  .box h1{
+    text-align:center;
+    background-color: black;
+    height: 60px;
+    position: relative;
+    top: -30px;
+    
+  }
+  .box input{
+    display:block;
+    width:300px;
+    margin:20px auto;
+    padding:15px;
+    background:white;
+    
+    border: 2px #FFD900 solid;
+    
+  }
+  .box input:focus,.box input:active,.box button:focus,.box button:active{
+    outline:none;
+  }
+  .box button{
+    background-color: #02a388;
+    border: 1px solid #02937a;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 0 2px 0 rgba(255,255,255,0.5);
+    box-shadow: inset 0 0 2px 0 rgba(255,255,255,0.5);
+    color: white;
+    cursor: pointer;
+    padding:10px;
+    font-size:20px;
+    width:330px;
+    margin:20px auto;
+    display:block;
+    cursor:pointer;
+  }
+
+  .box button:hover{
+      background:greenyellow;
+  }
+  .box button:active{
+    background:lightseagreen;
+  }
+  .box p{
+    font-size:14px;
+    text-align:center;
+    color: #02a388;
+  }
+  .box p span{
+    cursor:pointer;
+    color:#02a388;
+    
+  }
