@@ -1,12 +1,16 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Consumer } from "../context";
+import axios from "axios";
+
 class Order extends Component {
   state = {
     showOrderInfo: false
   };
 
-  onDeleteClick = (id, dispatch) => {
+  onDeleteClick = async (id, dispatch) => {
+    await axios.delete(`http://localhost:5000/api/orders/${id}`);
     dispatch({ type: "DELETE_ORDER", payload: id });
   };
 
@@ -47,6 +51,17 @@ class Order extends Component {
                   style={{ cursor: "pointer", float: "right", color: "red" }}
                   onClick={this.onDeleteClick.bind(this, _id, dispatch)}
                 />
+                <Link to={`admin/order/edit/${_id}`}>
+                  <i
+                    className="fas fa-pencil-alt"
+                    style={{
+                      cursor: "pointer",
+                      float: "right",
+                      color: "black",
+                      marginRight: "1rem"
+                    }}
+                  />
+                </Link>
               </h4>
               {showOrderInfo ? (
                 <ul className="list-group">

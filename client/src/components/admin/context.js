@@ -7,12 +7,19 @@ const reducer = (state, action) => {
     case "DELETE_ORDER":
       return {
         ...state,
-        orders: state.orders.filter(order => order.id !== action.payload)
+        orders: state.orders.filter(order => order._id !== action.payload)
       };
     case "ADD_ORDER":
       return {
         ...state,
         orders: [action.payload, ...state.orders]
+      };
+    case "UPDATE_ORDER":
+      return {
+        ...state,
+        orders: state.orders.map(order =>
+          order._id === action.payload._id ? (order = action.payload) : order
+        )
       };
     default:
       return state;
@@ -24,10 +31,9 @@ export class Provider extends Component {
     dispatch: action => this.setState(state => reducer(state, action))
   };
 
-  componentDidMount() {
-    axios
-      .get("http://localhost:5000/api/orders")
-      .then(res => this.setState({ orders: res.data }));
+  async componentDidMount() {
+    const res = await axios.get("http://localhost:5000/api/orders");
+    this.setState({ orders: res.data });
   }
 
   render() {
