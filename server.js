@@ -1,6 +1,7 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const bodyParser = require("body-parser")
+const cors = require("cors")
 
 const path = require("path")
 
@@ -8,11 +9,14 @@ const images = require("./routes/api/Images")
 const users = require("./routes/api/Users")
 const admins = require("./routes/api/Admins")
 const orders = require("./routes/api/Orders")
+const uploadimages = require("./routes/api/UploadImages")
 
 const app = express();
 
 //Bodyparser Middleware
 app.use(bodyParser.json())
+
+app.use(cors())
 
 //DB config
 const db = require('./config/keys').mongoURI;
@@ -28,6 +32,7 @@ app.use('/api/images', images)
 app.use('/api/users', users)
 app.use('/api/admins', admins)
 app.use('/api/orders', orders)
+app.use('/api/uploadimages', uploadimages)
 
 //Serve static assets if in production
 app.use(express.static(path.join(__dirname, "client/build")));
