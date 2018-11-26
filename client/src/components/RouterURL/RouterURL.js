@@ -5,6 +5,7 @@ import ViewPage from '../ViewPage/ViewPage';
 import Login from '../Login/Login'
 import Register from '../Register/Register'
 import AdminPage from "../admin/App";
+import OrdersPage from "../OrdersPage/OrdersPage"
 
 
 class RouterURL extends Component {
@@ -16,6 +17,7 @@ class RouterURL extends Component {
                     <Route path="/view/:type/" component={ViewPage} />
                     <Route path="/login" component={Login}/>
                     <Route path="/register" component={Register}/>
+                    <Route path="/checkout" component={OrdersPage}/>
                     <Route path="/admin/" component={AdminPage} />
                     <Route component={HomePage}/> 
                 </Switch>
