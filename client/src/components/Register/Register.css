@@ -1,74 +1,107 @@
+.container-reg{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    
 
-
-.bodyregister{
-	
-	background-image: url(http://4.bp.blogspot.com/-izxIf1Vhtxc/U6w0vmFFgfI/AAAAAAAAEyQ/GP62Kyl1mC0/s1600/3d-colorful-squares-full-hd-wallpaper-04.jpg);
-    background-repeat: no-repeat;
-    background-size: 100%;
-    	
-}
-  .reg-container{
-    position:relative;
-    height:100vh;
-    overflow:hidden;
-  }
-  
-  .inner {
-    position: absolute;
-  }
-  
-  
-  .boxreg{
-    position:absolute;
-    height:100%;
-    width:100%;
+    width: 70%;
+    
+    
     font-family:Helvetica;
-    color:#fff;
-    background:rgba(0,0,0,0.50);
-    padding:0px 0px;
-  }
-  .boxreg h1{
+    border: 10px solid rgba(12,13,13,0.25);
+    border-radius: 10px;
+    background: white;
+    background-clip: padding-box;
+    
+    
+}
+.container-reg h1{
     text-align:center;
-    margin:30px 0;
-    font-size:30px;
+    background-color: black;
+    height: 60px;
+    position: relative;
+    top: -0px;
+    
   }
-  .boxreg input{
+
+.image-reg{
+    background-image: url(https://images7.alphacoders.com/291/291512.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin:0 auto;
+    overflow: auto;
+}
+
+.form-registration{
+    margin-left: 4%;
+    margin-top: 4%;
+    margin-right: 3%;
+    margin-bottom: 4%;
+}
+
+.form-registration{
+    margin-left: 4%;
+    margin-top: 4%;
+    margin-right: 3%;
+    margin-bottom: 4%;
+    display: block;
+    overflow:auto;
+}
+
+.form-registration input{
     display:block;
     width:300px;
-    margin:20px auto;
+    margin:20px auto ;
     padding:15px;
-    background:whitesmoke;
+    background:white;
     
-    border:0;
-  }
-  .boxreg input:focus,.box input:active,.box button:focus,.box button:active{
+    border: 2px #FFD900 solid;
+}
+
+.form-registration input:focus,.box input:active,.box button:focus,.box button:active{
     outline:none;
   }
-  .boxreg button{
-    background:darkgray;
-    border:0;
-    color:#fff;
+
+
+  .form-registration span{
+      display: block;
+      overflow: auto;
+  }
+
+
+  .form-registration button{
+    background-color: #02a388;
+    border: 1px solid #02937a;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 0 2px 0 rgba(255,255,255,0.5);
+    box-shadow: inset 0 0 2px 0 rgba(255,255,255,0.5);
+    color: white;
+    cursor: pointer;
     padding:10px;
     font-size:20px;
     width:330px;
     margin:20px auto;
     display:block;
     cursor:pointer;
+    overflow: hidden;
   }
 
-  .boxreg button:hover{
-      background:lightgray;
+  .form-registration button:hover{
+      background:greenyellow;
   }
-  .boxreg button:active{
-    background:lightskyblue;
+  .form-registration button:active{
+    background:lightseagreen;
   }
-  .boxreg p{
-    font-size:14px;
-    text-align:center;
-  }
-  .boxreg p span{
-    cursor:pointer;
-    color:white;
-  }
+
+
+
+    
+    
+    
 
   
+  
+  
+    

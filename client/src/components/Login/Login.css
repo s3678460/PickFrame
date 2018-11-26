@@ -2,15 +2,16 @@
 
 .bodylogin{
 	
-	background-image: url(https://chainimage.com/images/colorful-robots-images-free-wallpaper-1920x1080-full-hd-wallpapers.jpg);
+	background-image: url(https://images7.alphacoders.com/291/291512.jpg);
   background-repeat: no-repeat;
   background-size: 100%;
+  
     	
 }
   .vid-container{
     position:relative;
     height:100vh;
-    overflow:hidden;
+    overflow: auto;
   }
   
   .inner {
@@ -22,7 +23,7 @@
     position:absolute;
     top:calc(50vh - 200px);
     left:calc(50vw - 200px);
-    overflow:hidden;
+    overflow:auto;
   }
   
   .box{
@@ -30,31 +31,45 @@
     height:100%;
     width:100%;
     font-family:Helvetica;
-    color:#fff;
-    background:rgba(0,0,0,0.50);
+    
+    
     padding:30px 0px;
+    border: 10px solid rgba(12,13,13,0.25);
+    border-radius: 10px;
+    background: white;
+    background-clip: padding-box;
+    
+    
   }
   .box h1{
     text-align:center;
-    margin:30px 0;
-    font-size:30px;
+    background-color: black;
+    height: 60px;
+    position: relative;
+    top: -30px;
+    
   }
   .box input{
     display:block;
     width:300px;
     margin:20px auto;
     padding:15px;
-    background:whitesmoke;
+    background:white;
     
-    border:0;
+    border: 2px #FFD900 solid;
+    
   }
   .box input:focus,.box input:active,.box button:focus,.box button:active{
     outline:none;
   }
   .box button{
-    background:darkgrey;
-    border:0;
-    color:#fff;
+    background-color: #02a388;
+    border: 1px solid #02937a;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 0 2px 0 rgba(255,255,255,0.5);
+    box-shadow: inset 0 0 2px 0 rgba(255,255,255,0.5);
+    color: white;
+    cursor: pointer;
     padding:10px;
     font-size:20px;
     width:330px;
@@ -64,7 +79,7 @@
   }
 
   .box button:hover{
-      background:lightgray;
+      background:greenyellow;
   }
   .box button:active{
     background:lightseagreen;
@@ -72,8 +87,10 @@
   .box p{
     font-size:14px;
     text-align:center;
+    color: #02a388;
   }
   .box p span{
     cursor:pointer;
-    color:white;
+    color:#02a388;
+    
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css'
+import {Link}from"react-router-dom"
 
 class Login extends Component {
     render() {
@@ -12,11 +13,17 @@ class Login extends Component {
                     <div className="inner-container">
 
                         <div className="box">
-                            <h1><a href="http://funkyimg.com/view/2NhH3" target="_blank"><img src="http://funkyimg.com/p/2NhH3.png" alt="Free Image Hosting at FunkyIMG.com" border={0} /></a></h1>
-                            <input type="text" placeholder="Username" />
-                            <input type="text" placeholder="Password" />
+                        <div className="logo">
+                        <div className="clickable">
+                        <h1><a href="#" target="_blank"><img src="http://funkyimg.com/p/2NhH3.png" alt="Free Image Hosting at FunkyIMG.com" border={0} /></a></h1></div>
+                        </div>
+                            <form>
+                            <input required type="text" placeholder="Username" />
+                            <input required type="text" placeholder="Password" />
                             <button>Login</button>
-                            <p>Not a member? <span> <b>Sign Up</b> </span></p>
+                            </form>
+                            <p>Not a member? <span> <Link to='/register'><b>Sign Up</b></Link> </span></p>
+                            
                         </div>
                     </div>
                 </div>

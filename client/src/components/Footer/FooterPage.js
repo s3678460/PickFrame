@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Col, Container, Row, Footer } from "mdbreact";
 import "./FooterPage.css";
 import logo from "../../images/logo-white.png"
+import {Link}from"react-router-dom"
 
 class FooterPage extends Component {
     render() {
@@ -23,7 +24,7 @@ class FooterPage extends Component {
                         <Col md="2">
                             <div className="blocklink">
                                 <h5>Company</h5>
-                                <a href="#">About us</a>
+                                <Link to="/aboutus"><a>About us</a></Link>
                                 <a href="#">Press</a>
                                 <a href="#">Careers</a>
                             </div>
@@ -33,7 +34,7 @@ class FooterPage extends Component {
                                 <h5>Support</h5>
                                 <a href="#">0123456789</a>
                                 <a href="#">Contact us</a>
-                                <a href="#">FAQ</a>
+                                <Link to="/QA"><a>FAQ</a></Link>
                                 <a href="#">Site map</a>
                             </div>
                         </Col>

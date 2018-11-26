@@ -7,12 +7,19 @@ const reducer = (state, action) => {
     case "DELETE_ORDER":
       return {
         ...state,
-        orders: state.orders.filter(order => order.id !== action.payload)
+        orders: state.orders.filter(order => order._id !== action.payload)
       };
     case "ADD_ORDER":
       return {
         ...state,
         orders: [action.payload, ...state.orders]
+      };
+    case "UPDATE_ORDER":
+      return {
+        ...state,
+        orders: state.orders.map(order =>
+          order._id === action.payload._id ? (order = action.payload) : order
+        )
       };
     default:
       return state;
@@ -20,39 +27,14 @@ const reducer = (state, action) => {
 };
 export class Provider extends Component {
   state = {
-    orders: [
-      {
-        id: Math.floor(Math.random() * 10000),
-        date: "May 4, 2018",
-        company: "RMIT Vietnam",
-        cart: "1 x TECH, 1 x CREATIVE",
-        total: "1.000.000",
-        status: "Awaiting Payment"
-      },
-      {
-        id: Math.floor(Math.random() * 10000),
-        date: "November 12, 2018",
-        company: "WestFood",
-        cart: "1 x FRUIT",
-        total: "500.000",
-        status: "Awaiting Payment"
-      },
-      {
-        id: Math.floor(Math.random() * 10000),
-        date: "May 8, 2018",
-        company: "Koi The",
-        cart: "1 x TEA",
-        total: "1.500.000",
-        status: "Completed"
-      }
-    ],
+    orders: [],
     dispatch: action => this.setState(state => reducer(state, action))
   };
 
-  // componentDidMount() {
-  //   axious.get()
-  //   .then(res => this.setState({orders: res.data}))
-  // }
+  async componentDidMount() {
+    const res = await axios.get("http://localhost:5000/api/orders");
+    this.setState({ orders: res.data });
+  }
 
   render() {
     return (
