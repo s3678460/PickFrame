@@ -28,10 +28,10 @@ export default function (state = initialState, action) {
                 ...state,
                 items: state.images.filter(item => item.idSeller !== action.payload)
             }
-            case DELETE_IMAGE:
+            case ADD_IMAGE:
             return {
                 ...state,
-                items: state.images.filter(item => item.idSeller !== action.payload)
+                items: [action.payload, ...state.items]
             }
         default:
             return state
