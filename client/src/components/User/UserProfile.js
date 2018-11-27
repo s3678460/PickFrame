@@ -38,8 +38,6 @@ class UserProfile extends Component {
                 }
                 axios.post(`http://localhost:5000/api/images`, newImages)
             })
-
-
     }
     render() {
         return (

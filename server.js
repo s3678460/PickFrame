@@ -8,6 +8,7 @@ const images = require("./routes/api/Images");
 const users = require("./routes/api/Users");
 const admins = require("./routes/api/Admins");
 const orders = require("./routes/api/Orders");
+const uploadimages = require("./routes/api/UploadImages");
 
 const app = express();
 
@@ -36,13 +37,15 @@ app.use("/api/images", images);
 app.use("/api/users", users);
 app.use("/api/admins", admins);
 app.use("/api/orders", orders);
+app.use("/api/uploadimages", uploadimages);
 
 //Serve static assets if in production
 app.use(express.static(path.join(__dirname, "client/build")));
 
-app.get("/*", function(req, res) {
+app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
+
 
 const port = process.env.PORT || 5000;
 
