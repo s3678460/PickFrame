@@ -51,8 +51,8 @@ router.delete("/:_id", (req, res) => {
 
 router.put("/:_id", (req, res) => {
   var update = req.body;
-  Order.findByIdAndUpdate(req.params._id, update)
-    .then(() => res.json({ update: true }))
+  Order.findByIdAndUpdate(req.params._id, update, { new: true })
+    .then(order => res.json(order))
     .catch(err => res.status(404).json({ update: false }));
 });
 

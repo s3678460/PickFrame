@@ -26,10 +26,10 @@ class Register extends Component {
 
 
                                 <b><p style={{marginLeft:50}}>Personal Information</p></b>
-                                <span><input type="text" placeholder="Full name" /></span>
-                                <span><input type="text" placeholder="Email" /></span>
-                                <span><input type="text" placeholder="Display name" /></span>
-                                <span><input type="text" placeholder="Password" /></span>
+                                <span><input required type="text" placeholder="Full name" /></span>
+                                <span><input required type="text" placeholder="Email" /></span>
+                                <span><input required type="text" placeholder="Display name" /></span>
+                                <span><input required type="text" placeholder="Password" /></span>
 
 
 
@@ -37,10 +37,10 @@ class Register extends Component {
 
                             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                 <b><p style={{marginLeft:50}}>Bank Account Information</p></b>
-                                <span><input type="text" placeholder="Account holder" /></span>
-                                <span><input type="text" placeholder="Card number" /></span>
-                                <span><input type="text" placeholder="Bank name" /></span>
-                                <span><input type="text" placeholder="Bank branch" /></span>
+                                <span><input required type="text" placeholder="Account holder" /></span>
+                                <span><input required type="text" placeholder="Card number" /></span>
+                                <span><input required required type="text" placeholder="Bank name" /></span>
+                                <span><input required type="text" placeholder="Bank branch" /></span>
 
                             </div>
 

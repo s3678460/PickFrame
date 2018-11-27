@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Orders from "./orders/Orders";
 import AddOrder from "./orders/AddOrder";
+import EditOrder from "./orders/EditOrder";
 import Header from "./layout/Header";
 import Contributors from "./contributors/Contributors";
 import NotFound from "./NotFound";
@@ -17,6 +18,11 @@ class App extends Component {
             <div className="container">
               <Switch>
                 <Route exact path="/admin" component={Orders} />
+                <Route
+                  exact
+                  path="/admin/order/edit/:id"
+                  component={EditOrder}
+                />
                 <Route
                   exact
                   path="/admin/contributors"

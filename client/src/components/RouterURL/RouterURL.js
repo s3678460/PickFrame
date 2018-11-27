@@ -8,6 +8,7 @@ import AdminPage from "../admin/App";
 import Aboutus from"../Aboutus/Aboutus";
 import QandA from"../Q&A/QandA";
 
+import OrdersPage from "../OrdersPage/OrdersPage"
 
 
 class RouterURL extends Component {
@@ -19,6 +20,7 @@ class RouterURL extends Component {
                     <Route path="/view/:type/" component={ViewPage} />
                     <Route path="/login" component={Login}/>
                     <Route path="/register" component={Register}/>
+                    <Route path="/checkout" component={OrdersPage}/>
                     <Route path="/admin/" component={AdminPage} />
                     <Route path="/Aboutus" component={Aboutus} />
                     <Route path="/QA" component={QandA} />
