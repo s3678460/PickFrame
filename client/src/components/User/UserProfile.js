@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios"
+import {connect} from "react-redux";
+import {getImages, deleteImage} from "../../actions/imageActions"
 
 class UserProfile extends Component {
     constructor(props) {
@@ -8,6 +10,10 @@ class UserProfile extends Component {
             selectedFile: null,
             imagePreviewUrl: ""
         }
+    }
+
+    componentDidMount(){
+        this.props.getImages();
     }
     handleFileChange = (e) => {
         this.setState({
@@ -40,6 +46,8 @@ class UserProfile extends Component {
             })
     }
     render() {
+        const {images} = this.props.image;
+        console.log(images)
         return (
             <div>
                 <form onSubmit={this.onSubmit} >
@@ -62,4 +70,10 @@ class UserProfile extends Component {
     }
 }
 
-export default UserProfile;
+const mapStateToProps = (state) => {
+    return{
+        image: state.image
+    }
+}
+
+export default connect(mapStateToProps,{getImages, deleteImage})(UserProfile);
