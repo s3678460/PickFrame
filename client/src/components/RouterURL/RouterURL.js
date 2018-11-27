@@ -5,6 +5,9 @@ import ViewPage from '../ViewPage/ViewPage';
 import Login from '../Login/Login'
 import Register from '../Register/Register'
 import AdminPage from "../admin/App";
+import Aboutus from"../Aboutus/Aboutus";
+import QandA from"../Q&A/QandA";
+
 
 
 class RouterURL extends Component {
@@ -17,6 +20,8 @@ class RouterURL extends Component {
                     <Route path="/login" component={Login}/>
                     <Route path="/register" component={Register}/>
                     <Route path="/admin/" component={AdminPage} />
+                    <Route path="/Aboutus" component={Aboutus} />
+                    <Route path="/QA" component={QandA} />
                     <Route component={HomePage}/> 
                 </Switch>
             </div>
