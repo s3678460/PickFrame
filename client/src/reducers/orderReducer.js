@@ -1,30 +1,24 @@
 import { GET_ORDERS } from "../actions/types";
+import { GET_ORDER } from "../actions/types";
 import { DELETE_ORDER } from "../actions/types";
 import { ADD_ORDER } from "../actions/types";
+import { UPDATE_ORDER } from "../actions/types";
 
 const initialState = {
-  orders: [
-    {
-      _id: "123",
-      companyName: "RMIT Vietnam",
-      address: "702 Nguyen Van Linh",
-      companyPhone: "123456",
-      accountHolder: "accountHolder",
-      cardNumber: "cardNumber",
-      bankName: "bankName",
-      bankBranch: "bankBranch",
-      email: "email",
-      productId: "productId",
-      total: 550000,
-      status: "Completed"
-    }
-  ]
+  orders: [],
+  order: {}
 };
 export default function(state = initialState, action) {
   switch (action.type) {
     case GET_ORDERS:
       return {
-        ...state
+        ...state,
+        orders: action.payload
+      };
+    case GET_ORDER:
+      return {
+        ...state,
+        order: action.payload
       };
     case DELETE_ORDER:
       return {
@@ -35,6 +29,13 @@ export default function(state = initialState, action) {
       return {
         ...state,
         orders: [action.payload, ...state.orders]
+      };
+    case UPDATE_ORDER:
+      return {
+        ...state,
+        orders: state.orders.map(order =>
+          order._id === action.payload._id ? (order = action.payload) : order
+        )
       };
     default:
       return state;

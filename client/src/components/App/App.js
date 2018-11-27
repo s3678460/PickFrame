@@ -11,14 +11,15 @@ import store from "../../store";
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div className="App">
-          <UserProfile />
-          {/* <NavigationBar />
-          <RouterURL />
-          <FooterPage /> */}
-        </div>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <div className="App">
+            <NavigationBar />
+            <RouterURL />
+            <FooterPage />
+          </div>
+        </Router>
+      </Provider>
     );
   }
 }
