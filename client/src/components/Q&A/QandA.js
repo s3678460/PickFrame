@@ -4,7 +4,7 @@ class QandA extends Component {
     render() {
         return (
             <div>
-                LOL
+                
             </div>
         );
     }
