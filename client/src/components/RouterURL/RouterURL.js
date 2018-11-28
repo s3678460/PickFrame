@@ -6,6 +6,7 @@ import Login from '../Login/Login'
 import Register from '../Register/Register'
 import AdminPage from "../admin/App";
 import OrdersPage from "../OrdersPage/OrdersPage"
+import Details from "../Details/Details"
 
 
 class RouterURL extends Component {
@@ -18,6 +19,7 @@ class RouterURL extends Component {
                     <Route path="/login" component={Login}/>
                     <Route path="/register" component={Register}/>
                     <Route path="/checkout" component={OrdersPage}/>
+                    <Route path="/details" component={Details}/>
                     <Route path="/admin/" component={AdminPage} />
                     <Route component={HomePage}/> 
                 </Switch>
