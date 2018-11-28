@@ -21,7 +21,13 @@ class UserProfile extends Component {
         })
     }
     onDelete(idImage){
-        console.log(idImage)
+        var deletedImage = {
+            imageLink: idImage
+        }
+        axios.post("api/deleteimages", deletedImage)
+        .then(res => {
+            console.log(res)
+        })
         
     }
     onChange = (e) => {
