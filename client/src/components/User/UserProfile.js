@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from "axios"
+import "./UserProfile.css"
 import { connect } from "react-redux";
 import { getImages, deleteImage, addImage } from "../../actions/imageActions"
+import { MDBInput, MDBContainer, MDBRow, MDBCol, MDBBtn, MDBFileInput } from "mdbreact";
 
 class UserProfile extends Component {
     constructor(props) {
@@ -20,15 +22,13 @@ class UserProfile extends Component {
             selectedFile: e.target.files[0]
         })
     }
-    onDelete(idImage){
+    onDelete(idImage, originalImage) {
+        this.props.deleteImage(idImage)
         var deletedImage = {
-            imageLink: idImage
+            imageLink: originalImage
         }
-        axios.post("api/deleteimages", deletedImage)
-        .then(res => {
-            console.log(res)
-        })
-        
+        axios.post("/api/deleteimages", deletedImage)
+
     }
     onChange = (e) => {
         var target = e.target
@@ -76,10 +76,10 @@ class UserProfile extends Component {
                             src={process.env.PUBLIC_URL + `/storageimages/${image.originalImage}`}
                         />
                         <h1 className="text-center mt-3">{image.name}</h1>
-                        <button 
-                        onClick={()=> this.onDelete(image._id)}
-                        type="button" 
-                        className="btn btn-primary btn-lg"
+                        <button
+                            onClick={() => this.onDelete(image._id, image.originalImage)}
+                            type="button"
+                            className="btn btn-primary btn-lg"
                         >Delete</button>
                     </div>
                 </div>
@@ -87,39 +87,88 @@ class UserProfile extends Component {
         })
         console.log(images)
         return (
-            <div>
-                <div className="container" style={{ padding: 20 }}>
-                    <form onSubmit={this.onSubmit} >
-                        <legend>Selling Photo</legend>
-                        <div className="form-group">
-                            <label for="">Name Photo</label>
-                            <input
+            // <div>
+            //     <div className="container" style={{ padding: 20 }}>
+            //         <form onSubmit={this.onSubmit} >
+            //             <legend>Selling Photo</legend>
+            //             <div className="form-group">
+            //                 <label for="">Name Photo</label>
+            //                 <input
+            //                     type="text"
+            //                     name="photoName"
+            //                     className="form-control"
+            //                     placeholder="Name Photo"
+            //                     onChange={this.onChange}
+            //                 />
+            //                 <label for="">Upload your photo</label>
+            //                 <input
+            //                     type="file"
+            //                     name="file"
+            //                     className="form-control"
+            //                     id="file"
+            //                     placeholder="File Upload"
+            //                     onChange={this.handleFileChange}
+            //                 />
+            //             </div>
+            //             <button type="submit" className="btn btn-primary btn-sm">Submit</button>
+            //         </form>
+            //     </div>
+            //     <div className="container" style={{ padding: 20 }}>
+            //         <h1 className="text-center mb-5">List Images</h1>
+            //         <div className="row">
+            //             {showImages}
+            //         </div>
+            //     </div>
+            // </div>
+            <div className="container mt-4 mb-4" style={{ paddingLeft: "25%", paddingRight: "25%" }}>
+                <div className="container pt-5 pb-5" style={{ backgroundColor: "white" }}>
+                    <form>
+                        <p className="h3 text-center mb-5">Selling New Image</p>
+                        <div className="grey-text">
+                            <MDBInput
+                                label="Name Image"
+                                group
                                 type="text"
-                                name="photoName"
-                                className="form-control"
-                                placeholder="Name Photo"
-                                onChange={this.onChange}
                             />
-                            <label for="">Upload your photo</label>
+                            <MDBInput
+                                label="Price"
+                                group
+                                type="text"
+                            />
+
                             <input
+                                style={{ display: "none" }}
                                 type="file"
                                 name="file"
                                 className="form-control"
                                 id="file"
                                 placeholder="File Upload"
                                 onChange={this.handleFileChange}
+                                ref={fileInput => this.fileInput = fileInput}
                             />
+                            <div className="row">
+                                <div className="col-4">
+                                    <MDBBtn
+                                        size="sm"
+                                        onClick={() => this.fileInput.click()}
+                                    >Upload Image</MDBBtn>
+                                </div>
+                                <div className="col-8">
+                                    <MDBInput
+                                        className="mdbinput"
+                                        hint="Upload your file"
+                                    />
+                                </div>
+                            </div>
                         </div>
-                        <button type="submit" className="btn btn-primary btn-sm">Submit</button>
+                        <div className="text-center">
+                            <MDBBtn>Sell</MDBBtn>
+                        </div>
                     </form>
                 </div>
-                <div className="container" style={{ padding: 20 }}>
-                    <h1 className="text-center mb-5">List Images</h1>
-                    <div className="row">
-                        {showImages}
-                    </div>
-                </div>
+
             </div>
+
         );
     }
 }
