@@ -43,7 +43,7 @@ function checkFileType(file, cb){
 
 
 
-//Post Image
+//Post Upload Image
 router.post("/", (req, res)=>{
     upload(req,res, (err) =>{
         if(err){
