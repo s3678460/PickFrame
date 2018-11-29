@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getContributors } from "../../../actions/contributorActions";
+import "./Contributors.css";
 
 class Contributors extends Component {
   componentDidMount() {
@@ -17,45 +18,52 @@ class Contributors extends Component {
           <h2 className="display-4 mb-2">
             <i className="fas fa-user-ninja" /> Contributors
           </h2>
-          <table className="table table-striped">
-            <thead className="thead-dark">
-              <tr>
-                <th>Full Name</th>
-                <th>Display Name</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Account Holder</th>
-                <th>Card Number</th>
-                <th>Bank Name</th>
-                <th>Bank Branch</th>
-                <th>Balance</th>
-                <th />
-              </tr>
-            </thead>
-            <tbody>
-              {contributors.map(contributor => (
-                <tr key={contributor._id}>
-                  <td>{contributor.fullName}</td>
-                  <td>{contributor.displayName}</td>
-                  <td>{contributor.email}</td>
-                  <td>{contributor.password}</td>
-                  <td>{contributor.accountHolder}</td>
-                  <td>{contributor.cardNumber}</td>
-                  <td>{contributor.bankName}</td>
-                  <td>{contributor.bankBranch}</td>
-                  <td>VND {contributor.balance}</td>
-                  <td>
-                    <Link
-                      to={`/admin/${contributor._id}`}
-                      className="btn btn-secondary btn-sm"
-                    >
-                      <i className="fas fa-arrow-circle-right" /> Details
-                    </Link>
-                  </td>
+          <div className="table-responsive">
+            <table className="table table-striped">
+              <thead className="thead-dark">
+                <tr>
+                  <th>Full Name</th>
+                  <th>Display Name</th>
+                  <th>Email</th>
+                  <th>Password</th>
+                  <th>Account Holder</th>
+                  <th>Card Number</th>
+                  <th>Bank Name</th>
+                  <th>Bank Branch</th>
+                  <th>Balance</th>
+                  <th />
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {contributors.map(contributor => (
+                  <tr key={contributor._id}>
+                    <td>{contributor.fullName}</td>
+                    <td>{contributor.displayName}</td>
+                    <td>{contributor.email}</td>
+                    <td>
+                      {contributor.password.length > 15
+                        ? contributor.password.substring(0, 15)
+                        : contributor.password}
+                    </td>
+                    <td>{contributor.accountHolder}</td>
+                    <td>{contributor.cardNumber}</td>
+                    <td>{contributor.bankName}</td>
+                    <td>{contributor.bankBranch}</td>
+                    <td>VND {contributor.balance}</td>
+                    <td>
+                      <Link
+                        to={`/admin/contributor/${contributor._id}`}
+                        className="btn btn-info btn-sm"
+                      >
+                        {/* <i className="fas fa-arrow-circle-right"> Details</i> */}
+                        Details
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       );
     } else {

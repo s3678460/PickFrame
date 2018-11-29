@@ -2,7 +2,7 @@ import {
   GET_CONTRIBUTORS,
   DELETE_ORDER,
   ADD_ORDER,
-  GET_ORDER,
+  GET_CONTRIBUTOR,
   UPDATE_ORDER
 } from "./types";
 import axios from "axios";
@@ -15,13 +15,13 @@ export const getContributors = () => async dispatch => {
   });
 };
 
-//   export const getOrder = _id => async dispatch => {
-//     const res = await axios.get(`http://localhost:5000/api/orders/${_id}`);
-//     dispatch({
-//       type: GET_ORDER,
-//       payload: res.data
-//     });
-//   };
+export const getContributor = _id => async dispatch => {
+  const res = await axios.get(`http://localhost:5000/api/users/${_id}`);
+  dispatch({
+    type: GET_CONTRIBUTOR,
+    payload: res.data
+  });
+};
 
 //   export const deleteOrder = _id => async dispatch => {
 //     await axios.delete(`http://localhost:5000/api/orders/${_id}`);

@@ -1,12 +1,12 @@
 import { GET_CONTRIBUTORS } from "../actions/types";
-import { GET_ORDER } from "../actions/types";
+import { GET_CONTRIBUTOR } from "../actions/types";
 import { DELETE_ORDER } from "../actions/types";
 import { ADD_ORDER } from "../actions/types";
 import { UPDATE_ORDER } from "../actions/types";
 
 const initialState = {
   contributors: [],
-  order: {}
+  contributor: {}
 };
 export default function(state = initialState, action) {
   switch (action.type) {
@@ -15,11 +15,11 @@ export default function(state = initialState, action) {
         ...state,
         contributors: action.payload
       };
-    // case GET_ORDER:
-    //   return {
-    //     ...state,
-    //     order: action.payload
-    //   };
+    case GET_CONTRIBUTOR:
+      return {
+        ...state,
+        contributor: action.payload
+      };
     // case DELETE_ORDER:
     //   return {
     //     ...state,
