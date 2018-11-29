@@ -4,7 +4,7 @@ import "./Aboutus.css"
 class Aboutus extends Component {
     render() {
         return (
-            <div className="image-aboutusbg">
+            
             <div>
             <style dangerouslySetInnerHTML={{__html: "\n* {\n    box-sizing: border-box;\n}\n\np4 {\n    float: left;\n    width: 50%;\n    padding: 20px;\n}\n\n\n\np5 {\n    float: left;\n    padding: 20px;\n    width: 50%;\n}\n\n\nsection:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n\n\n\n@media (max-width: 600px) {\n    nav, article {\n        width: 100%;\n        height: auto;\n    }\n}\n" }} />
             <div style={{backgroundColor: 'rgba(192,192,192,0.5)', padding: 30, margin: 50}}>
@@ -43,25 +43,25 @@ class Aboutus extends Component {
                 all the requirements or which should be forbidden.
               </p1></div>
             
-            <section style={{backgroundColor: 'rgba(192,192,192,0.5)', padding: 10, margin: 50}}>
-            <p style={{textAlign: 'center', fontSize: '220%',fontFamily:'verdana'}}>The crew of Oasis</p>
+            <section style={{backgroundColor: 'rgba(192,192,192,0.3)'}}>
+            <p style={{textAlign: 'center', fontSize: '180%',fontFamily:'verdana'}}>The crew of Oasis<br/><br/></p>
               <p4>
-                <h4>Huynh Cong Minh</h4>
+                <pre style={{fontSize:'150%'}}>    Huynh Cong Minh</pre>
                 <p>I am really keen on programming. Especially, with the role of technology in modern world, I want to make the connection between technology and reality.</p>
-                <h4>Lee Ping Shan</h4>
+                <pre style={{fontSize:'150%'}}>    Lee Ping Shan</pre>
                 <p> I am interested in all technology aspects. Including programming, engineering, AI, web development. I believe the technology will be the future in our world. Therefore, I choose IT for my university major for trying to catch up the world. </p>
-                <h4>Vo Tran Nhat Khanh</h4>
+                <pre style={{fontSize:'150%'}}>    Vo Tran Nhat Khanh</pre>
                 <p>I am interested in developing the website and the mobile social application owing to the ability to connect people.</p>
               </p4>
               <p5>
-                <h4>Linh Do</h4>
+                <pre style={{fontSize:'150%'}}>    Linh Do</pre>
                 <p> I like how the World Wide Web has enabled more transactions than ever before, bridging the gaps between businesses and customers.</p>
-                <h4>Bui Anh Tu</h4>
+                <pre style={{fontSize:'150%'}}>    Bui Anh Tu</pre>
                 <p>I’ve figured out my own interest in IT since I was in high school. I am really excited in practicing and playing with code.</p>
               </p5>
             </section>
           </div>
-          </div>
+          
         );
     }
 }
