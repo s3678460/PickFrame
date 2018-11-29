@@ -16,7 +16,8 @@ class Contributors extends Component {
       return (
         <div>
           <h2 className="display-4 mb-2">
-            <i className="fas fa-user-ninja" /> Contributors
+            <i className="fas fa-user-ninja" />{" "}
+            <span className="text-info">Contributors</span>
           </h2>
           <div className="table-responsive">
             <table className="table table-striped">
@@ -55,7 +56,7 @@ class Contributors extends Component {
                         to={`/admin/contributor/${contributor._id}`}
                         className="btn btn-info btn-sm"
                       >
-                        {/* <i className="fas fa-arrow-circle-right"> Details</i> */}
+                        <span className="fas fa-arrow-circle-right" />
                         Details
                       </Link>
                     </td>
