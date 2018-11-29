@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import "./Aboutus.css"
 
 class Aboutus extends Component {
     render() {
         return (
+            <div className="image-aboutusbg">
             <div>
             <style dangerouslySetInnerHTML={{__html: "\n* {\n    box-sizing: border-box;\n}\n\np4 {\n    float: left;\n    width: 50%;\n    padding: 20px;\n}\n\n\n\np5 {\n    float: left;\n    padding: 20px;\n    width: 50%;\n}\n\n\nsection:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n\n\n\n@media (max-width: 600px) {\n    nav, article {\n        width: 100%;\n        height: auto;\n    }\n}\n" }} />
-            <div style={{backgroundColor: 'rgba(192,192,192,0.3)', padding: 30, margin: 50}}>
+            <div style={{backgroundColor: 'rgba(192,192,192,0.5)', padding: 30, margin: 50}}>
               <h1 style={{textAlign: 'center', fontSize: '300%'}}>About us</h1>
               <p1><p2 style={{fontSize: '200%'}}>Aim</p2><br />
                 On the verge of the fourth industrial revolution,
@@ -40,8 +42,9 @@ class Aboutus extends Component {
                 authorization and verification. Based on several given requirements, administrators will review and decide which photos match with
                 all the requirements or which should be forbidden.
               </p1></div>
-            <p style={{textAlign: 'center', fontSize: '140%'}}>The crew of Oasis</p>
-            <section style={{backgroundColor: 'rgba(192,192,192,0.3)', padding: 10, margin: 50}}>
+            
+            <section style={{backgroundColor: 'rgba(192,192,192,0.5)', padding: 10, margin: 50}}>
+            <p style={{textAlign: 'center', fontSize: '220%',fontFamily:'verdana'}}>The crew of Oasis</p>
               <p4>
                 <h4>Huynh Cong Minh</h4>
                 <p>I am really keen on programming. Especially, with the role of technology in modern world, I want to make the connection between technology and reality.</p>
@@ -57,6 +60,7 @@ class Aboutus extends Component {
                 <p>I’ve figured out my own interest in IT since I was in high school. I am really excited in practicing and playing with code.</p>
               </p5>
             </section>
+          </div>
           </div>
         );
     }

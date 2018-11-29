@@ -9,6 +9,8 @@ import Aboutus from"../Aboutus/Aboutus";
 import QandA from"../Q&A/QandA";
 
 import OrdersPage from "../OrdersPage/OrdersPage"
+import Details from "../Details/Details"
+import UserProfile from "../User/UserProfile"
 
 
 class RouterURL extends Component {
@@ -21,7 +23,9 @@ class RouterURL extends Component {
                     <Route path="/login" component={Login}/>
                     <Route path="/register" component={Register}/>
                     <Route path="/checkout" component={OrdersPage}/>
+                    <Route path="/details" component={Details}/>
                     <Route path="/admin/" component={AdminPage} />
+                    <Route path="/userprofile/" component={UserProfile} />
                     <Route path="/Aboutus" component={Aboutus} />
                     <Route path="/QA" component={QandA} />
                     <Route component={HomePage}/> 
