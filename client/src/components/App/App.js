@@ -2,25 +2,22 @@ import React, { Component } from "react";
 import "./App.css";
 import NavigationBar from "../NavigationBar/NavigationBar";
 import FooterPage from "../Footer/FooterPage";
-import RouterURL from "../RouterURL/RouterURL"
+import RouterURL from "../RouterURL/RouterURL";
 import UserProfile from "../User/UserProfile";
-import { BrowserRouter as Router } from "react-router-dom";
-
-import { Provider } from "react-redux";
-import store from "../../store";
+import AdminPage from "../admin/AdminPage";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <Router>
-          <div className="App">
-            <NavigationBar />
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route exact path="/admin" component={AdminPage} />
             <RouterURL />
-            <FooterPage />
-          </div>
-        </Router>
-      </Provider>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
