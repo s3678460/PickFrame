@@ -21,7 +21,8 @@
     "reactstrap": "^6.5.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "time-stamp": "^2.2.0"
   },
   "proxy": "http://localhost:5000",
   "scripts": {
