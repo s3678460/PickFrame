@@ -20,6 +20,12 @@ router.get("/", (req, res) => {
   User.find().then(users => res.json(users));
 });
 
+router.get("/:_id", (req, res) => {
+  User.findById(req.params._id)
+    .then(user => res.json(user))
+    .catch(err => res.status(404).json({ get: false }));
+});
+
 //@route POST api/user/register
 //@desc Register an user
 //@access Public

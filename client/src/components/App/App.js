@@ -13,8 +13,9 @@ class App extends Component {
       <Router>
         <div className="App">
           <Switch>
-            <Route exact path="/admin" component={AdminPage} />
-            <RouterURL />
+            {/* <Route exact path="/admin" component={AdminPage} />
+            <RouterURL /> */}
+            <AdminPage />
           </Switch>
         </div>
       </Router>
