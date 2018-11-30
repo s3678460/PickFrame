@@ -47,8 +47,8 @@ router.delete("/:_id", (req, res) => {
 
 router.put("/:_id", (req, res) => {
   var update = req.body;
-  User.findByIdAndUpdate(req.params._id, update)
-    .then(() => res.json({ update: true }))
+  User.findByIdAndUpdate(req.params._id, update, { new: true })
+    .then(user => res.json(user))
     .catch(err => res.status(404).json({ update: false }));
 });
 

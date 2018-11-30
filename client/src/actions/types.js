@@ -6,6 +6,8 @@ export const UPDATE_ORDER = "UPDATE_ORDER";
 
 export const GET_CONTRIBUTORS = "GET_CONTRIBUTORS";
 export const GET_CONTRIBUTOR = "GET_CONTRIBUTOR";
+export const UPDATE_CONTRIBUTOR = "UPDATE_CONTRIBUTOR";
+
 //Image type
 export const GET_IMAGES = "GET_IMAGES";
 export const GET_IMAGE = "GET_IMAGE";
