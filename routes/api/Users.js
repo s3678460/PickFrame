@@ -47,7 +47,8 @@ router.post('/register', (req, res) => {
                 accountHolder: req.body.accountHolder,
                 cardNumber: req.body.cardNumber,
                 bankName: req.body.bankName,
-                bankBranch: req.body.bankBranch
+                bankBranch: req.body.bankBranch,
+                balance:0,
             });
             bcrypt.genSalt(10, (err, salt) => {
                 bcrypt.hash(newUser.password, salt, (err, hash) => {
@@ -151,7 +152,8 @@ router.get("/current", passport.authenticate("jwt", { session: false }), (req, r
         accountHolder: req.user.accountHolder,
         cardNumber: req.user.cardNumber,
         bankName: req.user.bankName,
-        bankBranch: req.user.bankBranch
+        bankBranch: req.user.bankBranch,
+        balance:0,
 
     })
 })
