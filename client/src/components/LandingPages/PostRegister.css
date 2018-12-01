@@ -1,0 +1,52 @@
+.post-register{
+	
+	background-image: url(https://images7.alphacoders.com/291/291512.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  
+    	
+}
+  .vid-container-post{
+    position:relative;
+    height:100vh;
+  }
+  
+  .inner {
+    position: absolute;
+  }
+  .inner-container-post{
+    width:400px;
+    height:400px;
+    position:absolute;
+    top:calc(50vh - 200px);
+    left:calc(50vw - 200px);
+  }
+  
+  .box-post{
+    position:absolute;
+    height:100%;
+    width:100%;
+    font-family:Helvetica;
+    
+    
+    padding:30px 0px;
+    border: 10px solid rgba(12,13,13,0.25);
+    border-radius: 10px;
+    background: white;
+    background-clip: padding-box;
+    
+    
+  }
+  .box-post h1{
+    text-align:center;
+    background-color: black;
+    height: 60px;
+    position: relative;
+    top: -30px;
+    
+  }
+
+  .context{
+      text-align: center;
+  }
+  

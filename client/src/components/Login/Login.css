@@ -11,7 +11,6 @@
   .vid-container{
     position:relative;
     height:100vh;
-    overflow: auto;
   }
   
   .inner {
@@ -23,7 +22,6 @@
     position:absolute;
     top:calc(50vh - 200px);
     left:calc(50vw - 200px);
-    overflow:auto;
   }
   
   .box{
@@ -56,7 +54,7 @@
     padding:15px;
     background:white;
     
-    border: 2px #FFD900 solid;
+    border: 2px #666e6e solid;
     
   }
   .box input:focus,.box input:active,.box button:focus,.box button:active{

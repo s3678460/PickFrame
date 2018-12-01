@@ -9,6 +9,7 @@
     "classnames": "^2.2.6",
     "downloadbutton": "^1.0.0",
     "font-awesome": "^4.7.0",
+    "jwt-decode": "^2.2.0",
     "lodash": "^4.17.11",
     "mdbreact": "^4.8.2",
     "react": "^16.6.0",
@@ -23,7 +24,8 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "slick-carousel": "^1.8.1",
-    "time-stamp": "^2.2.0"
+    "time-stamp": "^2.2.0",
+    "validator": "^10.9.0"
   },
   "proxy": "http://localhost:5000",
   "scripts": {

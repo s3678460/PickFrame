@@ -11,9 +11,9 @@ import QandA from "../Q&A/QandA";
 import OrdersPage from "../OrdersPage/OrdersPage";
 import Details from "../Details/Details";
 import UserProfile from "../User/UserProfile";
+import PostRegister from"../LandingPages/PostRegister";
 
-import NavigationBar from "../NavigationBar/NavigationBar";
-import FooterPage from "../Footer/FooterPage";
+import PrivateRoute from '../PrivateRoute/PrivateRoute'
 
 class RouterURL extends Component {
   render() {
@@ -26,8 +26,9 @@ class RouterURL extends Component {
         <Route path="/register" component={Register} />
         <Route path="/checkout" component={OrdersPage} />
         <Route path="/details" component={Details} />
-        <Route path="/admin/" component={AdminPage} /> 
-        <Route path="/userprofile/" component={UserProfile} />
+        <PrivateRoute path="/admin/" component={AdminPage} /> 
+        <PrivateRoute path="/userprofile" component={UserProfile} />
+        <Route path="/postregister/" component={PostRegister}/>
         <Route path="/Aboutus" component={Aboutus} />
         <Route path="/QA" component={QandA} />
         <Route component={HomePage} /> 

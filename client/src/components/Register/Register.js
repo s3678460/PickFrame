@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import './Register.css';
-import axios from 'axios';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import {connect} from 'react-redux';
+import {registerUser} from '../../actions/authAction';
+import {withRouter} from 'react-router-dom';
 
 import { Link } from "react-router-dom";
 
@@ -30,6 +33,20 @@ class Register extends Component {
         
     }
 
+    componentDidMount(){
+        const{history} = this.props;
+        if(this.props.auth.isAuthenticated){
+            history.push('/')
+        }
+    }
+
+    componentWillReceiveProps(nextProps){
+        if(nextProps.errors){
+            this.setState({errors:nextProps.errors});
+        }
+
+    }
+
     onSubmit(e){
         e.preventDefault();
 
@@ -44,13 +61,13 @@ class Register extends Component {
             bankBranch:this.state.bankBranch,
 
         }
-
-        axios.post('/api/users/register' , newUser)
-        .then (res => console.log(res.data))
-        .catch(err =>this.setState({errors:err.response.data}));
+        
+        this.props.registerUser(newUser,this.props.history)
+        
     }
     render() {
         const {errors} = this.state;
+        
         return (
             <div className="image-reg">
 
@@ -65,6 +82,7 @@ class Register extends Component {
                             Already a member?
                             <a> <Link to="/login">Sign in</Link></a>
                         </p>
+                        
                         <div className="row">
 
 
@@ -92,7 +110,7 @@ class Register extends Component {
                                 
                                 <span><input  className={classnames('form-control form-control-lg',{
                                     'is-invalid':errors.password
-                                })} type="text" placeholder="Password" name="password" value={this.state.password} onChange={this.onChange} />
+                                })} type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.onChange} />
                                 {errors.password && (<div className="invalid-feedback" style={{marginLeft:50}}>{errors.password}</div> )}
                                 </span>
 
@@ -142,4 +160,15 @@ class Register extends Component {
     }
 }
 
-export default Register;
+Register.PropTypes={
+    registerUser:PropTypes.func.isRequired,
+    auth:PropTypes.object.isRequired,
+    errors:PropTypes.object.isRequired,
+}
+
+const mapStateToProps=(state)=>({
+    auth:state.auth,
+    errors: state.errors
+});
+
+export default connect(mapStateToProps,{registerUser})(withRouter(Register));

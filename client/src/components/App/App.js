@@ -7,6 +7,9 @@ import UserProfile from "../User/UserProfile";
 import AdminPage from "../admin/AdminPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+
+
+
 class App extends Component {
   render() {
     return (
