@@ -2,60 +2,46 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getContributor } from "../../../actions/contributorActions";
+import {
+  getContributor,
+  updateContributor
+} from "../../../actions/contributorActions";
 import classnames from "classnames";
 
 class ContributorDetails extends Component {
   state = {
-    fullName: "",
-    displayName: "",
-    email: "",
-    password: "",
-    accountHolder: "",
-    cardNumber: "",
-    bankName: "",
-    bankBranch: "",
     balance: "",
     showBalanceUpdate: false,
     balanceUpdateAmount: ""
   };
 
-  componentWillReceiveProps(nextProps, nextState) {
-    const {
-      fullName,
-      displayName,
-      email,
-      password,
-      accountHolder,
-      cardNumber,
-      bankName,
-      bankBranch,
-      balance
-    } = nextProps.contributor;
-
-    this.setState({
-      fullName,
-      displayName,
-      email,
-      password,
-      accountHolder,
-      cardNumber,
-      bankName,
-      bankBranch,
-      balance
-    });
-  }
-
   componentDidMount() {
     const { _id } = this.props.match.params;
     this.props.getContributor(_id);
+    this.setState({ balance: this.props.contributor.balance });
+  }
+
+  componentDidUpdate(prevProps) {
+    console.log(this.props.contributor.balance);
+    if (prevProps.contributor.balance !== this.props.contributor.balance) {
+      this.setState({
+        balance: this.props.contributor.balance
+      });
+    }
   }
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
 
   balanceSubmit = e => {
     e.preventDefault();
-    console.log(this.state.balanceUpdateAmount);
+    const { contributor } = this.props;
+    const { balanceUpdateAmount } = this.state;
+
+    const contributorUpdate = {
+      ...contributor,
+      balance: parseInt(balanceUpdateAmount)
+    };
+    this.props.updateContributor(contributorUpdate);
   };
 
   render() {
@@ -69,10 +55,8 @@ class ContributorDetails extends Component {
       bankName,
       bankBranch,
       email
-      // balance
     } = this.props.contributor;
-    const { balance } = this.props;
-    const { showBalanceUpdate, balanceUpdateAmount } = this.state;
+    const { balance, showBalanceUpdate, balanceUpdateAmount } = this.state;
 
     let balanceForm = "";
     if (showBalanceUpdate) {
@@ -194,5 +178,5 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  { getContributor }
+  { getContributor, updateContributor }
 )(ContributorDetails);
