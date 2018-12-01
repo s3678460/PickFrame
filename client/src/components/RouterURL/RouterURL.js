@@ -19,19 +19,19 @@ class RouterURL extends Component {
   render() {
     return (
       <div>
-        <NavigationBar />
+        <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/view/:type/" component={ViewPage} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/checkout" component={OrdersPage} />
         <Route path="/details" component={Details} />
-        {/* <Route path="/admin/" component={AdminPage} /> */}
+        <Route path="/admin/" component={AdminPage} /> 
         <Route path="/userprofile/" component={UserProfile} />
         <Route path="/Aboutus" component={Aboutus} />
         <Route path="/QA" component={QandA} />
-        {/* <Route component={HomePage} /> */}
-        <FooterPage />
+        <Route component={HomePage} /> 
+        </Switch>
       </div>
     );
   }

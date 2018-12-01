@@ -12,11 +12,11 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Switch>
-            {/* <Route exact path="/admin" component={AdminPage} />
-            <RouterURL /> */}
-            <AdminPage />
-          </Switch>
+          
+            <NavigationBar/>
+            <RouterURL/>
+            <FooterPage/>
+          
         </div>
       </Router>
     );
