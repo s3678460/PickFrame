@@ -1,5 +1,9 @@
 const express = require("express");
 const router = express.Router();
+const keys = require("../../config/keys");
+
+//Load input validation
+const validateOrderInput = require("../../validation/order");
 
 //Order model
 const Order = require("../../models/Order");
@@ -18,7 +22,11 @@ router.get("/", (req, res) => {
 const timestamp = require("time-stamp");
 
 router.post("/", (req, res) => {
-  
+  const {errors, isValid} =validateOrderInput(req.body);
+  if(!isValid){
+    return res.status(400).json(errors)
+  }    
+
   const newOrder = new Order({
     companyName: req.body.companyName,
     address: req.body.address,
@@ -31,7 +39,7 @@ router.post("/", (req, res) => {
     productId: req.body.productId,
     total: req.body.total,
     status: req.body.status,
-    date: timestamp("YYYY/MM/DD")
+    // date: timestamp("YYYY/MM/DD")
   });
   newOrder.save().then(order => res.json(order));
 });
