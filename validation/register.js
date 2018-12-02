@@ -49,7 +49,7 @@ module.exports=function validateRegisterInput(data){
         errors.accountHolder="Account Holder is required";
     }
 
-    if(Validator.isCreditCard(data.cardNumber)){
+    if(Validator.isEmpty(data.cardNumber)){
         errors.cardNumber="Card Number is invalid";
     }
     if(Validator.isEmpty(data.bankName)){

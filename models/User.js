@@ -34,6 +34,11 @@ const UserSchema = new Schema({
   bankBranch: {
     type: String,
     required: true
+  },
+
+  balance:{
+    type:Number,
+    required:false,
   }
 });
 

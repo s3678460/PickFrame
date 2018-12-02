@@ -5,6 +5,7 @@ import EditOrder from "./orders/EditOrder";
 import Header from "./layout/Header";
 import Contributors from "./contributors/Contributors";
 import ContributorDetails from "./contributors/ContributorDetails";
+import Login from "./auth/Login";
 import NotFound from "./NotFound";
 
 class AdminPage extends Component {
@@ -27,6 +28,7 @@ class AdminPage extends Component {
                 path="/admin/contributor/:_id"
                 component={ContributorDetails}
               />
+              <Route exact path="/admin/login" component={Login} />
               <Route component={NotFound} />
             </Switch>
           </div>
