@@ -4,8 +4,8 @@ import logo from '../../images/logo-white.png'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authAction'
-import { Link , Redirect } from "react-router-dom";
-import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa ,MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from 'mdbreact';
+import { Link, Redirect } from "react-router-dom";
+import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from 'mdbreact';
 
 class NavigationBar extends Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class NavigationBar extends Component {
     });
   }
 
-  onLogoutClick(e){
+  onLogoutClick(e) {
     e.preventDefault();
     this.props.logoutUser();
 
@@ -35,35 +35,37 @@ class NavigationBar extends Component {
     const authLinks = (
       <NavbarNav right>
         <MDBDropdown>
-          <MDBDropdownToggle caret color ="dark">
-          <Fa icon="user-circle" /> {' '}
+          <MDBDropdownToggle caret color="dark">
+            <Fa icon="user-circle" /> {' '}
             Hi, {user.displayName} !
           </MDBDropdownToggle>
           <MDBDropdownMenu basic>
-            <Link to="/userprofile"><MDBDropdownItem ><Fa icon="camera-retro"/>{' '}Your Profile</MDBDropdownItem></Link>
-            <MDBDropdownItem ><Fa icon="camera-retro"/>{' '}Upload Image</MDBDropdownItem>
-            <MDBDropdownItem ><Fa icon="camera-retro"/>{' '}Sale History</MDBDropdownItem>
-            <MDBDropdownItem divider/>
-            <MDBDropdownItem onClick={this.onLogoutClick.bind(this)} ><Fa icon="spinner"/> Log Out !</MDBDropdownItem>
+            <Link to="/userprofile"><MDBDropdownItem ><Fa icon="camera-retro" />{' '}Your Profile</MDBDropdownItem></Link>
+            <Link to="/sellingimage">
+              <MDBDropdownItem ><Fa icon="camera-retro" />{' '}Selling new image</MDBDropdownItem>
+            </Link>
+            <MDBDropdownItem ><Fa icon="camera-retro" />{' '}Sale History</MDBDropdownItem>
+            <MDBDropdownItem divider />
+            <MDBDropdownItem onClick={this.onLogoutClick.bind(this)} ><Fa icon="spinner" /> Log Out !</MDBDropdownItem>
           </MDBDropdownMenu>
         </MDBDropdown>
 
-              
-        
+
+
       </NavbarNav>
 
     );
 
     const guestLinks = (
       <NavbarNav right>
-      <NavItem>
+        <NavItem>
           <NavLink to="/login"><a style={{ fontWeight: "bold" }}><Fa icon="user-plus" size="lg" className="mr-1" />Login</a></NavLink>
         </NavItem>
-      
+
         <NavItem>
           <NavLink to="/register"><a style={{ fontWeight: "bold" }}><Fa icon="user-plus" size="lg" className="mr-1" />Register</a></NavLink>
         </NavItem>
-        
+
       </NavbarNav>
 
     );
@@ -87,7 +89,7 @@ class NavigationBar extends Component {
                 <NavLink to="/view/vectors"><a style={{ fontWeight: "bold" }}>Vectors</a></NavLink>
               </NavItem>
             </NavbarNav>
-            {isAuthenticated?authLinks:guestLinks}
+            {isAuthenticated ? authLinks : guestLinks}
           </Collapse>
         </Navbar>
       </div>

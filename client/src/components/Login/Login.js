@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loginUser } from '../../actions/authAction'
 import classnames from 'classnames';
-import {withRouter} from 'react-router';
+import { withRouter } from 'react-router';
 
 class Login extends Component {
     constructor() {
@@ -22,7 +22,7 @@ class Login extends Component {
     }
 
     componentDidMount() {
-        const{history} = this.props;
+        const { history } = this.props;
         if (this.props.auth.isAuthenticated) {
             history.push('/')
         }

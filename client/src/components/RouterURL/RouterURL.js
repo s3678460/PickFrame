@@ -13,6 +13,7 @@ import OrdersPage2 from "../OrdersPage/OrdersPage2";
 import Details from "../Details/Details";
 import UserProfile from "../User/UserProfile";
 import PostRegister from"../LandingPages/PostRegister";
+import SellingPage from"../SellingPage/SellingPage";
 
 import PrivateRoute from '../PrivateRoute/PrivateRoute'
 
@@ -30,6 +31,7 @@ class RouterURL extends Component {
         <Route path="/details" component={Details} />
         <PrivateRoute path="/admin/" component={AdminPage} /> 
         <PrivateRoute path="/userprofile" component={UserProfile} />
+        <Route path="/sellingimage/" component={SellingPage}/>
         <Route path="/postregister/" component={PostRegister}/>
         <Route path="/Aboutus" component={Aboutus} />
         <Route path="/QA" component={QandA} />
