@@ -3,6 +3,30 @@ import './OrdersPage.css';
 import { Link } from "react-router-dom";
 
 class OrdersPage extends Component {
+
+    constructor(){
+        super();
+        this.state={
+            companyName: '',
+            address: '',
+            companyPhone: '',
+            accountHolder:'',
+            cardNumber:'',
+            bankName:'',
+            bankBranch:'',
+            email: '',
+            // productId: '',
+            // total: '',
+            // status: '',
+            errors:{}
+
+        };
+    
+    // this.onChange=this.onChange.bind(this);
+    // this.onSubmit=this.onSubmit.bind(this);
+    }
+
+
     render() {
         return (
             <div className="container-fluid-order" style={{ maxHeight: "100%" }}>

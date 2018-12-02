@@ -54,20 +54,20 @@ module.exports=function validateOrderInput(data){
         errors.email="Email field is required";
     }
 
-    //productId
-    if(Validator.isEmpty(data.productId)){
-        errors.productId="Product Id field is required";
-    }
+    // //productId
+    // if(Validator.isEmpty(data.productId)){
+    //     errors.productId="Product Id field is required";
+    // }
 
-    // total
-    if(Validator.isEmpty(data.total)){
-        errors.total="Balance field is required";
-    }
+    // // total
+    // if(Validator.isEmpty(data.total)){
+    //     errors.total="Balance field is required";
+    // }
 
-    // status
-    if(Validator.isEmpty(data.status)){
-        errors.status="status field is required";
-    }
+    // // status
+    // if(Validator.isEmpty(data.status)){
+    //     errors.status="status field is required";
+    // }
 
    
 

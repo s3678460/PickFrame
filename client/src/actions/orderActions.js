@@ -3,7 +3,8 @@ import {
   DELETE_ORDER,
   ADD_ORDER,
   GET_ORDER,
-  UPDATE_ORDER
+  UPDATE_ORDER,
+  GET_ERRORS
 } from "./types";
 import axios from "axios";
 
@@ -31,11 +32,22 @@ export const deleteOrder = _id => async dispatch => {
   });
 };
 
-export const addOrders = order => {
-  return {
-    type: ADD_ORDER,
-    payload: order
-  };
+export const addOrders = orderData => dispatch => {
+  axios
+    .post('/api/orders', orderData)
+    .then(
+      res => 
+        dispatch({
+          type: ADD_ORDER,
+          payload: res.data
+        })
+    )
+    .catch(err => 
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    )
 };
 
 export const updateOrder = order => async dispatch => {
