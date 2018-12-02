@@ -36,9 +36,9 @@ router.post("/", (req, res) => {
     bankName: req.body.bankName,
     bankBranch: req.body.bankBranch,
     email: req.body.email,
-    productId: req.body.productId,
-    total: req.body.total,
-    status: req.body.status,
+    // productId: req.body.productId,
+    // total: req.body.total,
+    // status: req.body.status,
     // date: timestamp("YYYY/MM/DD")
   });
   newOrder.save().then(order => res.json(order));

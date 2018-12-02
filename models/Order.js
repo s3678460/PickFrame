@@ -35,18 +35,18 @@ const OrderSchema = new Schema({
     type: String,
     required: true
   },
-  productId: {
-    type: String,
-    required: false
-  },
-  total: {
-    type: Number,
-    required: true
-  },
-  status: {
-    type: String,
-    required: true
-  },
+  // productId: {
+  //   type: String,
+  //   required: false
+  // },
+  // total: {
+  //   type: Number,
+  //   required: true
+  // },
+  // status: {
+  //   type: String,
+  //   required: true
+  // },
   date: {
     type: Date,
     // required: true

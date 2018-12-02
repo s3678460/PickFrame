@@ -29,17 +29,40 @@ class OrdersPage2 extends Component {
     // this.onSubmit=this.onSubmit.bind(this);
     }
 
+    componentWillReceiveProps(nextProps){
+        if (nextProps.errors){
+            this.setState({errors: nextProps.errors})
+        }
+    }
+
     onChange = (e) =>{
         this.setState({[e.target.name]: e.target.value});
     }
 
     onSubmit = (e) =>{
         e.preventDefault();
-        console.log('submit');
+        // console.log('submit');
+
+        const newOrder = {
+            companyName: this.state.companyName,
+            address: this.state.address,
+            companyPhone: this.state.companyName,
+            accountHolder: this.state.accountHolder,
+            cardNumber: this.state.cardNumber,
+            bankName: this.state.bankName,
+            bankBranch: this.state.bankBranch,
+            email: this.state.email
+        }
+
+        this.props.addOrders(newOrder);
+        
     }
 
 
     render() {
+
+        const {errors} = this.state;
+
         return (
             <div className="container-fluid-order" style={{ maxHeight: "100%" }}>
                 <div className="row">
@@ -50,16 +73,16 @@ class OrdersPage2 extends Component {
                             <div className="checkout-box">
                                 <form className="form-checkout" onSubmit = {this.onSubmit}>
                                     <h2>Billing Information</h2>
-                                    <div className = "form-group"><input required type="text" className="form-control form-control-lg" placeholder="Organization or Company" name="companyName" value={this.state.companyName} onChange={this.onChange} /></div>
-                                    <div className = "form-group"><input required type="text" className="form-control form-control-lg" placeholder="Address" name="address" value={this.state.address} onChange={this.onChange} /></div>
-                                    <div className = "form-group"><input required type="text" className="form-control form-control-lg" placeholder="Company Phone" name="companyPhone" value={this.state.companyPhone} onChange={this.onChange} /></div>
-                                    <div className = "form-group"><input required type="text" className="form-control form-control-lg" placeholder="Email" name="email" value={this.state.email} onChange={this.onChange} /></div>
+                                    <div className = "form-group"><input  type="text" className="form-control form-control-lg" placeholder="Organization or Company" name="companyName" value={this.state.companyName} onChange={this.onChange} error = {errors.companyName} /></div>
+                                    <div className = "form-group"><input  type="text" className="form-control form-control-lg" placeholder="Address" name="address" value={this.state.address} onChange={this.onChange} error = {errors.address} /></div>
+                                    <div className = "form-group"><input  type="text" className="form-control form-control-lg" placeholder="Company Phone" name="companyPhone" value={this.state.companyPhone} onChange={this.onChange} error = {errors.companyPhone} /></div>
+                                    <div className = "form-group"><input  type="text" className="form-control form-control-lg" placeholder="Email" name="email" value={this.state.email} onChange={this.onChange} error = {errors.email} /></div>
                                     
                                     <h2>Bank Information</h2> 
-                                    <div className = "form-group"><input required type="text" className="form-control form-control-lg" placeholder="Account holder" name="accountHolder" value={this.state.accountHolder} onChange={this.onChange} /></div>
-                                     <div className = "form-group"><input required type="text" className="form-control form-control-lg" placeholder="Card number" name="cardNumber" value={this.state.cardNumber} onChange={this.onChange} /></div>
-                                     <div className = "form-group"><input required type="text" className="form-control form-control-lg" placeholder="Bank name" name="bankName" value={this.state.bankName} onChange={this.onChange} /></div>
-                                     <div className = "form-group"><input required type="text" className="form-control form-control-lg" placeholder="Bank branch" name="bankBranch" value={this.state.bankBranch} onChange={this.onChange} /></div>
+                                    <div className = "form-group"><input  type="text" className="form-control form-control-lg" placeholder="Account holder" name="accountHolder" value={this.state.accountHolder} onChange={this.onChange} error = {errors.accountHolder} /></div>
+                                     <div className = "form-group"><input  type="text" className="form-control form-control-lg" placeholder="Card number" name="cardNumber" value={this.state.cardNumber} onChange={this.onChange} error = {errors.cardNumber} /></div>
+                                     <div className = "form-group"><input  type="text" className="form-control form-control-lg" placeholder="Bank name" name="bankName" value={this.state.bankName} onChange={this.onChange} error = {errors.bankName} /></div>
+                                     <div className = "form-group"><input  type="text" className="form-control form-control-lg" placeholder="Bank branch" name="bankBranch" value={this.state.bankBranch} onChange={this.onChange} error = {errors.bankBranch} /></div>
                                     
                                     <div className="total">
                                         <h2  >Total</h2>
