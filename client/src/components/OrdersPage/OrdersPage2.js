@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {addOrders} from "../../actions/orderActions";
+import OrderFormField from "./OrderFormField";
 
 class OrdersPage2 extends Component {
 
@@ -29,9 +30,9 @@ class OrdersPage2 extends Component {
     // this.onSubmit=this.onSubmit.bind(this);
     }
 
-    componentWillReceiveProps(nextProps){
-        if (nextProps.errors){
-            this.setState({errors: nextProps.errors})
+    componentWillReceiveProps(newProps){
+        if (newProps.errors){
+            this.setState({errors: newProps.errors})
         }
     }
 
@@ -70,25 +71,25 @@ class OrdersPage2 extends Component {
                     <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <div className="order-box1">
                             <h1>Checkout</h1>
-                            <div className="checkout-box">
-                                <form className="form-checkout" onSubmit = {this.onSubmit}>
+                            <div className="card-body">
+                                <form noValidate className="form-checkout" onSubmit = {this.onSubmit}>
                                     <h2>Billing Information</h2>
-                                    <div className = "form-group"><input  type="text" className="form-control form-control-lg" placeholder="Organization or Company" name="companyName" value={this.state.companyName} onChange={this.onChange} error = {errors.companyName} /></div>
-                                    <div className = "form-group"><input  type="text" className="form-control form-control-lg" placeholder="Address" name="address" value={this.state.address} onChange={this.onChange} error = {errors.address} /></div>
-                                    <div className = "form-group"><input  type="text" className="form-control form-control-lg" placeholder="Company Phone" name="companyPhone" value={this.state.companyPhone} onChange={this.onChange} error = {errors.companyPhone} /></div>
-                                    <div className = "form-group"><input  type="text" className="form-control form-control-lg" placeholder="Email" name="email" value={this.state.email} onChange={this.onChange} error = {errors.email} /></div>
+                                    <div className = "form-group"><OrderFormField  type="text" placeholder="Organization or Company" name="companyName" value={this.state.companyName} onChange={this.onChange} error = {errors.companyName} /></div>
+                                    <div className = "form-group"><OrderFormField type = "text"  className="form-control form-control-lg" placeholder="Address" name="address" value={this.state.address} onChange={this.onChange} error = {errors.address} /></div>
+                                    <div className = "form-group"><OrderFormField  type="text" className="form-control form-control-lg" placeholder="Company Phone" name="companyPhone" value={this.state.companyPhone} onChange={this.onChange} error = {errors.companyPhone} /></div>
+                                    <div className = "form-group"><OrderFormField  type="text" className="form-control form-control-lg" placeholder="Email" name="email" value={this.state.email} onChange={this.onChange} error = {errors.email} /></div>
                                     
                                     <h2>Bank Information</h2> 
-                                    <div className = "form-group"><input  type="text" className="form-control form-control-lg" placeholder="Account holder" name="accountHolder" value={this.state.accountHolder} onChange={this.onChange} error = {errors.accountHolder} /></div>
-                                     <div className = "form-group"><input  type="text" className="form-control form-control-lg" placeholder="Card number" name="cardNumber" value={this.state.cardNumber} onChange={this.onChange} error = {errors.cardNumber} /></div>
-                                     <div className = "form-group"><input  type="text" className="form-control form-control-lg" placeholder="Bank name" name="bankName" value={this.state.bankName} onChange={this.onChange} error = {errors.bankName} /></div>
-                                     <div className = "form-group"><input  type="text" className="form-control form-control-lg" placeholder="Bank branch" name="bankBranch" value={this.state.bankBranch} onChange={this.onChange} error = {errors.bankBranch} /></div>
+                                    <div className = "form-group"><OrderFormField  type="text" className="form-control form-control-lg" placeholder="Account holder" name="accountHolder" value={this.state.accountHolder} onChange={this.onChange} error = {errors.accountHolder} /></div>
+                                     <div className = "form-group"><OrderFormField  type="text" className="form-control form-control-lg" placeholder="Card number" name="cardNumber" value={this.state.cardNumber} onChange={this.onChange} error = {errors.cardNumber} /></div>
+                                     <div className = "form-group"><OrderFormField  type="text" className="form-control form-control-lg" placeholder="Bank name" name="bankName" value={this.state.bankName} onChange={this.onChange} error = {errors.bankName} /></div>
+                                     <div className = "form-group"><OrderFormField  type="text" className="form-control form-control-lg" placeholder="Bank branch" name="bankBranch" value={this.state.bankBranch} onChange={this.onChange} error = {errors.bankBranch} /></div>
                                     
                                     <div className="total">
                                         <h2  >Total</h2>
                                         <b>$30.00 USD</b>
                                         <b style={{fontSize:"10pt"}}><p>I have read and accept our <Link to="#">Website Terms</Link>, <Link to="#">Privacy Policy</Link>, and <Link to="#">Licensing Terms.</Link> </p></b>
-                                        <input type = "submit" className = "btn btn-info btn-block mt-4"/>
+                                        <button type = "submit" className = "btn btn-info btn-block mt-4">Submit</button>
                                           
                                         
                                     </div>
