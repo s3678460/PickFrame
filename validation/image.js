@@ -28,7 +28,7 @@ module.exports = function validateNewImageInput(data){
 
     //original Image
     if(Validator.isEmpty(data.originalImage)){
-        errors.originalImage = "Please upload file!!!"
+        errors.originalImage = "Please upload your image!!!"
     }
 
     //category

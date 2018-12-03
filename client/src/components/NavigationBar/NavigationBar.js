@@ -44,6 +44,9 @@ class NavigationBar extends Component {
             <Link to="/sellingimage">
               <MDBDropdownItem ><Fa icon="camera-retro" />{' '}Selling new image</MDBDropdownItem>
             </Link>
+            <Link to="/currentselling">
+              <MDBDropdownItem ><Fa icon="camera-retro" />{' '}Your current selling</MDBDropdownItem>
+            </Link>
             <MDBDropdownItem ><Fa icon="camera-retro" />{' '}Sale History</MDBDropdownItem>
             <MDBDropdownItem divider />
             <MDBDropdownItem onClick={this.onLogoutClick.bind(this)} ><Fa icon="spinner" /> Log Out !</MDBDropdownItem>

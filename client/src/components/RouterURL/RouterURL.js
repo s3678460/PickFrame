@@ -14,6 +14,7 @@ import Details from "../Details/Details";
 import UserProfile from "../User/UserProfile";
 import PostRegister from"../LandingPages/PostRegister";
 import SellingPage from"../SellingPage/SellingPage";
+import CurrentSellingPage from"../CurrentSellingPage/CurrentSellingPage";
 
 import PrivateRoute from '../PrivateRoute/PrivateRoute'
 
@@ -31,7 +32,8 @@ class RouterURL extends Component {
         <Route path="/details" component={Details} />
         <PrivateRoute path="/admin/" component={AdminPage} /> 
         <PrivateRoute path="/userprofile" component={UserProfile} />
-        <Route path="/sellingimage/" component={SellingPage}/>
+        <PrivateRoute path="/sellingimage/" component={SellingPage}/>
+        <PrivateRoute path="/currentselling/" component={CurrentSellingPage}/>
         <Route path="/postregister/" component={PostRegister}/>
         <Route path="/Aboutus" component={Aboutus} />
         <Route path="/QA" component={QandA} />
