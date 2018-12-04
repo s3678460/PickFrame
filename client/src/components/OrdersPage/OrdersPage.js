@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {addOrders} from "../../actions/orderActions";
-import OrderFormField from "./OrderFormField";
+
 import classnames from "classnames";
 
 class OrdersPage extends Component {
