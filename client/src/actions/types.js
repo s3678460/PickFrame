@@ -15,7 +15,8 @@ export const DELETE_IMAGE = "DELETE_IMAGE";
 export const ADD_IMAGE = "ADD_IMAGE";
 export const UPDATE_IMAGE = "UPDATE_IMAGE";
 
-//Testing
+//User type
 
 export const GET_ERRORS = "GET_ERRORS"
 export const SET_CURRENT_USER = "SET_CURRENT_USER"
+export const EDIT_USER = "EDIT_USER" 
