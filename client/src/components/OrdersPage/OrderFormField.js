@@ -7,7 +7,7 @@ const OrderFormField = ({
 }) => {
     return (
         <div>
-            <div className = "form-group">
+           
                 <input
                     type={type}
                     className = {classnames('form-control form-control-lg', {'is-valid': error})}
@@ -18,8 +18,8 @@ const OrderFormField = ({
                 
                 />
                 {info && <small className = "form-text text-muted">{info}</small>}
-                {error && (<div className = "invalid-feedback">{error}</div>)}
-            </div>
+                {error && (<div className = "invalid-feedback" style={{marginLeft:50}}>{error}</div>)}
+           
         </div>
     )
 }

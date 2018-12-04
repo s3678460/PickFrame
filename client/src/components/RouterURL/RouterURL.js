@@ -9,7 +9,7 @@ import Aboutus from "../Aboutus/Aboutus";
 import QandA from "../Q&A/QandA";
 
 import OrdersPage from "../OrdersPage/OrdersPage";
-import OrdersPage2 from "../OrdersPage/OrdersPage2";
+
 import Details from "../Details/Details";
 import PostRegister from"../LandingPages/PostRegister";
 import UserProfileView from "../UserProfileView/UserProfileView"
@@ -28,7 +28,7 @@ class RouterURL extends Component {
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/checkout" component={OrdersPage} />
-        <Route path="/checkout2" component={OrdersPage2} />
+        
         <Route path="/details" component={Details} />
         <PrivateRoute path="/admin/" component={AdminPage} /> 
         <PrivateRoute path="/userprofile/" component={UserProfileView} />

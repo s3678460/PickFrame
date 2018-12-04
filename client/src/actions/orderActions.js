@@ -32,7 +32,7 @@ export const deleteOrder = _id => async dispatch => {
   });
 };
 
-export const addOrders = orderData => dispatch => {
+export const addOrders = (orderData, history) => dispatch => {
   axios
     .post('/api/orders', orderData)
     .then(
@@ -41,6 +41,9 @@ export const addOrders = orderData => dispatch => {
           type: ADD_ORDER,
           payload: res.data
         })
+    )
+    .then(
+      res=>history.push('/')
     )
     .catch(err => 
       dispatch({
