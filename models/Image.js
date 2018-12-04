@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 //Create Image Schema
 const ImageSchema = new Schema({
-    imageID:{
+    imageID: {
         type: String,
         required: true
     },
@@ -11,7 +11,7 @@ const ImageSchema = new Schema({
         type: String,
         required: true
     },
-    price:{
+    price: {
         type: String,
         required: true
     },
@@ -19,15 +19,21 @@ const ImageSchema = new Schema({
         type: String,
         required: true
     },
-    size:{
-        type: String,
-        required: true
+    size: {
+        width: {
+            type: String,
+            required: true
+        },
+        height: {
+            type: String,
+            required: true
+        }
     },
     uploadDate: {
         type: String,
         required: true
     },
-    originalImage:{
+    originalImage: {
         type: String,
         required: true
     },
@@ -35,9 +41,13 @@ const ImageSchema = new Schema({
         type: String,
         required: true
     },
-    idSeller: {
-        type: String,
+    category: {
+        type: [String],
         required: true
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'user'
     }
 })
 

@@ -37,7 +37,7 @@ class UserProfile extends Component {
         var deletedImage = {
             imageLink: originalImage
         }
-        axios.post("/api/deleteimages", deletedImage)
+        axios.post("/api/images/deleteimage", deletedImage)
 
     }
     onChange = (e) => {
@@ -50,7 +50,6 @@ class UserProfile extends Component {
     }
     onSubmit = (e) => {
         e.preventDefault();
-        var { photoName } = this.state;
         const fd = new FormData();
         // const config = {
         //     headers: {
@@ -58,7 +57,7 @@ class UserProfile extends Component {
         //     }
         // }
         fd.append('uploadimage', this.state.selectedFile, this.state.selectedFile.name)
-        axios.post(`http://localhost:5000/api/uploadimages`, fd)
+        axios.post(`/api/images/uploadimage`, fd)
             .then(res => {
                 var newImage = {
                     imageID: `#${Date.now()}`,

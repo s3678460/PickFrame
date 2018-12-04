@@ -1,4 +1,4 @@
-import { GET_IMAGE, GET_IMAGES, ADD_IMAGE, DELETE_IMAGE, UPDATE_IMAGE } from "./../actions/types"
+import { GET_IMAGE, GET_IMAGES, ADD_IMAGE, DELETE_IMAGE, UPDATE_IMAGE, GET_ERRORS } from "./../actions/types"
 import axios from "axios"
 
 
@@ -20,11 +20,20 @@ export const deleteImage = (id) => dispatch => {
     }))
 }
 
-export const addImage = (newImage) => dispatch => {
+export const addImage = (newImage, newFile) => dispatch => {
     axios
         .post("/api/images", newImage)
         .then(res => dispatch({
             type: ADD_IMAGE,
             payload: res.data
+        }))
+        .then(res => {
+            const fd = new FormData()
+            fd.append('uploadimage', newFile, newImage.originalImage)
+            axios.post(`/api/images/uploadimage`, fd)
+        })
+        .catch(err => dispatch({
+            type: GET_ERRORS,
+            payload: err.response.data
         }))
 }

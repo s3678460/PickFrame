@@ -7,10 +7,10 @@ const path = require("path")
 
 //Set Storage Images
 const storage = multer.diskStorage({
-    destination: function(req, file, cb){
+    destination: function (req, file, cb) {
         cb(null, path.join(__dirname, '../../client/public/storageimages'))
     },
-    filename: function(req, file, cb){
+    filename: function (req, file, cb) {
         cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname));
     }
 });
@@ -18,13 +18,13 @@ const storage = multer.diskStorage({
 // Init Upload
 const upload = multer({
     storage: storage,
-    fileFilter: function(req, file, cb){
+    fileFilter: function (req, file, cb) {
         checkFileType(file, cb);
     }
 }).single('uploadimage');
 
 //Check File Type Function
-function checkFileType(file, cb){
+function checkFileType(file, cb) {
     //Allow ext
     const filetypes = /jpeg|jpg|png|gif/;
     //Check ext
@@ -32,10 +32,10 @@ function checkFileType(file, cb){
     //Check mime
     const mimetype = filetypes.test(file.mimetype);
 
-    if(mimetype && extname){
+    if (mimetype && extname) {
         return cb(null, true);
     }
-    else{
+    else {
         cb('Error: Images Only!')
     }
 
@@ -44,12 +44,12 @@ function checkFileType(file, cb){
 
 
 //Post Upload Image
-router.post("/", (req, res)=>{
-    upload(req,res, (err) =>{
-        if(err){
+router.post("/", (req, res) => {
+    upload(req, res, (err) => {
+        if (err) {
             console.log(err)
         }
-        else{
+        else {
             console.log(req.file.filename)
             res.send(req.file.filename)
         }
