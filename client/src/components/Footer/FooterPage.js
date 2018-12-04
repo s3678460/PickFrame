@@ -33,9 +33,9 @@ class FooterPage extends Component {
                             <div className="blocklink">
                                 <h5>Support</h5>
                                 <a href="#">0123456789</a>
-                                <a href="#">Contact us</a>
+                                <Link to="/Contactus"><a>Contact us</a></Link>
                                 <Link to="/QA"><a>FAQ</a></Link>
-                                <a href="#">Site map</a>
+                                <Link to="/Sitemap"><a>Site map</a></Link>
                             </div>
                         </Col>
                         <Col md="3">

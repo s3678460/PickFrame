@@ -1,4 +1,4 @@
-import { GET_IMAGE, GET_IMAGES, ADD_IMAGE, DELETE_IMAGE, UPDATE_IMAGE } from "./../actions/types"
+import { GET_IMAGE, GET_IMAGES, ADD_IMAGE, DELETE_IMAGE, UPDATE_IMAGE, GET_USER_IMAGES } from "./../actions/types"
 
 //InitialState 
 const initialState = {
@@ -12,12 +12,22 @@ export default function (state = initialState, action) {
                 ...state,
                 images: action.payload
             }
+        case GET_USER_IMAGES:
+            return {
+                ...state,
+                images: action.payload
+            }
         case DELETE_IMAGE:
             return {
                 ...state,
                 images: state.images.filter(image => image._id !== action.payload)
             }
         case ADD_IMAGE:
+            return {
+                ...state,
+                images: [action.payload, ...state.images]
+            }
+        case UPDATE_IMAGE:
             return {
                 ...state,
                 images: [action.payload, ...state.images]

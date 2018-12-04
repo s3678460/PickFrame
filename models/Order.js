@@ -48,9 +48,9 @@ const OrderSchema = new Schema({
   //   required: true
   // },
   date: {
-    type: Date,
-    // required: true
-    default: Date.now
+    type: String,
+    required: false
+    // default: Date.now("<YYYY-mm-ddTHH:MM:ss>")
   }
 });
 
