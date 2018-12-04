@@ -7,19 +7,15 @@ import UserProfile from "../User/UserProfile";
 import AdminPage from "../admin/AdminPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-
-
-
 class App extends Component {
   render() {
     return (
       <Router>
         <div className="App">
-          
-            <NavigationBar/>
-            <RouterURL/>
-            <FooterPage/>
-          
+          <NavigationBar />
+          <RouterURL />
+          <FooterPage />
+          {/* <AdminPage /> */}
         </div>
       </Router>
     );
