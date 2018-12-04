@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const keys = require("../../config/keys");
+let date = require('date-and-time');
+
+// const timestamp = require("time-stamp");
+
 
 //Load input validation
 const validateOrderInput = require("../../validation/order");
@@ -8,20 +12,22 @@ const validateOrderInput = require("../../validation/order");
 //Order model
 const Order = require("../../models/Order");
 
+
+
 //@route GET api/orders
 //@desc GET ALL orders
 //@access Public
-
 router.get("/", (req, res) => {
   Order.find().then(orders => res.json(orders));
 });
 
+
+
 //@route POST api/order
 //@desc Create an order
 //@access Public
-const timestamp = require("time-stamp");
-
 router.post("/", (req, res) => {
+  let now = new Date();
   const {errors, isValid} =validateOrderInput(req.body);
   if(!isValid){
     return res.status(400).json(errors)
@@ -39,7 +45,7 @@ router.post("/", (req, res) => {
     // productId: req.body.productId,
     // total: req.body.total,
     // status: req.body.status,
-    // date: timestamp("YYYY/MM/DD")
+    date: date.format(now, 'YYYY/MM/DD HH:mm:ss [GMT]Z')
   });
   newOrder.save().then(order => res.json(order));
 });
@@ -47,7 +53,6 @@ router.post("/", (req, res) => {
 //@route DELETE api/order
 //@desc Delete an order
 //@access Public
-
 router.delete("/:_id", (req, res) => {
   Order.findByIdAndRemove(req.params._id)
     .then(removedOrder => res.send(removedOrder))
@@ -57,7 +62,6 @@ router.delete("/:_id", (req, res) => {
 //@route UPDATE api/order
 //@desc update an order
 //@access Public
-
 router.put("/:_id", (req, res) => {
   var update = req.body;
   Order.findByIdAndUpdate(req.params._id, update, { new: true })
@@ -68,7 +72,6 @@ router.put("/:_id", (req, res) => {
 //@route GET api/order
 //@desc GET an order
 //@access Public
-
 router.get("/:_id", (req, res) => {
   Order.findById(req.params._id)
     .then(order => res.json(order))
