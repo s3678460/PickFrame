@@ -10,9 +10,8 @@ import QandA from "../Q&A/QandA";
 
 import OrdersPage from "../OrdersPage/OrdersPage";
 import Details from "../Details/Details";
-import UserProfile from "../User/UserProfile";
 import PostRegister from"../LandingPages/PostRegister";
-
+import UserProfileView from "../UserProfileView/UserProfileView"
 import PrivateRoute from '../PrivateRoute/PrivateRoute'
 
 class RouterURL extends Component {
@@ -27,7 +26,7 @@ class RouterURL extends Component {
         <Route path="/checkout" component={OrdersPage} />
         <Route path="/details" component={Details} />
         <PrivateRoute path="/admin/" component={AdminPage} /> 
-        <PrivateRoute path="/userprofile" component={UserProfile} />
+        <PrivateRoute path="/userprofile/" component={UserProfileView} />
         <Route path="/postregister/" component={PostRegister}/>
         <Route path="/Aboutus" component={Aboutus} />
         <Route path="/QA" component={QandA} />
