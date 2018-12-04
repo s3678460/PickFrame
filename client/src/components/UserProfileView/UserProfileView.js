@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from "react-router-dom";
 import { MDBBtn } from "mdbreact";
 import { Fragment } from 'react';
-import { Modal } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
 import {
     getContributor,
     updateContributor
