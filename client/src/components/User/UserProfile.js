@@ -4,20 +4,30 @@ import "./UserProfile.css"
 import { connect } from "react-redux";
 import { getImages, deleteImage, addImage } from "../../actions/imageActions"
 import { MDBInput, MDBContainer, MDBRow, MDBCol, MDBBtn, MDBFileInput } from "mdbreact";
+import timestamp from "time-stamp"
 
 class UserProfile extends Component {
     constructor(props) {
         super(props);
         this.state = {
             selectedFile: null,
-            photoName: ""
+            nameimage: "",
+            price: ""
+
         }
     }
-
+    clearState = () => {
+        this.setState({
+            selectedFile: null,
+            nameimage: "",
+            price: ""
+        })
+    }
     componentDidMount() {
         this.props.getImages();
     }
     handleFileChange = (e) => {
+        console.log(e.target.files[0])
         this.setState({
             selectedFile: e.target.files[0]
         })
@@ -27,7 +37,7 @@ class UserProfile extends Component {
         var deletedImage = {
             imageLink: originalImage
         }
-        axios.post("/api/deleteimages", deletedImage)
+        axios.post("/api/images/deleteimage", deletedImage)
 
     }
     onChange = (e) => {
@@ -40,8 +50,6 @@ class UserProfile extends Component {
     }
     onSubmit = (e) => {
         e.preventDefault();
-        var { photoName } = this.state;
-        console.log(this.state.selectedFile.size.toString())
         const fd = new FormData();
         // const config = {
         //     headers: {
@@ -49,20 +57,21 @@ class UserProfile extends Component {
         //     }
         // }
         fd.append('uploadimage', this.state.selectedFile, this.state.selectedFile.name)
-        axios.post(`http://localhost:5000/api/uploadimages`, fd)
+        axios.post(`/api/images/uploadimage`, fd)
             .then(res => {
                 var newImage = {
-                    imageID: "abc",
-                    name: photoName,
-                    price: "2000",
+                    imageID: `#${Date.now()}`,
+                    name: this.state.nameimage,
+                    price: this.state.price,
                     seller: "Lee Khanh",
                     size: this.state.selectedFile.size.toString(),
-                    uploadDate: "1/12/2018",
+                    uploadDate: timestamp('DD/MM/YYYY'),
                     originalImage: res.data,
                     watermarkImage: res.data,
                     idSeller: "#123"
                 }
                 this.props.addImage(newImage)
+                this.clearState();
             })
     }
     render() {
@@ -120,54 +129,84 @@ class UserProfile extends Component {
             //         </div>
             //     </div>
             // </div>
-            <div className="container mt-4 mb-4" style={{ paddingLeft: "25%", paddingRight: "25%" }}>
-                <div className="container pt-5 pb-5" style={{ backgroundColor: "white" }}>
-                    <form>
-                        <p className="h3 text-center mb-5">Selling New Image</p>
-                        <div className="grey-text">
-                            <MDBInput
-                                label="Name Image"
-                                group
-                                type="text"
-                            />
-                            <MDBInput
-                                label="Price"
-                                group
-                                type="text"
-                            />
+            <div>
+                <div className="container mt-4 mb-4" style={{ paddingLeft: "25%", paddingRight: "25%" }}>
+                    <div className="container pt-5 pb-5" style={{ backgroundColor: "white" }}>
+                        <form onSubmit={this.onSubmit}>
+                            <p className="h3 text-center mb-5">Selling New Image</p>
+                            <div className="grey-text">
+                                <MDBInput
+                                    name="nameimage"
+                                    value={this.state.nameimage}
+                                    onChange={this.onChange}
+                                    label="Name of Image"
+                                    group
+                                    type="text"
+                                />
+                                <MDBInput
+                                    name="price"
+                                    value={this.state.price}
+                                    onChange={this.onChange}
+                                    label="Price"
+                                    group
+                                    type="number"
+                                />
 
-                            <input
-                                style={{ display: "none" }}
-                                type="file"
-                                name="file"
-                                className="form-control"
-                                id="file"
-                                placeholder="File Upload"
-                                onChange={this.handleFileChange}
-                                ref={fileInput => this.fileInput = fileInput}
-                            />
-                            <div className="row">
-                                <div className="col-4">
-                                    <MDBBtn
-                                        size="sm"
-                                        onClick={() => this.fileInput.click()}
-                                    >Upload Image</MDBBtn>
-                                </div>
-                                <div className="col-8">
-                                    <MDBInput
-                                        className="mdbinput"
-                                        hint="Upload your file"
-                                    />
+                                <input
+                                    style={{ display: "none" }}
+                                    type="file"
+                                    name="file"
+                                    className="form-control"
+                                    id="file"
+                                    placeholder="File Upload"
+                                    onChange={this.handleFileChange}
+                                    ref={fileInput => this.fileInput = fileInput}
+                                />
+                                <div className="md-form input-group mb-3">
+                                    <div className="input-group-prepend">
+                                        <button
+                                            onClick={() => this.fileInput.click()}
+                                            className="btn btn-md btn-default m-0 px-3"
+                                            type="button"
+                                            id="MaterialButton-addon1">Upload</button>
+                                    </div>
+                                    <input
+                                        disabled
+                                        value={this.state.selectedFile ? this.state.selectedFile.name : ""}
+                                        type="text"
+                                        className="form-control"
+                                        placeholder="Upload your image"
+                                        aria-describedby="MaterialButton-addon1" />
                                 </div>
                             </div>
-                        </div>
-                        <div className="text-center">
-                            <MDBBtn>Sell</MDBBtn>
-                        </div>
-                    </form>
-                </div>
+                            <div className="text-center">
+                                <MDBBtn type="submit">Sell</MDBBtn>
+                            </div>
+                        </form>
+                    </div>
 
+                </div>
+                {/* <div>
+                    <form className="border border-light p-5">
+                        <p className="h4 mb-4 text-center">Sign in</p>
+                        <input type="email" id="defaultLoginFormEmail" className="form-control mb-4" placeholder="E-mail" />
+                        <input type="password" id="defaultLoginFormPassword" className="form-control mb-4" placeholder="Password" />
+                        
+                        <button className="btn btn-info btn-block my-4" type="submit">Sign in</button>
+                    </form>
+                    <p>Enter your HTML here</p>
+                </div> */}
+
+                <div className="mt-5">
+                    <div className="container" style={{ padding: 20 }}>
+                        <h1 className="text-center mb-5">List Images</h1>
+                        <div className="row">
+                            {showImages}
+                        </div>
+                    </div>
+                </div>
             </div>
+
 
         );
     }

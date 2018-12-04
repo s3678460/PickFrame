@@ -11,31 +11,39 @@ import Contactus from "../ContactUs/Contactus";
 import Sitemap from "../SiteMap/Sitemap";
 
 import OrdersPage from "../OrdersPage/OrdersPage";
-import Details from "../Details/Details";
-import UserProfile from "../User/UserProfile";
 
-import NavigationBar from "../NavigationBar/NavigationBar";
-import FooterPage from "../Footer/FooterPage";
+import Details from "../Details/Details";
+import PostRegister from"../LandingPages/PostRegister";
+import UserProfileView from "../UserProfileView/UserProfileView"
+import SellingPage from"../SellingPage/SellingPage";
+import CurrentSellingPage from"../CurrentSellingPage/CurrentSellingPage";
+
+import PrivateRoute from '../PrivateRoute/PrivateRoute'
 
 class RouterURL extends Component {
   render() {
     return (
       <div>
-        <NavigationBar />
+        <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/view/:type/" component={ViewPage} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/checkout" component={OrdersPage} />
+        
         <Route path="/details" component={Details} />
-        {/* <Route path="/admin/" component={AdminPage} /> */}
-        <Route path="/userprofile/" component={UserProfile} />
+        <PrivateRoute path="/admin/" component={AdminPage} /> 
+        <PrivateRoute path="/userprofile/" component={UserProfileView} />
+        {/* <PrivateRoute path="/userprofile" component={UserProfile} /> */}
+        <PrivateRoute path="/sellingimage/" component={SellingPage}/>
+        <PrivateRoute path="/currentselling/" component={CurrentSellingPage}/>
+        <Route path="/postregister/" component={PostRegister}/>
         <Route path="/Aboutus" component={Aboutus} />
         <Route path="/QA" component={QandA} />
-        <Route path="/Contactus" component={Contactus}/>
         <Route path="/Sitemap" component={Sitemap}/>
-        {/* <Route component={HomePage} /> */}
-        <FooterPage />
+        <Route path="/Contactus" component={Contactus}/>
+        <Route component={HomePage} /> 
+        </Switch>
       </div>
     );
   }

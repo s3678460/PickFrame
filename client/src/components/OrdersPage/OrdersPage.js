@@ -1,9 +1,81 @@
 import React, { Component } from 'react';
 import './OrdersPage.css';
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {addOrders} from "../../actions/orderActions";
+
+import classnames from "classnames";
 
 class OrdersPage extends Component {
+
+    constructor(){
+        super();
+        this.state={
+            companyName: '',
+            address: '',
+            companyPhone: '',
+            accountHolder:'',
+            cardNumber:'',
+            bankName:'',
+            bankBranch:'',
+            email: '',
+            // productId: '',
+            // total: '',
+            // status: '',
+            errors:{}
+
+        };
+    
+    // this.onChange=this.onChange.bind(this);
+    // this.onSubmit=this.onSubmit.bind(this);
+    }
+
+    componentWillReceiveProps(newProps){
+        console.log(newProps);
+        if (newProps.errors){
+            this.setState({errors: newProps.errors})
+        }
+    }
+
+    onChange = (e) =>{
+        this.setState({[e.target.name]: e.target.value});
+    }
+
+    onSubmit = (e) =>{
+        e.preventDefault();
+        // console.log('submit');
+
+        const newOrder = {
+            companyName: this.state.companyName,
+            address: this.state.address,
+            companyPhone: this.state.companyName,
+            accountHolder: this.state.accountHolder,
+            cardNumber: this.state.cardNumber,
+            bankName: this.state.bankName,
+            bankBranch: this.state.bankBranch,
+            email: this.state.email
+        }
+
+        this.props.addOrders(newOrder, this.props.history);
+        this.setState({
+            companyName: '',
+            address: '',
+            companyPhone: '',
+            accountHolder:'',
+            cardNumber:'',
+            bankName:'',
+            bankBranch:'',
+            email: ''
+        })
+        
+    }
+
+
     render() {
+
+        const {errors} = this.state;
+
         return (
             <div className="container-fluid-order" style={{ maxHeight: "100%" }}>
                 <div className="row">
@@ -11,25 +83,84 @@ class OrdersPage extends Component {
                     <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <div className="order-box1">
                             <h1>Checkout</h1>
-                            <div className="checkout-box">
-                                <form className="form-checkout">
+                            <div className="card-body">
+                                <form noValidate className="form-checkout" onSubmit = {this.onSubmit}>
                                     <h2>Billing Information</h2>
-                                    <span><input required type="text" placeholder="Organization or Company" /></span>
-                                    <span><input required type="text" placeholder="Email" /></span>
-                                    <span><input requiredtype="text" placeholder="Address" /></span>
-                                    <span><input required type="text" placeholder="Phone" /></span>
-                                    <h2>Bank Information</h2>
-                                    <span><input required type="text" placeholder="Account holder" /></span>
-                                    <span><input required type="text" placeholder="Card number" /></span>
-                                    <span><input requiredtype="text" placeholder="Bank name" /></span>
-                                    <span><input required type="text" placeholder="Bank branch" /></span>
+                                    <div className = "form-group">
+                                        <input  className={classnames('form-control form-control-lg', {'is-invalid':errors.companyName})} type="text" placeholder="Organization or Company" name="companyName" value={this.state.companyName} onChange={this.onChange} />
+                                        {errors.companyName && (<div className="invalid-feedback" style={{marginLeft:50}}>{errors.companyName}</div>)}
+                                    </div>
+                                    <div className = "form-group">
+                                        <input type = "text"  className={classnames('form-control form-control-lg', {'is-invalid':errors.address})} placeholder="Address" name="address" value={this.state.address} onChange={this.onChange}/>
+                                        {errors.address && (<div className="invalid-feedback" style={{marginLeft:50}}>{errors.address}</div>)}
+                                    </div>
+                                    <div className = "form-group">
+                                        <input  type="text"  className={classnames('form-control form-control-lg', {'is-invalid':errors.companyPhone})} placeholder="Company Phone" name="companyPhone" value={this.state.companyPhone} onChange={this.onChange}/>
+                                        { errors.companyPhone && (<div className="invalid-feedback" style={{marginLeft:50}}>{errors.companyPhone}</div>)}
+                                    </div>
+                                    <div className = "form-group">
+                                        <input type="text" className={classnames('form-control form-control-lg', {'is-invalid':errors.email})} placeholder="Email" name="email" value={this.state.email} onChange={this.onChange} />
+                                        { errors.email && (<div className="invalid-feedback" style={{marginLeft:50}}>{errors.email}</div>)}
+                                    </div>
+                                    
+                                    <h2>Bank Information</h2> 
+                                    <div className = "form-group">
+                                        <input  
+                                            className={classnames('form-control form-control-lg', {'is-invalid':errors.accountHolder})}
+                                            type="text" 
+                                            placeholder="Account holder" 
+                                            name="accountHolder"
+                                            value={this.state.accountHolder} 
+                                            onChange={this.onChange} 
+                                        />
+                                        {errors.accountHolder && (<div className="invalid-feedback" style={{marginLeft:50}}>{errors.accountHolder}</div>)}
+                                    </div>
+
+                                    <div className = "form-group">
+                                        <input  
+                                            className={classnames('form-control form-control-lg', {'is-invalid':errors.accountHolder})}
+                                            type="text" 
+                                            placeholder="Card number" 
+                                            name="cardNumber"
+                                            value={this.state.cardNumber} 
+                                            onChange={this.onChange} 
+                                        />
+                                        {errors.cardNumber && (<div className="invalid-feedback" style={{marginLeft:50}}>{errors.cardNumber}</div>)}
+                                    </div>
+
+                                    <div className = "form-group">
+                                        <input  
+                                            className={classnames('form-control form-control-lg', {'is-invalid':errors.accountHolder})}
+                                            type="text" 
+                                            placeholder="Bank Name" 
+                                            name="bankName"
+                                            value={this.state.bankName} 
+                                            onChange={this.onChange} 
+                                        />
+                                        {errors.bankName && (<div className="invalid-feedback" style={{marginLeft:50}}>{errors.bankName}</div>)}
+                                    </div>
+
+                                    <div className = "form-group">
+                                        <input  
+                                            className={classnames('form-control form-control-lg', {'is-invalid':errors.accountHolder})}
+                                            type="text" 
+                                            placeholder="Bank Branch" 
+                                            name="bankBranch"
+                                            value={this.state.bankBranch} 
+                                            onChange={this.onChange} 
+                                        />
+                                        {errors.bankBranch && (<div className="invalid-feedback" style={{marginLeft:50}}>{errors.bankBranch}</div>)}
+                                    </div>
+
+                                    
+                                    
                                     <div className="total">
-                                    <h2  >Total</h2>
-                                    <b>$30.00 USD</b>
-                                    <b style={{fontSize:"10pt"}}><p>I have read and accept our <Link to="#">Website Terms</Link>, <Link to="#">Privacy Policy</Link>, and <Link to="#">Licensing Terms.</Link> </p></b>
-                                    <button>
-                                    I agree - Pay now
-                                    </button>
+                                        <h2  >Total</h2>
+                                        <b>$30.00 USD</b>
+                                        <b style={{fontSize:"10pt"}}><p>I have read and accept our <Link to="#">Website Terms</Link>, <Link to="#">Privacy Policy</Link>, and <Link to="#">Licensing Terms.</Link> </p></b>
+                                        <button type = "submit" className = "btn btn-info btn-block mt-4">Submit</button>
+                                          
+                                        
                                     </div>
                                 </form>
                             </div>
@@ -85,4 +216,13 @@ class OrdersPage extends Component {
     }
 }
 
-export default OrdersPage;
+OrdersPage.propTypes = {
+    addOrders: PropTypes.func.isRequired,
+    errors: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+    errors: state.errors,
+})
+
+export default connect(mapStateToProps, {addOrders})(OrdersPage);

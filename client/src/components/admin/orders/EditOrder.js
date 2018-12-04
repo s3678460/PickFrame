@@ -57,23 +57,6 @@ class EditOrder extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
     this.props.getOrder(id);
-
-    // const res = await axios.get(`http://localhost:5000/api/orders/${id}`);
-    // const order = res.data;
-    // this.setState({
-    //   companyName: order.companyName,
-    //   address: order.address,
-    //   companyPhone: order.companyPhone,
-    //   accountHolder: order.accountHolder,
-    //   cardNumber: order.cardNumber,
-    //   bankName: order.bankName,
-    //   bankBranch: order.bankBranch,
-    //   email: order.email,
-    //   productId: order.productId,
-    //   total: order.total,
-    //   status: order.status,
-    //   date: order.date
-    // });
   }
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });

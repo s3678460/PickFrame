@@ -35,9 +35,10 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  balance: {
-    type: Number,
-    required: true
+
+  balance:{
+    type:Number,
+    required:false,
   }
 });
 

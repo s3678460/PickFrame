@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const passport = require("passport");
 
 const path = require("path");
 
@@ -8,8 +9,6 @@ const images = require("./routes/api/Images");
 const users = require("./routes/api/Users");
 const admins = require("./routes/api/Admins");
 const orders = require("./routes/api/Orders");
-const uploadimages = require("./routes/api/UploadImages");
-const deleteimages = require("./routes/api/DeleteImages");
 
 const app = express();
 
@@ -18,6 +17,7 @@ app.use(cors());
 
 //Bodyparser Middleware
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
 
 app.use(cors())
 
@@ -33,13 +33,18 @@ mongoose
   .then(() => console.log("MongoDB Connected..."))
   .catch(err => console.log(err));
 
+
+ //Passport middleware
+ app.use(passport.initialize());
+ 
+ //Passport config
+ require("./config/passport")(passport);
+
 //Use Routes
 app.use("/api/images", images);
 app.use("/api/users", users);
 app.use("/api/admins", admins);
 app.use("/api/orders", orders);
-app.use("/api/uploadimages", uploadimages);
-app.use("/api/deleteimages", deleteimages);
 
 //Serve static assets if in production
 

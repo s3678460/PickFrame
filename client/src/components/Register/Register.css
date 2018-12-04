@@ -47,7 +47,7 @@
     margin-right: 3%;
     margin-bottom: 4%;
     display: block;
-    overflow:auto;
+    
 }
 
 .form-registration input{
@@ -57,7 +57,7 @@
     padding:15px;
     background:white;
     
-    border: 2px #FFD900 solid;
+    border: 2px solid #666e6e;
 }
 
 .form-registration input:focus,.box input:active,.box button:focus,.box button:active{
@@ -67,7 +67,7 @@
 
   .form-registration span{
       display: block;
-      overflow: auto;
+      
   }
 
 
@@ -85,7 +85,7 @@
     margin:20px auto;
     display:block;
     cursor:pointer;
-    overflow: hidden;
+    
   }
 
   .form-registration button:hover{

@@ -20,6 +20,11 @@ const Header = () => {
                 <i className="fas fa-user-ninja" /> Contributors
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to="/admin/login" className="nav-link">
+                <i className="fas fa-sign-in-alt" /> Login
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

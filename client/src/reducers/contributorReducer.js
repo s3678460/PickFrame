@@ -2,7 +2,7 @@ import { GET_CONTRIBUTORS } from "../actions/types";
 import { GET_CONTRIBUTOR } from "../actions/types";
 import { DELETE_ORDER } from "../actions/types";
 import { ADD_ORDER } from "../actions/types";
-import { UPDATE_ORDER } from "../actions/types";
+import { UPDATE_CONTRIBUTOR } from "../actions/types";
 
 const initialState = {
   contributors: [],
@@ -20,23 +20,15 @@ export default function(state = initialState, action) {
         ...state,
         contributor: action.payload
       };
-    // case DELETE_ORDER:
-    //   return {
-    //     ...state,
-    //     orders: state.orders.filter(order => order._id !== action.payload)
-    //   };
-    // case ADD_ORDER:
-    //   return {
-    //     ...state,
-    //     orders: [action.payload, ...state.orders]
-    //   };
-    // case UPDATE_ORDER:
-    //   return {
-    //     ...state,
-    //     orders: state.orders.map(order =>
-    //       order._id === action.payload._id ? (order = action.payload) : order
-    //     )
-    //   };
+    case UPDATE_CONTRIBUTOR:
+      return {
+        contributor: action.payload,
+        contributors: state.contributors.map(contributor =>
+          contributor._id === action.payload._id
+            ? (contributor = action.payload)
+            : contributor
+        )
+      };
     default:
       return state;
   }
