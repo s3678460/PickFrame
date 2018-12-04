@@ -8,6 +8,7 @@ const passport = require("passport");
 //Load input validation
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
+const validateEditProfile = require("../../validation/edit");
 
 //Load User model
 const User = require("../../models/User");
@@ -31,38 +32,38 @@ router.get("/:_id", (req, res) => {
 //@access Public
 
 router.post('/register', (req, res) => {
-    const {errors, isValid} =validateRegisterInput(req.body);
+  const { errors, isValid } = validateRegisterInput(req.body);
 
-    if(!isValid){
-        return res.status(400).json(errors)
-    }    
-    User.findOne({ email: req.body.email }).then(user => {
-        if (user) {
-            errors.email = "Email already exists"
-            return res.status(400).json(errors)
-        } else {
-            const newUser = new User({
-                fullName: req.body.fullName,
-                displayName: req.body.displayName,
-                email: req.body.email,
-                password: req.body.password,
-                accountHolder: req.body.accountHolder,
-                cardNumber: req.body.cardNumber,
-                bankName: req.body.bankName,
-                bankBranch: req.body.bankBranch,
-                balance:0,
-            });
-            bcrypt.genSalt(10, (err, salt) => {
-                bcrypt.hash(newUser.password, salt, (err, hash) => {
-                    if (err) throw err;
-                    newUser.password = hash;
-                    newUser.save().then(user => res.json(user))
-                        .catch(err => console.log(err));
-                })
-            })
+  if (!isValid) {
+    return res.status(400).json(errors)
+  }
+  User.findOne({ email: req.body.email }).then(user => {
+    if (user) {
+      errors.email = "Email already exists"
+      return res.status(400).json(errors)
+    } else {
+      const newUser = new User({
+        fullName: req.body.fullName,
+        displayName: req.body.displayName,
+        email: req.body.email,
+        password: req.body.password,
+        accountHolder: req.body.accountHolder,
+        cardNumber: req.body.cardNumber,
+        bankName: req.body.bankName,
+        bankBranch: req.body.bankBranch,
+        balance: 0,
+      });
+      bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(newUser.password, salt, (err, hash) => {
+          if (err) throw err;
+          newUser.password = hash;
+          newUser.save().then(user => res.json(user))
+            .catch(err => console.log(err));
+        })
+      })
 
-        }
-    })
+    }
+  })
 
 
 })
@@ -83,8 +84,16 @@ router.delete("/:_id", (req, res) => {
 
 router.put("/:_id", (req, res) => {
   var update = req.body;
+  const { errors, isValid } = validateEditProfile(req.body);
+  if (!isValid) {
+    return res.status(400).json(errors)
+  }
+
   User.findByIdAndUpdate(req.params._id, update, { new: true })
-    .then(user => res.json(user))
+    .then(user =>
+       res.json(user)
+       
+       )
     .catch(err => res.status(404).json({ update: false }));
 });
 
@@ -119,11 +128,11 @@ router.post("/login", (req, res) => {
           id: user.id,
           fullName: user.fullName,
           displayName: user.displayName,
-          email:user.email,
-          accountHolder:user.accountHolder,
-          cardNumber:user.cardNumber,
-          bankName:user.bankName,
-          bankBranch:user.bankBranch
+          email: user.email,
+          accountHolder: user.accountHolder,
+          cardNumber: user.cardNumber,
+          bankName: user.bankName,
+          bankBranch: user.bankBranch
         }; //Create JWT payload
         //Sign Token
         jwt.sign(
@@ -154,17 +163,17 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     res.json({
-        id:req.user.id,
-        fullName: req.user.fullName,
-        displayName: req.user.displayName,
-        email: req.user.email,
-        accountHolder: req.user.accountHolder,
-        cardNumber: req.user.cardNumber,
-        bankName: req.user.bankName,
-        bankBranch: req.user.bankBranch,
-        balance:0,
+      id: req.user.id,
+      fullName: req.user.fullName,
+      displayName: req.user.displayName,
+      email: req.user.email,
+      accountHolder: req.user.accountHolder,
+      cardNumber: req.user.cardNumber,
+      bankName: req.user.bankName,
+      bankBranch: req.user.bankBranch,
+      balance: 0,
 
     })
-})
+  })
 
 module.exports = router;
