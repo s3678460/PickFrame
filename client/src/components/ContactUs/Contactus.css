@@ -1,0 +1,56 @@
+
+body {
+    background: #D9B280;
+    font-family: "Roboto", sans-serif;
+  }
+
+.container1 {
+  background: rgb(255, 255, 255);
+  width: 900px;
+  height: 800px;
+  margin: 2% auto;
+  position: relative;
+}
+.container1 .map {
+  width: 45%;
+  float: left;
+}
+.container1 .contact-form {
+  width: 53%;
+  margin-left: 2%;
+  float: left;
+}
+.container1 .contact-form .title {
+  font-size: 2.5em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  color: #242424;
+  margin: 5% 8%;
+}
+.container1 .contact-form .subtitle {
+  font-size: 1.2em;
+  font-weight: 400;
+  margin: 0 4% 5% 8%;
+}
+.container1 .contact-form input,
+.container1 .contact-form textarea {
+  width: 330px;
+  padding: 3%;
+  margin: 2% 8%;
+  color: #242424;
+  border: 1px solid #B7B7B7;
+}
+
+.container1 .contact-form input::placeholder,
+.container1 .contact-form textarea::placeholder {
+  color: #242424;
+}
+.container1 .contact-form .btn-send {
+  background: rgb(23, 172, 60);
+  width: 180px;
+  height: 60px;
+  color: #FFFFFF;
+  font-weight: 700;
+  margin: 2% 8%;
+  border: none;
+}
