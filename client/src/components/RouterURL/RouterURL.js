@@ -7,6 +7,8 @@ import Register from "../Register/Register";
 import AdminPage from "../admin/AdminPage";
 import Aboutus from "../Aboutus/Aboutus";
 import QandA from "../Q&A/QandA";
+import Contactus from "../ContactUs/Contactus";
+import Sitemap from "../SiteMap/Sitemap";
 
 import OrdersPage from "../OrdersPage/OrdersPage";
 import Details from "../Details/Details";
@@ -30,6 +32,8 @@ class RouterURL extends Component {
         <Route path="/userprofile/" component={UserProfile} />
         <Route path="/Aboutus" component={Aboutus} />
         <Route path="/QA" component={QandA} />
+        <Route path="/Contactus" component={Contactus}/>
+        <Route path="/Sitemap" component={Sitemap}/>
         {/* <Route component={HomePage} /> */}
         <FooterPage />
       </div>
