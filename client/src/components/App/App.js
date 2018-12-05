@@ -15,10 +15,7 @@ class App extends Component {
           <NavigationBar />
           <RouterURL />
           <FooterPage />
-<<<<<<< HEAD
           {/* <AdminPage /> */}
-=======
->>>>>>> fe54d87bbbb3b5c5b0af4ac427ffa3f98adb9a33
         </div>
       </Router>
     );

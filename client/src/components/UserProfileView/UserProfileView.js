@@ -28,79 +28,25 @@ class UserProfileView extends Component {
 
         };
        
-        this.onChange=this.onChange.bind(this);
-        this.onSubmit=this.onSubmit.bind(this);
+        
         
     }
-    clearForm() {
-        var newState = {
+    
 
-            fullName: '',
-            displayName: '',
-            
-            accountHolder:'',
-            cardNumber:'',
-            bankName:'',
-            bankBranch:'',
-            errors:{}
-    }
-    this.setState(newState)
-}
-
-    onChange(e) {
-        this.setState({[e.target.name]: e.target.value})
-    }
+    
 
     componentWillReceiveProps(nextProps){
+        
         if(nextProps.errors){
             this.setState({errors:nextProps.errors});
         }
 
     }
 
-    onSubmit(e){
-        const { user,isAuthenticated } = this.props.auth;
-        e.preventDefault();
-        const newUserProfile = {
-            fullName:this.state.fullName,
-            displayName:this.state.displayName,
-            accountHolder:this.state.accountHolder,
-            cardNumber:this.state.cardNumber,
-            bankName:this.state.bankName,
-            bankBranch:this.state.bankBranch,
-
-        }
-        
-        this.props.editUser(newUserProfile,this.props.auth.user.id)
-      
-        
-    
-        
-        
-    }
-    
-
-    
-
-    
-    
+   
     render() {
         const { user,isAuthenticated } = this.props.auth;
-        const { errors } = this.state;
-        const editSucess = (
-            <div className="modal-footer">
-                    <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" className="btn btn-default"  >Save Changes and Log-out</button>
-            </div>
-
-        );
-
-        const editFailed = (
-            <div className="modal-footer">
-                    <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" className="btn btn-default"  >Save Changes</button>
-            </div>
-        );
+        
         return (
             <div className="image-profile">
 
@@ -121,89 +67,9 @@ class UserProfileView extends Component {
 " />
                                 </h2></b>
                                 <h3>{user.fullName}</h3>
-                                <button  style={{marginLeft:"26%"}} type="button" className="btn btn-info btn-sm " data-toggle="modal" data-target="#myModal">Edit Profile</button>
-                                {/* Modal */}
-                                <form noValidate onSubmit={this.onSubmit}>
-                                <div id="myModal" className="modal fade" role="dialog">
-                                    <div className="modal-dialog">
-                                        {/* Modal content*/}
-                                        <div className="modal-content">
-                                            <div className="modal-header">
-
-                                                <h4 className="modal-title">Edit Profile</h4>
-                                            </div>
-                                            <div className="modal-body">
-                                            
-                                            {/* Edit User */}
-
-                                            <div className="row">
-
-
-<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6" >
-    
-
-    <b><p style={{marginLeft:50}}>Personal Information</p></b>
-    <span><input  className={classnames('form-control form-control-lg',{
-        'is-invalid':errors.fullName
-    })} type="text" placeholder="Full name" name="fullName" value={this.state.fullName} onChange={this.onChange} />
-    {errors.fullName && (<div className="invalid-feedback" style={{marginLeft:50}}>{errors.fullName}</div> )}
-    </span>
-
-    
-    
-    <span><input  className={classnames('form-control form-control-lg',{
-        'is-invalid':errors.displayName
-    })} type="text" placeholder="Display name" name="displayName" value={this.state.displayName} onChange={this.onChange} />
-    {errors.displayName && (<div className="invalid-feedback" style={{marginLeft:50}}>{errors.displayName}</div> )}
-    </span>
-    
-    
-
-
-
-</div>
-
-<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <b><p style={{marginLeft:50}}>Bank Account Information</p></b>
-    
-    <span><input  className={classnames('form-control form-control-lg',{
-        'is-invalid':errors.accountHolder
-    })} type="text" placeholder="Account holder" name="accountHolder" value={this.state.accountHolder} onChange={this.onChange} />
-    {errors.accountHolder && (<div className="invalid-feedback" style={{marginLeft:50}}>{errors.accountHolder}</div> )}
-    </span>
-    
-    <span><input  className={classnames('form-control form-control-lg',{
-        'is-invalid':errors.cardNumber
-    })} type="text" placeholder="Card number" name="cardNumber" value={this.state.cardNumber} onChange={this.onChange} />
-    {errors.cardNumber && (<div className="invalid-feedback" style={{marginLeft:50}}>{errors.cardNumber}</div> )}
-    </span>
-    
-    <span><input  className={classnames('form-control form-control-lg',{
-        'is-invalid':errors.bankName
-    })} type="text" placeholder="Bank name"  name="bankName" value={this.state.bankName} onChange={this.onChange} />
-    {errors.bankName && (<div className="invalid-feedback" style={{marginLeft:50}}>{errors.bankName}</div> )}
-    </span>
-    
-    <span><input className={classnames('form-control form-control-lg',{
-        'is-invalid':errors.bankBranch
-    })} type="text" placeholder="Bank branch" name="bankBranch" value={this.state.bankBranch} onChange={this.onChange} />
-    {errors.bankBranch && (<div className="invalid-feedback" style={{marginLeft:50}}>{errors.bankBranch}</div> )}</span>
-
-</div>
-
-</div>
-
-
-                                                
-
-                                            {/* Edit User */}
-                                            </div>
-                                            {this.state.errors ? editFailed : editSucess}
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                </form>
+                                <Link to="/editprofile"><button  style={{marginLeft:"26%"}} type="button" className="btn btn-info btn-sm " data-toggle="modal" data-target="#myModal">Edit Profile</button></Link>
+                                
+                                
                             </div>
                             
                             

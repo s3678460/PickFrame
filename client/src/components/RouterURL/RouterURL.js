@@ -11,14 +11,14 @@ import Contactus from "../ContactUs/Contactus";
 import Sitemap from "../SiteMap/Sitemap";
 
 import OrdersPage from "../OrdersPage/OrdersPage";
-
+import PostEditProfile from "../LandingPages/PostEditProfile"
 import Details from "../Details/Details";
-import PostRegister from "../LandingPages/PostRegister";
-import UserProfileView from "../UserProfileView/UserProfileView";
-import SellingPage from "../SellingPage/SellingPage";
-import CurrentSellingPage from "../CurrentSellingPage/CurrentSellingPage";
-
-import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import PostRegister from"../LandingPages/PostRegister";
+import UserProfileView from "../UserProfileView/UserProfileView"
+import SellingPage from"../SellingPage/SellingPage";
+import CurrentSellingPage from"../CurrentSellingPage/CurrentSellingPage";
+import EditProfile from "../UserProfileView/EditProfile"
+import PrivateRoute from '../PrivateRoute/PrivateRoute'
 
 class RouterURL extends Component {
   render() {
@@ -37,7 +37,9 @@ class RouterURL extends Component {
         {/* <PrivateRoute path="/userprofile" component={UserProfile} /> */}
         <PrivateRoute path="/sellingimage/" component={SellingPage}/>
         <PrivateRoute path="/currentselling/" component={CurrentSellingPage}/>
+        <Route path="/editprofile" component={EditProfile}/>
         <Route path="/postregister/" component={PostRegister}/>
+        <Route path="/postedit" component={PostEditProfile}/>
         <Route path="/Aboutus" component={Aboutus} />
         <Route path="/QA" component={QandA} />
         <Route path="/Sitemap" component={Sitemap}/>
