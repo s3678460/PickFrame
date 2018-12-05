@@ -68,10 +68,10 @@ export const logoutUser = () => dispatch => {
 
 
 
-export const editUser = (updateProfile, id) => dispatch => {
+export const editUser = (updateProfile, id,history) => dispatch => {
     axios
         .put(`/api/users/${id}`, updateProfile)
-        .then(alert('Your login-time has expired, Login again to see changes'))
+        
         .then(res => {
             //Remove the token from local storage
             localStorage.removeItem('jwtToken');
@@ -80,6 +80,7 @@ export const editUser = (updateProfile, id) => dispatch => {
             //Set current user to empty object which will set isAuthenticated to false
             dispatch(setCurrentUser({}));
         })
+        .then(res => history.push('/postregister'))
         .catch(err => dispatch({
             type: GET_ERRORS,
             payload: err.response.data
