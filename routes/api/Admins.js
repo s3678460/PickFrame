@@ -1,64 +1,64 @@
-const express = require("express")
+const express = require("express");
 const router = express.Router();
-
+const jwt = require("jsonwebtoken");
+const keys = require("../../config/keys");
+const passport = require("passport");
 //Admin model
-const Admin = require("../../models/Admin")
+const Admin = require("../../models/Admin");
 
+// @route GET api/admins/login
+// @desc Login Admin / Returning JWT Token
+// @access Public
+router.post("/login", (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
 
-//@route GET api/admins
-//@desc GET ALL admins
-//@access Public
+  // Find admin by email
+  Admin.findOne({ email }).then(admin => {
+    // Check for admin
+    if (!admin) {
+      return res.status(404).json({ email: "User not found" });
+    }
+    // Check password
+    if (password === admin.password) {
+      // Admin matched
+      const payload = {
+        id: admin._id,
+        fullName: admin.fullName,
+        displayName: admin.displayName
+      }; // create JWT payload
 
-router.get("/", (req,res)=>{
-    Admin.find()
-    .then(admins => res.json(admins))
-})
+      // Sign token
+      jwt.sign(
+        payload,
+        keys.adminSecretOrKey,
+        { expiresIn: 3600 },
+        (err, token) => {
+          res.json({
+            success: true,
+            token: "Bearer " + token
+          });
+        }
+      );
+    } else {
+      return res.status(400).json({ password: "Password incorrect" });
+    }
+  });
+});
 
-
-//@route POST api/admin
-//@desc Create an admin
-//@access Public
-
-router.post('/', (req,res)=>{
-    const newAdmin = new Admin({
-        fullName: req.body.fullName,
-        displayName: req.body.displayName,
-        email: req.body.email,
-        password: req.body.password
-    })
-    newAdmin.save().then(admin => res.json(admin))
-})
-
-//@route DELETE api/admin
-//@desc Delete an admin
-//@access Public
-
-router.delete('/:_id', (req, res)=>{
-    Admin.findByIdAndRemove(req.params._id)
-    .then(removedAdmin => res.send(removedAdmin))
-    .catch(err => res.status(404).json({success: false}))
-})
-
-
-//@route UPDATE api/admin
-//@desc update an admin
-//@access Public
-
-router.put('/:_id', (req, res)=>{
-    var update = req.body;
-    Admin.findByIdAndUpdate(req.params._id, update)
-    .then(()=> res.json({update: true}))
-    .catch(err => res.status(404).json({update: false}))
-})
-
-//@route GET api/admin
-//@desc GET an admin
-//@access Public
-
-router.get('/:_id', (req, res)=>{
-    Admin.findById(req.params._id)
-    .then(admin => res.json(admin))
-    .catch(err => res.status(404).json({get: false}))
-})
-
+// @route GET api/admins/current
+// @desc Return current admin
+// @access Private
+router.get(
+  "/current",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    res.json({
+      id: req.user._id,
+      fullName: req.user.name,
+      displayName: req.user.displayName,
+      email: req.user.email
+    });
+  }
+);
 module.exports = router;
