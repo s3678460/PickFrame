@@ -25,27 +25,6 @@ class RouterURL extends Component {
     return (
       <div>
         <Switch>
-<<<<<<< HEAD
-          <Route exact path="/" component={HomePage} />
-          <Route path="/view/:type/" component={ViewPage} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-          <Route path="/checkout" component={OrdersPage} />
-
-          <Route path="/details" component={Details} />
-          <Route path="/admin/" component={AdminPage} />
-          <PrivateRoute path="/userprofile/" component={UserProfileView} />
-          {/* <PrivateRoute path="/userprofile" component={UserProfile} /> */}
-          <PrivateRoute path="/sellingimage/" component={SellingPage} />
-          <PrivateRoute
-            path="/currentselling/"
-            component={CurrentSellingPage}
-          />
-          <Route path="/postregister/" component={PostRegister} />
-          <Route path="/Aboutus" component={Aboutus} />
-          <Route path="/QA" component={QandA} />
-          <Route component={HomePage} />
-=======
         <Route exact path="/" component={HomePage} />
         <Route path="/view/:type/" component={ViewPage} />
         <Route path="/login" component={Login} />
@@ -64,7 +43,6 @@ class RouterURL extends Component {
         <Route path="/Sitemap" component={Sitemap}/>
         <Route path="/Contactus" component={Contactus}/>
         <Route component={HomePage} /> 
->>>>>>> fe54d87bbbb3b5c5b0af4ac427ffa3f98adb9a33
         </Switch>
       </div>
     );
