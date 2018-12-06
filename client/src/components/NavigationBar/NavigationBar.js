@@ -23,11 +23,11 @@ class NavigationBar extends Component {
     });
   }
 
-  onLogoutClick(e) {
+ onLogoutClick(e) {
     e.preventDefault();
     this.props.logoutUser();
 
-  }
+  } 
 
   render() {
     const bgNav = { backgroundColor: 'black' }

@@ -17,9 +17,9 @@ app.use(cors());
 
 //Bodyparser Middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(cors())
+app.use(cors());
 
 //DB config
 const db = require("./config/keys").mongoURI;
@@ -33,12 +33,12 @@ mongoose
   .then(() => console.log("MongoDB Connected..."))
   .catch(err => console.log(err));
 
+//Passport middleware
+app.use(passport.initialize());
 
- //Passport middleware
- app.use(passport.initialize());
- 
- //Passport config
- require("./config/passport")(passport);
+//Passport config
+require("./config/passport")(passport);
+require("./config/admin-passport")(passport);
 
 //Use Routes
 app.use("/api/images", images);
@@ -53,7 +53,6 @@ app.use("/api/orders", orders);
 // app.get("/*", function (req, res) {
 //   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 // });
-
 
 const port = process.env.PORT || 5000;
 
