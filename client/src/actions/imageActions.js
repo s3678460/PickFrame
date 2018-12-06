@@ -75,6 +75,7 @@ export const updateImage = (newImage) => dispatch => {
             type: UPDATE_IMAGE,
             payload: res.data
         }))
+        .then(res => dispatch(getUserImages()))
         .then(res => dispatch({
             type: GET_ERRORS,
             payload: {}

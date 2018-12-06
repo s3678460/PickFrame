@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { MDBIcon, MDBBtn } from "mdbreact"
+import bgImage from "../../images/demo4.jpg"
 import { connect } from "react-redux";
 import {
     Modal,
@@ -10,6 +11,7 @@ import {
 } from "mdbreact"
 
 import {
+    Label,
     Col,
     Form,
     FormGroup,
@@ -20,7 +22,7 @@ import {
     CustomInput
 } from 'reactstrap';
 import classNames from "classnames"
-import { getUserImages, deleteImage } from "../../actions/imageActions"
+import { getUserImages, deleteImage, updateImage } from "../../actions/imageActions"
 
 class CurrentSellingPage extends Component {
     constructor(props) {
@@ -36,7 +38,7 @@ class CurrentSellingPage extends Component {
             uploadDate: "",
             originalImage: "",
             watermarkImage: "",
-            idSeller: "",
+            user: "",
             errors: {},
             modal: false
         }
@@ -69,8 +71,40 @@ class CurrentSellingPage extends Component {
             this.props.deleteImage(_id, originalImage)
         }
     }
+    handleEdit = () => {
+        var {
+            imageID,
+            name,
+            price,
+            seller,
+            width,
+            height,
+            category,
+            uploadDate,
+            originalImage,
+            watermarkImage,
+            user
+        } = this.state;
+        var newUpdate = {
+            imageID,
+            name,
+            price,
+            seller,
+            width,
+            height,
+            category,
+            uploadDate,
+            originalImage,
+            watermarkImage,
+            user
+        }
+        this.props.updateImage(newUpdate)
+        this.setState({
+            modal: false
+        })
+    }
     onToggleEdit(image) {
-        
+
         // var newImage = {
         //     imageID: `#${Date.now()}`,
         //     name: this.state.nameImage,
@@ -96,7 +130,7 @@ class CurrentSellingPage extends Component {
             uploadDate: image.uploadDate,
             originalImage: image.originalImage,
             watermarkImage: image.watermarkImage,
-            idSeller: image.idSeller
+            user: image.user
         })
         this.toggle()
     }
@@ -104,7 +138,7 @@ class CurrentSellingPage extends Component {
     render() {
         var { errors } = this.state;
         var { images } = this.props.image;
-        console.log(images)
+        console.log(this.state)
         //render list images
         var listImages = images.map((image, index) => {
             return (
@@ -121,7 +155,7 @@ class CurrentSellingPage extends Component {
                                     <h2 className="h2-responsive">{image.name}</h2>
                                     <dl className="row">
                                         <dt className="col-sm-3">ID</dt>
-                                        <dd className="col-sm-9">#123456</dd>
+                                        <dd className="col-sm-9">{image.imageID}</dd>
                                         <dt className="col-sm-3">Size</dt>
                                         <dd className="col-sm-9">{image.size.width}x{image.size.height}</dd>
                                         <dt className="col-sm-3">Category</dt>
@@ -131,18 +165,23 @@ class CurrentSellingPage extends Component {
                                         <dt className="col-sm-3">Price</dt>
                                         <dd className="col-sm-9">{image.price}$</dd>
                                     </dl>
-                                    <MDBBtn
-                                        color="primary"
-                                        onClick={() => this.onToggleEdit(image)}
-                                    >
-                                        <MDBIcon icon="edit" className="mr-1" /> Edit
+                                    <div className="row">
+                                        <div className="col-sm-12">
+                                            <MDBBtn
+                                                color="primary"
+                                                onClick={() => this.onToggleEdit(image)}
+                                            >
+                                                <MDBIcon icon="edit" className="mr-1" /> Edit
                                         </MDBBtn>
-                                    <MDBBtn
-                                        onClick={() => this.onDelete(image._id, image.originalImage)}
-                                        color="red"
-                                    >
-                                        Delete <MDBIcon icon="close" className="ml-1" />
-                                    </MDBBtn>
+                                            <MDBBtn
+                                                onClick={() => this.onDelete(image._id, image.originalImage)}
+                                                color="red"
+                                            >
+                                                Delete <MDBIcon icon="close" className="ml-1" />
+                                            </MDBBtn>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -152,17 +191,24 @@ class CurrentSellingPage extends Component {
         })
 
         return (
-            <div className="pt-5 pb-5">
+            <div
+                className="pt-5 pb-5"
+                style={{
+                    backgroundImage: `url(${bgImage})`,
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat'
+                }}>
                 <div className="container">
                     {/* modal */}
-                    <Modal isOpen={this.state.modal} toggle={this.toggle} fullHeight position="right">
+                    <Modal centered isOpen={this.state.modal} toggle={this.toggle} position="right">
                         <ModalHeader toggle={this.toggle}>Edite Table</ModalHeader>
                         <ModalBody>
                             <Form onSubmit={this.onSubmit}>
                                 {/* name */}
                                 <FormGroup row>
-                                    {/* <Label for="nameImage" sm={2}>Name image</Label> */}
-                                    <Col sm={12}>
+                                    <Label for="nameImage" sm={2}>Name image</Label>
+                                    <Col sm={10}>
                                         <Input
                                             className={classNames('', { 'is-invalid': errors.name })}
                                             value={this.state.name}
@@ -177,8 +223,8 @@ class CurrentSellingPage extends Component {
                                 </FormGroup>
                                 {/* size width */}
                                 <FormGroup row >
-                                    {/* <Label for="width" sm={2}>Width</Label> */}
-                                    <Col sm={12}>
+                                    <Label for="width" sm={2}>Width</Label>
+                                    <Col sm={10}>
                                         <Input
                                             className={classNames('', { 'is-invalid': errors.sizeWidth })}
                                             value={this.state.width}
@@ -193,8 +239,8 @@ class CurrentSellingPage extends Component {
                                 </FormGroup>
                                 {/* size height  */}
                                 <FormGroup row>
-                                    {/* <Label for="height" sm={2}>Height</Label> */}
-                                    <Col sm={12}>
+                                    <Label for="height" sm={2}>Height</Label>
+                                    <Col sm={10}>
                                         <Input
                                             className={classNames('', { 'is-invalid': errors.sizeHeight })}
                                             value={this.state.height}
@@ -210,8 +256,8 @@ class CurrentSellingPage extends Component {
 
                                 {/* Selected category */}
                                 <FormGroup row>
-                                    {/* <Label for="category" sm={2}>Category</Label> */}
-                                    <Col sm={12}>
+                                    <Label for="category" sm={2}>Category</Label>
+                                    <Col sm={10}>
                                         <Input
                                             className={classNames('', { 'is-invalid': errors.category })}
                                             type="select"
@@ -233,8 +279,8 @@ class CurrentSellingPage extends Component {
 
                                 {/* price */}
                                 <FormGroup row>
-                                    {/* <Label for="price" sm={2}>Price</Label> */}
-                                    <Col sm={12}>
+                                    <Label for="price" sm={2}>Price</Label>
+                                    <Col sm={10}>
                                         <Input
                                             className={classNames('', { 'is-invalid': errors.price })}
                                             value={this.state.price}
@@ -249,8 +295,11 @@ class CurrentSellingPage extends Component {
                                 </FormGroup>
                                 <FormGroup check row className="text-center pt-5">
                                     <Col sm={12}>
-                                        <Button color="secondary" onClick={this.toggle}>Close</Button>
-                                        <Button color="default">Save changes</Button>
+                                        <Button color="red" onClick={this.toggle}>Close</Button>
+                                        <Button
+                                            onClick={this.handleEdit}
+                                            color="primary"
+                                        >Save changes</Button>
                                     </Col>
                                 </FormGroup>
                             </Form>
@@ -259,7 +308,7 @@ class CurrentSellingPage extends Component {
                     {!this.state.errors.noimage
                         ? ""
                         : (<div style={{ paddingTop: 100, paddingBottom: 100 }}>
-                            <h1 className="text-center text-muted">{this.state.errors.noimage ? this.state.errors.noimage : ""}</h1>
+                            <h1 className="text-center text-white">{this.state.errors.noimage ? this.state.errors.noimage : ""}</h1>
                         </div>)
                     }
                     {listImages}
@@ -311,4 +360,4 @@ const mapStateTpProps = state => {
     }
 }
 
-export default connect(mapStateTpProps, { getUserImages, deleteImage })(CurrentSellingPage);
+export default connect(mapStateTpProps, { getUserImages, deleteImage, updateImage })(CurrentSellingPage);
