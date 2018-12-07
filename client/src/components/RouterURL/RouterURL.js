@@ -11,40 +11,43 @@ import Contactus from "../ContactUs/Contactus";
 import Sitemap from "../SiteMap/Sitemap";
 
 import OrdersPage from "../OrdersPage/OrdersPage";
-import PostEditProfile from "../LandingPages/PostEditProfile"
+import PostEditProfile from "../LandingPages/PostEditProfile";
 import Details from "../Details/Details";
-import PostRegister from"../LandingPages/PostRegister";
-import UserProfileView from "../UserProfileView/UserProfileView"
-import SellingPage from"../SellingPage/SellingPage";
-import CurrentSellingPage from"../CurrentSellingPage/CurrentSellingPage";
-import EditProfile from "../UserProfileView/EditProfile"
-import PrivateRoute from '../PrivateRoute/PrivateRoute'
+import PostRegister from "../LandingPages/PostRegister";
+import UserProfileView from "../UserProfileView/UserProfileView";
+import SellingPage from "../SellingPage/SellingPage";
+import CurrentSellingPage from "../CurrentSellingPage/CurrentSellingPage";
+import EditProfile from "../UserProfileView/EditProfile";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 class RouterURL extends Component {
   render() {
     return (
       <div>
         <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/view/:type/" component={ViewPage} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-        <Route path="/checkout" component={OrdersPage} />
-        
-        <Route path="/details" component={Details} />
-        <PrivateRoute path="/admin/" component={AdminPage} /> 
-        <PrivateRoute path="/userprofile/" component={UserProfileView} />
-        {/* <PrivateRoute path="/userprofile" component={UserProfile} /> */}
-        <PrivateRoute path="/sellingimage/" component={SellingPage}/>
-        <PrivateRoute path="/currentselling/" component={CurrentSellingPage}/>
-        <Route path="/editprofile" component={EditProfile}/>
-        <Route path="/postregister/" component={PostRegister}/>
-        <Route path="/postedit" component={PostEditProfile}/>
-        <Route path="/Aboutus" component={Aboutus} />
-        <Route path="/QA" component={QandA} />
-        <Route path="/Sitemap" component={Sitemap}/>
-        <Route path="/Contactus" component={Contactus}/>
-        <Route component={HomePage} /> 
+          <Route exact path="/" component={HomePage} />
+          <Route path="/view/:type/" component={ViewPage} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/checkout" component={OrdersPage} />
+
+          <Route path="/details" component={Details} />
+          <Route path="/admin/" component={AdminPage} />
+          <PrivateRoute path="/userprofile/" component={UserProfileView} />
+          {/* <PrivateRoute path="/userprofile" component={UserProfile} /> */}
+          <PrivateRoute path="/sellingimage/" component={SellingPage} />
+          <PrivateRoute
+            path="/currentselling/"
+            component={CurrentSellingPage}
+          />
+          <Route path="/editprofile" component={EditProfile} />
+          <Route path="/postregister/" component={PostRegister} />
+          <Route path="/postedit" component={PostEditProfile} />
+          <Route path="/Aboutus" component={Aboutus} />
+          <Route path="/QA" component={QandA} />
+          <Route path="/Sitemap" component={Sitemap} />
+          <Route path="/Contactus" component={Contactus} />
+          <Route component={HomePage} />
         </Switch>
       </div>
     );
