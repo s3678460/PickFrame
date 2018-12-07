@@ -18,6 +18,11 @@ export const UPDATE_IMAGE = "UPDATE_IMAGE";
 
 //User type
 
-export const GET_ERRORS = "GET_ERRORS"
-export const SET_CURRENT_USER = "SET_CURRENT_USER"
-export const EDIT_USER = "EDIT_USER" 
+export const GET_ERRORS = "GET_ERRORS";
+export const SET_CURRENT_USER = "SET_CURRENT_USER";
+export const EDIT_USER = "EDIT_USER";
+
+// Login
+export const SET_LOGIN_PENDING = "SET_LOGIN_PENDING";
+export const SET_LOGIN_SUCCESS = "SET_LOGIN_SUCCESS";
+export const SET_LOGIN_ERROR = "SET_LOGIN_ERROR";

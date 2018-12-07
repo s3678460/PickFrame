@@ -11,14 +11,14 @@ import Contactus from "../ContactUs/Contactus";
 import Sitemap from "../SiteMap/Sitemap";
 
 import OrdersPage from "../OrdersPage/OrdersPage";
-import PostEditProfile from "../LandingPages/PostEditProfile"
+import PostEditProfile from "../LandingPages/PostEditProfile";
 import Details from "../Details/Details";
-import PostRegister from"../LandingPages/PostRegister";
-import UserProfileView from "../UserProfileView/UserProfileView"
-import SellingPage from"../SellingPage/SellingPage";
-import CurrentSellingPage from"../CurrentSellingPage/CurrentSellingPage";
-import EditProfile from "../UserProfileView/EditProfile"
-import PrivateRoute from '../PrivateRoute/PrivateRoute'
+import PostRegister from "../LandingPages/PostRegister";
+import UserProfileView from "../UserProfileView/UserProfileView";
+import SellingPage from "../SellingPage/SellingPage";
+import CurrentSellingPage from "../CurrentSellingPage/CurrentSellingPage";
+import EditProfile from "../UserProfileView/EditProfile";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 class RouterURL extends Component {
   render() {
@@ -30,7 +30,6 @@ class RouterURL extends Component {
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/checkout" component={OrdersPage} />
-        
         <Route path="/details/:_id" component={Details} />
         <PrivateRoute path="/admin/" component={AdminPage} /> 
         <PrivateRoute path="/userprofile/" component={UserProfileView} />
