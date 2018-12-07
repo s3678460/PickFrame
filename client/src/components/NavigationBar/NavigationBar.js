@@ -85,12 +85,6 @@ class NavigationBar extends Component {
               <NavItem>
                 <NavLink to="/view/photos"><a style={{ fontWeight: "bold" }}>Photos</a></NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink to="/view/illustrations"><a style={{ fontWeight: "bold" }}>Illustrations</a></NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to="/view/vectors"><a style={{ fontWeight: "bold" }}>Vectors</a></NavLink>
-              </NavItem>
             </NavbarNav>
             {isAuthenticated ? authLinks : guestLinks}
           </Collapse>
