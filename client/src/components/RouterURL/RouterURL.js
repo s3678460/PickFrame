@@ -14,7 +14,7 @@ import EditPassword from "../UserProfileView/EditPassword"
 import OrdersPage from "../OrdersPage/OrdersPage";
 import PostEditProfile from "../LandingPages/PostEditProfile"
 import ConfirmPassword from "../UserProfileView/ConfirmPassword"
-import PostEditProfile from "../LandingPages/PostEditProfile";
+
 import Details from "../Details/Details";
 import PostRegister from "../LandingPages/PostRegister";
 import UserProfileView from "../UserProfileView/UserProfileView";
