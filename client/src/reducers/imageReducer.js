@@ -12,6 +12,11 @@ export default function (state = initialState, action) {
                 ...state,
                 images: action.payload
             }
+        case GET_IMAGE:
+            return {
+                ...state,
+                images: action.payload
+            }
         case GET_USER_IMAGES:
             return {
                 ...state,

@@ -24,9 +24,18 @@ export const getUserImages = () => dispatch => {
 }
 export const getImages = () => dispatch => {
     axios
-        .get('/api/images')
+        .get('/api/images/all')
         .then(res => dispatch({
             type: GET_IMAGES,
+            payload: res.data
+        }))
+}
+
+export const getImage = (id) => dispatch => {
+    axios
+        .get(`/api/images/${id}`)
+        .then(res => dispatch({
+            type: GET_IMAGE,
             payload: res.data
         }))
 }

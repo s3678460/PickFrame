@@ -8,9 +8,11 @@ import ContributorDetails from "./contributors/ContributorDetails";
 import Login from "./auth/Login";
 import NotFound from "./NotFound";
 
+import { connect } from "react-redux";
+
 class AdminPage extends Component {
   render() {
-    return (
+    return this.props.isLoginSuccess ? (
       <Router>
         <div className="AdminPage">
           <Header />
@@ -34,8 +36,19 @@ class AdminPage extends Component {
           </div>
         </div>
       </Router>
+    ) : (
+      <Login />
     );
   }
 }
 
-export default AdminPage;
+const mapStateToProps = state => {
+  return {
+    isLoginSuccess: state.login.isLoginSuccess
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(AdminPage);

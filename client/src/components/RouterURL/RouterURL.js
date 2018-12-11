@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import HomePage from "../HomePage/HomePage";
-import ViewPage from "../ViewPage/ViewPage";
+import ViewPageType from "../ViewPageType/ViewPageType";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
 import AdminPage from "../admin/AdminPage";
@@ -14,13 +14,14 @@ import EditPassword from "../UserProfileView/EditPassword"
 import OrdersPage from "../OrdersPage/OrdersPage";
 import PostEditProfile from "../LandingPages/PostEditProfile"
 import ConfirmPassword from "../UserProfileView/ConfirmPassword"
+import PostEditProfile from "../LandingPages/PostEditProfile";
 import Details from "../Details/Details";
-import PostRegister from"../LandingPages/PostRegister";
-import UserProfileView from "../UserProfileView/UserProfileView"
-import SellingPage from"../SellingPage/SellingPage";
-import CurrentSellingPage from"../CurrentSellingPage/CurrentSellingPage";
-import EditProfile from "../UserProfileView/EditProfile"
-import PrivateRoute from '../PrivateRoute/PrivateRoute'
+import PostRegister from "../LandingPages/PostRegister";
+import UserProfileView from "../UserProfileView/UserProfileView";
+import SellingPage from "../SellingPage/SellingPage";
+import CurrentSellingPage from "../CurrentSellingPage/CurrentSellingPage";
+import EditProfile from "../UserProfileView/EditProfile";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 class RouterURL extends Component {
   render() {
@@ -28,12 +29,11 @@ class RouterURL extends Component {
       <div>
         <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/view/:type/" component={ViewPage} />
+        <Route path="/view/:type/" component={ViewPageType} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/checkout" component={OrdersPage} />
-        
-        <Route path="/details" component={Details} />
+        <Route path="/details/:_id" component={Details} />
         <PrivateRoute path="/admin/" component={AdminPage} /> 
         <PrivateRoute path="/userprofile/" component={UserProfileView} />
         {/* <PrivateRoute path="/userprofile" component={UserProfile} /> */}

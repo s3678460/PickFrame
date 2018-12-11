@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "./SellingPage.css"
 import bgImage from "../../images/demo2.jpg"
+import { getImageSize } from "image-file-size"
 import {
     Col,
     Button,
@@ -54,10 +55,30 @@ class SellingPage extends Component {
 
     handleFileChange = (e) => {
         var selectedFileName = e.target.files[0] ? e.target.files[0].name : ""
-        this.setState({
-            selectedFile: e.target.files[0],
-            selectedFileName
-        })
+        var selectedFile = e.target.files[0] ? e.target.files[0] : null
+        if (selectedFile) {
+            console.log(true)
+            getImageSize(selectedFile)
+                .then(result => {
+                    const height = result.height;
+                    const width = result.width;
+                    this.setState({
+                        selectedFile,
+                        selectedFileName,
+                        height,
+                        width
+                    })
+                })
+
+        }
+        else {
+            this.setState({
+                selectedFile: null,
+                selectedFileName: "",
+                height: "",
+                width: ""
+            })
+        }
     }
 
     onChange = (e) => {
@@ -82,8 +103,8 @@ class SellingPage extends Component {
                 name: this.state.nameImage,
                 price: this.state.price,
                 seller: user.fullName,
-                width: this.state.width,
-                height: this.state.height,
+                width: this.state.width.toString(),
+                height: this.state.height.toString(),
                 category: this.state.category,
                 uploadDate: timestamp('DD/MM/YYYY'),
                 originalImage: fileName,
@@ -99,8 +120,8 @@ class SellingPage extends Component {
                 name: this.state.nameImage,
                 price: this.state.price,
                 seller: user.fullName,
-                width: this.state.width,
-                height: this.state.height,
+                width: this.state.width.toString(),
+                height: this.state.height.toString(),
                 category: this.state.category,
                 uploadDate: timestamp('DD/MM/YYYY'),
                 originalImage: '',
@@ -111,7 +132,7 @@ class SellingPage extends Component {
         }
     }
     render() {
-        console.log(this.props.errors)
+        console.log(this.state)
         var { errors } = this.state;
         return (
             <div style={{
@@ -140,38 +161,6 @@ class SellingPage extends Component {
                                                 onChange={this.onChange}
                                             />
                                             {errors.name && (<FormFeedback>{errors.name}</FormFeedback>)}
-                                        </Col>
-                                    </FormGroup>
-                                    {/* size width */}
-                                    <FormGroup row >
-                                        {/* <Label for="width" sm={2}>Width</Label> */}
-                                        <Col sm={12}>
-                                            <Input
-                                                className={classNames('', { 'is-invalid': errors.sizeWidth })}
-                                                value={this.state.width}
-                                                type="number"
-                                                name="width"
-                                                id="width"
-                                                placeholder="The width of your image"
-                                                onChange={this.onChange}
-                                            />
-                                            {errors.sizeWidth && (<FormFeedback>{errors.sizeWidth}</FormFeedback>)}
-                                        </Col>
-                                    </FormGroup>
-                                    {/* size height  */}
-                                    <FormGroup row>
-                                        {/* <Label for="height" sm={2}>Height</Label> */}
-                                        <Col sm={12}>
-                                            <Input
-                                                className={classNames('', { 'is-invalid': errors.sizeHeight })}
-                                                value={this.state.height}
-                                                type="number"
-                                                name="height"
-                                                id="height"
-                                                placeholder="The height of your image"
-                                                onChange={this.onChange}
-                                            />
-                                            {errors.sizeHeight && (<FormFeedback>{errors.sizeHeight}</FormFeedback>)}
                                         </Col>
                                     </FormGroup>
 

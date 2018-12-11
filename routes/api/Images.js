@@ -10,9 +10,6 @@ const isEmty = require("../../validation/is-empty")
 //Load Image model
 const Image = require("../../models/Image")
 
-//Load User model
-const User = require("../../models/User")
-
 
 //Test API
 
