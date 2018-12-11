@@ -9,7 +9,6 @@ class ViewPageType extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
         }
     }
     componentDidMount() {
@@ -17,14 +16,17 @@ class ViewPageType extends Component {
     }
 
     render() {
-        const type = this.props.match.params.type
         const { images } = this.props.image
         //return images
         var listImages = images.map((image, index) => {
             return <div key={index} className="col-4 pt-4">
                 <Link to={`/details/${image._id}`}>
                     <div className="containerImage hoverable">
-                        <img src={process.env.PUBLIC_URL + `/storageimages/${image.originalImage}`} alt="Avatar" className="imageCata" />
+                        <img 
+                        src={process.env.PUBLIC_URL + `/storageimages/${image.originalImage}`} 
+                        alt={image.name}
+                        className="imageCata"
+                        />
                         <div className="overlayCata">{image.name}</div>
                         <div className="overlayID">{image.imageID}</div>
                     </div>

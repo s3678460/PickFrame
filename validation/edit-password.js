@@ -2,7 +2,7 @@ const isEmpty =require("./is-empty") ;
 const Validator = require("validator");
 
 
-module.exports=function validateEditProfile(data){
+module.exports=function validateEditPasswordProfile(data){
     let errors ={};
 
     // data.fullName =!isEmpty(data.fullName)? data.fullName:' ';
@@ -15,19 +15,12 @@ module.exports=function validateEditProfile(data){
     // data.bankBranch=!isEmpty(data.bankBranch) ? data.bankBranch : ' ';
     
 
-    if(!Validator.isEmail(data.email)){
-        errors.email="Email is invalid";
-    }
-    if (!Validator.isLength(data.displayName,{min:6,max:30})){
-        errors.displayName = 'Display name must be between 6 and 30 characters'
+    if(Validator.isEmpty(data.password)){
+        errors.password="Password field is required";
     }
 
-    if(Validator.isEmpty(data.displayName)){
-        errors.displayName="Name field is required";
-    }
-
-    if(Validator.isEmpty(data.fullName)){
-        errors.fullName="Full name field is required";
+    if(!Validator.isLength(data.password,{min:6,max:20})){
+        errors.password="Password must be between 6 and 20 characters";
     }
 
    

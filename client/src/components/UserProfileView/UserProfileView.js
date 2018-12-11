@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from "react-router-dom";
 import { MDBBtn } from "mdbreact";
 import { Fragment } from 'react';
+import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
 
 import {
     logoutUser,
@@ -67,7 +68,17 @@ class UserProfileView extends Component {
 " />
                                 </h2></b>
                                 <h3>{user.fullName}</h3>
-                                <Link to="/editprofile"><button  style={{marginLeft:"26%"}} type="button" className="btn btn-info btn-sm " data-toggle="modal" data-target="#myModal">Edit Profile</button></Link>
+                                <Link to="/editprofile"><button  style={{marginLeft:"26%"}} type="button" className="btn btn-info btn-sm " >Edit Profile</button></Link>
+                                <div className="dropdown">
+        <button className="btn btn-secondary btn-sm dropdown-toggle" style={{marginLeft:"23%"}} type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Edit Account
+        </button>
+        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <Link to="/editemail"><a className="dropdown-item " href="#">Email</a></Link>
+          <Link to="/confirmpassword"><a className="dropdown-item" href="#">Password</a></Link>
+          
+        </div>
+      </div>
                                 
                                 
                             </div>

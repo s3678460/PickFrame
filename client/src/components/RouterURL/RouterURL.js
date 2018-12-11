@@ -12,8 +12,12 @@ import Sitemap from "../SiteMap/Sitemap";
 import LegalPrivacy from "../LegalPrivacy/LegalPrivacy";
 import LicenseTerm from "../LicenseTerm/LicenseTerm";
 
+import EditAccountEmail from "../UserProfileView/EditAccountEmail"
+import EditPassword from "../UserProfileView/EditPassword"
 import OrdersPage from "../OrdersPage/OrdersPage";
-import PostEditProfile from "../LandingPages/PostEditProfile";
+import PostEditProfile from "../LandingPages/PostEditProfile"
+import ConfirmPassword from "../UserProfileView/ConfirmPassword"
+
 import Details from "../Details/Details";
 import PostRegister from "../LandingPages/PostRegister";
 import UserProfileView from "../UserProfileView/UserProfileView";
@@ -39,8 +43,11 @@ class RouterURL extends Component {
         <PrivateRoute path="/sellingimage/" component={SellingPage}/>
         <PrivateRoute path="/currentselling/" component={CurrentSellingPage}/>
         <Route path="/editprofile" component={EditProfile}/>
+        <Route path ="/editemail" component = {EditAccountEmail}/>
+        <Route path ="/editpassword" component = {EditPassword}/>
         <Route path="/postregister/" component={PostRegister}/>
         <Route path="/postedit" component={PostEditProfile}/>
+        <Route path="/confirmpassword" component={ConfirmPassword}/>
         <Route path="/Aboutus" component={Aboutus} />
         <Route path="/QA" component={QandA} />
         <Route path="/Sitemap" component={Sitemap}/>
