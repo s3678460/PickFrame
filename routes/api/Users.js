@@ -9,6 +9,7 @@ const passport = require("passport");
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 const validateEditProfile = require("../../validation/edit");
+const validateEditPasswordProfile = require("../../validation/edit-password");
 
 //Load User model
 const User = require("../../models/User");
@@ -52,6 +53,7 @@ router.post('/register', (req, res) => {
         bankName: req.body.bankName,
         bankBranch: req.body.bankBranch,
         balance: 0,
+        isPassChanged: req.body.isPassChanged
       });
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
@@ -83,19 +85,59 @@ router.delete("/:_id", (req, res) => {
 //@access Public
 
 router.put("/:_id", (req, res) => {
-  var update = req.body;
+  var update=req.body
+  const isPassChanged = req.body.isPassChanged
+  
   const { errors, isValid } = validateEditProfile(req.body);
+ 
+  if (!isValid) {
+    return res.status(400).json(errors)}
+  
+  User.findByIdAndUpdate(req.params._id, update, { new: true })
+    .then(user => 
+      
+      res.json(user))
+      
+    .catch(err => res.status(404).json({ update: false }));
+  });
+  
+  // else if(isPassChanged="true"){
+  //   if(!isValid){
+  //     return res.status(400).json(errors)
+  //   }
+  //   bcrypt.genSalt(10,(err,salt)=>{
+  //     bcrypt.hash(update.password,salt,(err,hash)=>{
+  //       if (err) throw err;
+  //       update.password=hash;
+  //       User.findByIdAndUpdate(req.params_id,update,{new:true})
+  //       .then (user=>res.json(user))
+  //       .catch(err=>res.status(404).json({update:false}));
+  //     })
+  //   })
+  // }
+
+
+//@route UPDATE api/user/password
+//@desc update an user
+//@access Public
+
+router.put('/password/:_id',(req,res)=>{
+  var password = req.body
+  const {errors,isValid} = validateEditPasswordProfile(req.body);
   if (!isValid) {
     return res.status(400).json(errors)
   }
-
-  User.findByIdAndUpdate(req.params._id, update, { new: true })
-    .then(user =>
-       res.json(user)
-       
-       )
-    .catch(err => res.status(404).json({ update: false }));
-});
+  bcrypt.genSalt(10,(err,salt)=>{
+    bcrypt.hash(password.password,salt,(err,hash)=>{
+      if (err) throw err;
+      password.password=hash;
+      User.findByIdAndUpdate(req.params._id,password,{new:true})
+      .then(user=>res.json(user))
+      .catch(err => res.status(404).json({ update: false }));
+    })
+    })
+  });
+ 
 
 //@route GET api/users/login
 //@desc Login User / Returning JWT Token
@@ -129,10 +171,12 @@ router.post("/login", (req, res) => {
           fullName: user.fullName,
           displayName: user.displayName,
           email: user.email,
+          password:user.password,
           accountHolder: user.accountHolder,
           cardNumber: user.cardNumber,
           bankName: user.bankName,
-          bankBranch: user.bankBranch
+          bankBranch: user.bankBranch,
+          isPassChanged:user.isPassChanged,
         }; //Create JWT payload
         //Sign Token
         jwt.sign(
@@ -167,11 +211,13 @@ router.get(
       fullName: req.user.fullName,
       displayName: req.user.displayName,
       email: req.user.email,
+      password:req.user.password,
       accountHolder: req.user.accountHolder,
       cardNumber: req.user.cardNumber,
       bankName: req.user.bankName,
       bankBranch: req.user.bankBranch,
       balance: 0,
+      isPassChanged:false,
 
     })
   })

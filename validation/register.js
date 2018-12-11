@@ -41,24 +41,24 @@ module.exports=function validateRegisterInput(data){
         errors.password="Password must be between 6 and 20 characters";
     }
 
-    if(!Validator.isLength(data.accountHolder,{min:2,max:30})){
-        errors.accountHolder="Account Holder field is at between 2 and 30 characters";
-    }
+    // if(!Validator.isLength(data.accountHolder,{min:2,max:30})){
+    //     errors.accountHolder="Account Holder field is at between 2 and 30 characters";
+    // }
 
-    if(Validator.isEmpty(data.accountHolder)){
-        errors.accountHolder="Account Holder is required";
-    }
+    // if(Validator.isEmpty(data.accountHolder)){
+    //     errors.accountHolder="Account Holder is required";
+    // }
 
-    if(Validator.isEmpty(data.cardNumber)){
-        errors.cardNumber="Card Number is invalid";
-    }
-    if(Validator.isEmpty(data.bankName)){
-        errors.bankName="Bank Name field is required";
-    }
+    // if(Validator.isEmpty(data.cardNumber)){
+    //     errors.cardNumber="Card Number is invalid";
+    // }
+    // if(Validator.isEmpty(data.bankName)){
+    //     errors.bankName="Bank Name field is required";
+    // }
 
-    if(Validator.isEmpty(data.bankBranch)){
-        errors.bankBranch="Bank Branch field is required";
-    }
+    // if(Validator.isEmpty(data.bankBranch)){
+    //     errors.bankBranch="Bank Branch field is required";
+    // }
 
     return{
         errors,
