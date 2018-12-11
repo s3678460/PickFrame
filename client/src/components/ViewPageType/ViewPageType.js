@@ -4,6 +4,7 @@ import { View, Mask } from "mdbreact";
 import { Link } from "react-router-dom"
 import { connect } from "react-redux"
 import { getImages } from "../../actions/imageActions"
+import bgforViewPage from "../../images/bgforViewPage.jpg"
 
 class ViewPageType extends Component {
     constructor(props) {
@@ -38,7 +39,7 @@ class ViewPageType extends Component {
             <div className="pb-5">
                 <div>
                     <View>
-                        <img src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg" className="img-fluid" alt="photos" style={{ width: "100%", height: "600px" }} />
+                        <img src={bgforViewPage} className="img-fluid" alt="photos" style={{ width: "100%", height: "700px" }} />
                         <Mask className="flex-center">
                             <h2 className="white-text">Plenty of photos</h2>
                         </Mask>

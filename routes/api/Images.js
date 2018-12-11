@@ -103,12 +103,23 @@ router.get("/all", (req, res) => {
         .then(images => res.json(images))
 })
 
-//@route GET api/images
-//@desc GET ALL images
+//@route GET api/images/:keyword 
+//@desc GET images by a keyword
 //@access Public
 
-router.get("/search/:keyword", (req, res) => {
-    Image.find()
+router.get("/searchbykey/:keyword", (req, res) => {
+    var regExp = new RegExp(req.params.keyword, 'i');
+    Image.find({ name: regExp })
+        .then(images => res.json(images))
+})
+
+//@route GET api/images/:category
+//@desc GET images by a category
+//@access Public
+
+router.get("/searchbycate/:category", (req, res) => {
+    var categorykey = req.params.category
+    Image.find({ category: category })
         .then(images => res.json(images))
 })
 
