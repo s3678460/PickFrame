@@ -60,6 +60,22 @@
     border: 2px solid #666e6e;
 }
 
+.form-registration input::placeholder{
+    color: black;
+    font-size: 13pt;
+}
+
+.form-registration select{
+    display:block;
+    width:300px;
+    margin:20px auto ;
+    padding:15px;
+    background:white;
+    height: 49px;
+    
+    border: 2px solid #666e6e;
+}
+
 .form-registration input:focus,.box input:active,.box button:focus,.box button:active{
     outline:none;
   }
@@ -94,6 +110,8 @@
   .form-registration button:active{
     background:lightseagreen;
   }
+
+  
 
 
 

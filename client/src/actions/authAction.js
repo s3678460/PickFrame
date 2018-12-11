@@ -80,7 +80,29 @@ export const editUser = (updateProfile, id,history) => dispatch => {
             //Set current user to empty object which will set isAuthenticated to false
             dispatch(setCurrentUser({}));
         })
-        .then(res => history.push('/postregister'))
+        .then(res => history.push('/postedit'))
+        .catch(err => dispatch({
+            type: GET_ERRORS,
+            payload: err.response.data
+        })
+        );
+
+}
+
+
+export const editUserPassword = (updateProfilePassword, id,history) => dispatch => {
+    axios
+        .put(`/api/users/password/${id}`, updateProfilePassword)
+        
+        .then(res => {
+            //Remove the token from local storage
+            localStorage.removeItem('jwtToken');
+            //Remove the auth header for next request
+            setAuthToken(false);
+            //Set current user to empty object which will set isAuthenticated to false
+            dispatch(setCurrentUser({}));
+        })
+        .then(res => history.push('/postedit'))
         .catch(err => dispatch({
             type: GET_ERRORS,
             payload: err.response.data

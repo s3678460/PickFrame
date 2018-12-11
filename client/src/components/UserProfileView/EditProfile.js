@@ -18,7 +18,7 @@ import {
     logoutUser,
     editUser
 } from "../../actions/authAction";
-import {Link} from'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class EditProfile extends Component {
     constructor(props) {
@@ -37,7 +37,7 @@ class EditProfile extends Component {
 
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
-        this.onClick=this.onClick.bind(this);
+        this.onClick = this.onClick.bind(this);
 
     }
     clearForm() {
@@ -45,64 +45,135 @@ class EditProfile extends Component {
 
             fullName: '',
             displayName: '',
-            
-            accountHolder:'',
-            cardNumber:'',
-            bankName:'',
-            bankBranch:'',
-            errors:{}
-    }
-    this.setState(newState)
-}
-onClick(){
-    const { user,isAuthenticated } = this.props.auth;
-    this.setState({
-        fullName:user.fullName,
-        displayName:user.displayName,
-        accountHolder:user.accountHolder,
-        cardNumber:user.cardNumber,
-        bankName:user.bankName,
-        bankBranch:user.bankBranch,
 
-    })
-}
+            accountHolder: '',
+            cardNumber: '',
+            bankName: '',
+            bankBranch: '',
+            errors: {}
+        }
+        this.setState(newState)
+    }
+    onClick() {
+        const { user, isAuthenticated } = this.props.auth;
+        this.setState({
+            fullName: user.fullName,
+            displayName: user.displayName,
+            accountHolder: user.accountHolder,
+            cardNumber: user.cardNumber,
+            bankName: user.bankName,
+            bankBranch: user.bankBranch,
+
+        })
+    }
 
     onChange(e) {
-        this.setState({[e.target.name]: e.target.value})
+        this.setState({ [e.target.name]: e.target.value })
     }
 
-    componentWillReceiveProps(nextProps){
-        
-        
-        if(nextProps.errors){
-            this.setState({errors:nextProps.errors});
+    componentWillReceiveProps(nextProps) {
+
+
+        if (nextProps.errors) {
+            this.setState({ errors: nextProps.errors });
         }
 
     }
 
-    onSubmit(e){
-        const { user,isAuthenticated } = this.props.auth;
+    onSubmit(e) {
+        const { user, isAuthenticated } = this.props.auth;
         e.preventDefault();
         const newUserProfile = {
-            fullName:this.state.fullName,
-            displayName:this.state.displayName,
-            accountHolder:this.state.accountHolder,
-            cardNumber:this.state.cardNumber,
-            bankName:this.state.bankName,
-            bankBranch:this.state.bankBranch,
+            fullName: this.state.fullName,
+            displayName: this.state.displayName,
+            accountHolder: this.state.accountHolder,
+            cardNumber: this.state.cardNumber,
+            bankName: this.state.bankName,
+            bankBranch: this.state.bankBranch,
+            email:this.props.auth.user.email,
+            
 
         }
-        
-        this.props.editUser(newUserProfile,this.props.auth.user.id,this.props.history)
-      
-        
-    
-        
-        
+
+        this.props.editUser(newUserProfile, this.props.auth.user.id, this.props.history)
+
+
+
+
+
     }
     render() {
         const { user, isAuthenticated } = this.props.auth;
         const { errors } = this.state;
+
+        const none = (
+            <Input
+            className={classnames('', { 'is-invalid': errors.bankBranch })}
+            type="select"
+            name="bankBranch"
+
+            value={this.state.bankBranch}
+            onChange={this.onChange}
+        >
+            <option className="text-muted">Branch...</option>
+            
+            <option disabled>No results found</option>
+            
+        </Input>
+        )
+        const BANK = (
+            <Input
+                className={classnames('', { 'is-invalid': errors.bankBranch })}
+                type="select"
+                name="bankBranch"
+
+                value={this.state.bankBranch}
+                onChange={this.onChange}
+            >
+                <option value="" className="text-muted">Branch...</option>
+                
+                <option>{this.state.bankName} {' '} QUANG NINH</option>
+                <option >{this.state.bankName} {' '} VINH PHUC</option>
+                <option >{this.state.bankName} {' '} BAC NINH</option>
+                <option >{this.state.bankName} {' '} HAI DUONG</option>
+                <option >{this.state.bankName} {' '} HAI PHONG</option>
+                <option >{this.state.bankName} {' '} DUYEN HAI</option>
+                <option >{this.state.bankName} {' '} THUY NGUYEN</option>
+                <option >{this.state.bankName} {' '} HUNG YEN</option>
+                <option >{this.state.bankName} {' '} THANH HOA</option>
+                <option >{this.state.bankName} {' '} NGHE AN</option>
+                <option >{this.state.bankName} {' '} HUE</option>
+                <option >{this.state.bankName} {' '} DA NANG</option>
+                <option >{this.state.bankName} {' '}BINH DINH</option>
+                <option >{this.state.bankName} {' '}KHANH HOA </option>
+                <option >{this.state.bankName} {' '} PHAN RANG</option>
+                <option >{this.state.bankName} {' '} PHAN THIET </option>
+                <option >{this.state.bankName} {' '} GIA LAI </option>
+                <option >{this.state.bankName} {' '} BINH PHUOC </option>
+                <option >{this.state.bankName} {' '} LONG HOA </option>
+                <option >{this.state.bankName} {' '}TAY NINH </option>
+                <option >{this.state.bankName} {' '} BINH DUONG </option>
+                <option >{this.state.bankName} {' '} DONG NAI </option>
+                <option >{this.state.bankName} {' '} VUNG TAU </option>
+                <option >{this.state.bankName} {' '} HO CHI MINH </option>
+                <option >{this.state.bankName} {' '} CHO LON  </option>
+                <option >{this.state.bankName} {' '} SAI GON  </option>
+                <option >{this.state.bankName} {' '} KHAI NGUYEN   </option>
+                <option >{this.state.bankName} {' '} LONG AN  </option>
+                <option >{this.state.bankName} {' '} TIEN GIANG </option>
+                <option >{this.state.bankName} {' '} LONG AN  </option>
+                <option >{this.state.bankName} {' '} VINH LONG  </option>
+                <option >{this.state.bankName} {' '} DONG THAP  </option>
+                <option >{this.state.bankName} {' '} AN GIANG  </option>
+                <option >{this.state.bankName} {' '} KIEN GIANG  </option>
+                <option >{this.state.bankName} {' '} CAN THO </option>
+                <option >{this.state.bankName} {' '} CA MAU  </option>
+                <option >{this.state.bankName} {' '} HA NOI  </option>
+                <option >{this.state.bankName} {' '} THANG LONG </option>
+            </Input>
+
+        );
+
         return (
             <div style={{
                 backgroundImage: `url(https://wallpapercave.com/wp/DpTzW3R.jpg)`,
@@ -114,8 +185,8 @@ onClick(){
                     <div className="containInput">
                         <Animation type="fadeInDown">
                             <div className="container pt-5 pb-5 z-depth-5" style={{ backgroundColor: "white" }}>
-                            <Link to="/userprofile" className="btn btn-link text-center left">
-              <i className="fas fa-arrow-circle-left" /> Back To Your Current Profile
+                                <Link to="/userprofile" className="btn btn-link text-center left">
+                                    <i className="fas fa-arrow-circle-left" /> Back To Your Current Profile
             </Link>
                                 <h1 className="text-center mb-5">Edit Profile</h1>
                                 <Form onSubmit={this.onSubmit}>
@@ -172,20 +243,33 @@ onClick(){
                                     <FormGroup row>
                                         {/* <Label for="price" sm={2}>Price</Label> */}
                                         <Col sm={12}>
-                                            <span><input className={classnames('form-control form-control-lg', {
-                                                'is-invalid': errors.bankName
-                                            })} type="text" placeholder="Bank name" name="bankName" value={this.state.bankName} onChange={this.onChange} />
-                                                {errors.bankName && (<div className="invalid-feedback" style={{ marginLeft: 50 }}>{errors.bankName}</div>)}
-                                            </span>
+                                            <Input
+                                                className={classnames('', { 'is-invalid': errors.bankName })}
+                                                type="select"
+                                                name="bankName"
+
+                                                value={this.state.bankName}
+                                                onChange={this.onChange}
+                                            >
+                                                <option value="" className="text-muted">Choose your bank...</option>
+                                                
+                                                <option>ACB - NGAN HANG TMCP A CHAU</option>
+                                                <option >VIETCOM - NGAN HANG TMCP NGOAI THUONG VN</option>
+                                                <option >SACOMBANK - NGAN HANG TMCP SGTT</option>
+                                                <option >AGRIBANK - NGAN HANG NONG NGHIEP VA PT NN VN</option>
+                                                <option >VIETIN - NGAN HANG CONG THUONG VIET NAM</option>
+                                                <option >VP - NGAN HANG TMCP VN TV</option>
+                                                <option >BIDV - NGAN HANG TMCP DAU TU VA PHAT TRIEN VN</option>
+                                                <option >TECHCOM - NGAN HANG TMCP KY THUONG VN</option>
+                                                <option >MB - NGAN HANG TMCP QUAN DOI</option>
+                                                <option >SHB - NGAN HANG TMCP SG-HN</option>
+                                            </Input>
 
                                         </Col>
                                     </FormGroup>
                                     <FormGroup row>
                                         <Col sm={12}>
-                                            <span><input className={classnames('form-control form-control-lg', {
-                                                'is-invalid': errors.bankBranch
-                                            })} type="text" placeholder="Bank branch" name="bankBranch" value={this.state.bankBranch} onChange={this.onChange} />
-                                                {errors.bankBranch && (<div className="invalid-feedback" style={{ marginLeft: 50 }}>{errors.bankBranch}</div>)}</span>
+                                        {this.state.bankName!='' ? BANK : none }
 
                                         </Col>
                                     </FormGroup>
