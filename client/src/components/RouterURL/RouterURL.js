@@ -9,6 +9,8 @@ import Aboutus from "../Aboutus/Aboutus";
 import QandA from "../Q&A/QandA";
 import Contactus from "../ContactUs/Contactus";
 import Sitemap from "../SiteMap/Sitemap";
+import LegalPrivacy from "../LegalPrivacy/LegalPrivacy";
+import LicenseTerm from "../LicenseTerm/LicenseTerm";
 
 import OrdersPage from "../OrdersPage/OrdersPage";
 import PostEditProfile from "../LandingPages/PostEditProfile";
@@ -43,6 +45,8 @@ class RouterURL extends Component {
         <Route path="/QA" component={QandA} />
         <Route path="/Sitemap" component={Sitemap}/>
         <Route path="/Contactus" component={Contactus}/>
+        <Route path="/LegalPrivacy" component={LegalPrivacy}/>
+        <Route path="/LicenseTerm" component={LicenseTerm}/>
         <Route component={HomePage} /> 
         </Switch>
       </div>
