@@ -147,7 +147,7 @@ class CurrentSellingPage extends Component {
                         <div className="row">
                             <div className="col-6">
                                 <div style={{ padding: "12px 12px 12px 0px" }}>
-                                    <img style={{ width: "80%", height: "60%" }} src={process.env.PUBLIC_URL + `/storageimages/${image.originalImage}`} className="img-fluid" />
+                                    <img style={{ maxHeight: "100%", maxWidth: "100%" }} src={process.env.PUBLIC_URL + `/storageimages/${image.originalImage}`} className="img-fluid" />
                                 </div>
                             </div>
                             <div className="col-6">

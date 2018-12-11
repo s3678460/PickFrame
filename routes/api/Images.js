@@ -103,6 +103,15 @@ router.get("/all", (req, res) => {
         .then(images => res.json(images))
 })
 
+//@route GET api/images
+//@desc GET ALL images
+//@access Public
+
+router.get("/search/:keyword", (req, res) => {
+    Image.find()
+        .then(images => res.json(images))
+})
+
 
 //@route POST api/image
 //@desc Create an image
