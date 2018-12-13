@@ -208,6 +208,14 @@ router.delete('/admin/rejectimage/:_id', (req, res) => {
         .catch(err => res.status(404).json({ delete: false }))
 })
 
+//@route GET api/images/admin/requests
+//@desc get all image requests
+//@access Public
+router.get('/admin/requests', (req, res) => {
+    Image.find({isValid: false})
+        .then(images => res.json(images))
+})
+
 
 
 //@route UPDATE api/image
