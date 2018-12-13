@@ -21,28 +21,28 @@ const UserSchema = new Schema({
   },
   accountHolder: {
     type: String,
-    
+
   },
   cardNumber: {
     type: String,
-    
+
   },
   bankName: {
     type: String,
-    
+
   },
   bankBranch: {
     type: String,
-    
+
   },
 
-  balance:{
-    type:Number,
-    
+  balance: {
+    type: Number,
+
   },
 
-  isPassChanged:{
-    type:String,
+  isPassChanged: {
+    type: String,
     default: 'false'
   }
 });

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 import { connect } from "react-redux"
 import { getImages } from "../../actions/imageActions"
 import bgforViewPage from "../../images/bgforViewPage.jpg"
+import { } from "reactstrap"
 
 class ViewPageType extends Component {
     constructor(props) {
@@ -23,10 +24,10 @@ class ViewPageType extends Component {
             return <div key={index} className="col-4 pt-4">
                 <Link to={`/details/${image._id}`}>
                     <div className="containerImage hoverable">
-                        <img 
-                        src={process.env.PUBLIC_URL + `/storageimages/${image.originalImage}`} 
-                        alt={image.name}
-                        className="imageCata"
+                        <img
+                            src={process.env.PUBLIC_URL + `/storageimages/${image.originalImage}`}
+                            alt={image.name}
+                            className="imageCata"
                         />
                         <div className="overlayCata">{image.name}</div>
                         <div className="overlayID">{image.imageID}</div>
@@ -46,6 +47,11 @@ class ViewPageType extends Component {
                     </View>
                 </div>
                 <div className="mt-5 container">
+                    <div className="row">
+                        <div className="col-6">
+                            
+                        </div>
+                    </div>
                     <div className="row">
                         {/* one image */}
                         {/* <div className="col-4 pt-4">

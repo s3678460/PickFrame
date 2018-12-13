@@ -150,6 +150,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
     imageFields.watermarkImage = req.body.watermarkImage;
     imageFields.category = req.body.category.split(",");
     imageFields.user = req.user.id;
+    imageFields.isValid = req.body.isValid;
 
     Image.findOne({ imageID: req.body.imageID })
         .then(image => {
@@ -180,6 +181,33 @@ router.delete('/:_id', passport.authenticate('jwt', { session: false }), (req, r
         .then(removedImage => res.send(removedImage))
         .catch(err => res.status(404).json({ success: false }))
 })
+
+//api for Admin User
+
+//@route UPDATE api/images/admin
+//@desc update valid for image
+//@access Public
+router.put('/admin/approveimage/:_id', (req, res) => {
+    var update = req.body;
+    Image.findByIdAndUpdate(req.params._id, update)
+        .then(() => res.json({ update: true }))
+        .catch(err => res.status(404).json({ update: false }))
+})
+
+//@route UPDATE api/images/admin/rejectimage
+//@desc delete image which is rejected
+//@access Public
+router.delete('/admin/rejectimage/:_id', (req, res) => {
+    Image.findByIdAndRemove(req.params._id)
+        .then(removedImage => {
+            // delete local image
+            var filepath = path.join(__dirname, `../../client/public/storageimages/${removedImage.originalImage}`)
+            fs.unlinkSync(filepath);
+            res.send(removedImage)
+        })
+        .catch(err => res.status(404).json({ delete: false }))
+})
+
 
 
 //@route UPDATE api/image
