@@ -20,7 +20,6 @@
   "homepage": "https://github.com/s3678460/pickframe#readme",
   "dependencies": {
     "axios": "^0.18.0",
-    "bcrypt": "^3.0.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.1.3",
