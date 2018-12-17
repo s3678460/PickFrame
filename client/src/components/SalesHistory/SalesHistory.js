@@ -11,6 +11,7 @@ import bgImage from "../../images/demo4.jpg"
 // import classnames from "classnames";
 import { getUserImages} from "../../actions/imageActions";
 import {getOrders} from "../../actions/orderActions";
+import {getSaleHistory} from "../../actions/saleHistoryAction";
 
 
 
@@ -18,12 +19,15 @@ class SalesHistory extends Component {
 
     constructor(props){
         super(props);
-        this.state = {}
+        this.state = {
+            errors: {}
+        }
     }
 
-   componentDidMount = () => {
-     this.props.getOrders();
-     this.props.getUserImages()
+   
+
+   componentWillMount = () => {
+       this.props.getSaleHistory(this.props.match.params._id);
    }
    
    checkOrder = (id) => {
@@ -39,8 +43,10 @@ class SalesHistory extends Component {
    }
 
     render() {
-        const {orders} = this.props.order;
-        const {images} = this.props.image;
+        const {errors} = this.state;
+        
+        const {saleHistories} = this.props.saleHistory;
+        console.log(saleHistories);
     //     console.log(images);
     //     console.log(orders);
     //    var listItems = orders.map((image) => {
@@ -53,8 +59,8 @@ class SalesHistory extends Component {
 
     
 
-        var listImages = images.map((image, index) => {
-            if(this.checkOrder(image._id)){
+        var listImages = saleHistories.map((image, index) => {
+            
             return (
                 <div key={index} className="row pt-4">
                     <div className="col-12 hoverable" style={{ backgroundColor: "white" }}>
@@ -70,13 +76,15 @@ class SalesHistory extends Component {
                                     <dl className="row">
                                         <dt className="col-sm-3">ID</dt>
                                         <dd className="col-sm-9">{image.imageID}</dd>
-                                        <dt className="col-sm-3">Size</dt>
-                                        <dd className="col-sm-9">{image.size.width}x{image.size.height}</dd>
+                                        
                                         <dt className="col-sm-3">Category</dt>
                                         <dd className="col-sm-9">{image.category[0]}</dd>
                                         
                                         <dt className="col-sm-3">Price</dt>
                                         <dd className="col-sm-9">{image.price}$</dd>
+
+                                        <dt className="col-sm-3">Order Date</dt>
+                                        <dd className="col-sm-9">{image.orderDate}$</dd>
                                     </dl>
                                    
                                 </div>
@@ -85,7 +93,7 @@ class SalesHistory extends Component {
                     </div>
                 </div>
             )
-            }
+            
         })
         
 
@@ -107,18 +115,21 @@ class SalesHistory extends Component {
 }
 
 SalesHistory.propTypes = {
-    getOrders: PropTypes.func.isRequired,
-    getUserImages: PropTypes.func.isRequired,
+    // getOrders: PropTypes.func.isRequired,
+    // getUserImages: PropTypes.func.isRequired,
+    getSaleHistory: PropTypes.func.isRequired,
+    errors: PropTypes.object.isRequired,
     
-    // getImage: PropTypes.func.isRequired
 }
 
 
 const mapStateToProps = state => {
     return {
-        image: state.image,
-        order: state.order
+        // image: state.image,
+        // order: state.order,
+        saleHistory: state.saleHistory,
+        errors: state.errors
     }
 }
 
-export default connect(mapStateToProps, { getUserImages, getOrders})(SalesHistory);
+export default connect(mapStateToProps, { getSaleHistory})(SalesHistory);
