@@ -5,6 +5,7 @@ import imageReducer from "./imageReducer";
 import authReducer from "./authReducer";
 import errorReducer from "./errorReducer";
 import loginReducer from "./loginReducer";
+import requestReducer from "./requestReducer";
 
 export default combineReducers({
   order: orderReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   image: imageReducer,
   auth: authReducer,
   errors: errorReducer,
-  login: loginReducer
+  login: loginReducer,
+  request: requestReducer
 });

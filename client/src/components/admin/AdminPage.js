@@ -4,6 +4,7 @@ import Orders from "./orders/Orders";
 import EditOrder from "./orders/EditOrder";
 import Header from "./layout/Header";
 import Contributors from "./contributors/Contributors";
+import Requests from "./requests/Requests";
 import ContributorDetails from "./contributors/ContributorDetails";
 import Login from "./auth/Login";
 import NotFound from "./NotFound";
@@ -25,6 +26,7 @@ class AdminPage extends Component {
                 path="/admin/contributors"
                 component={Contributors}
               />
+              <Route exact path="/admin/requests" component={Requests} />
               <Route
                 exact
                 path="/admin/contributor/:_id"
