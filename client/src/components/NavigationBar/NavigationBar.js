@@ -7,6 +7,7 @@ import { logoutUser } from '../../actions/authAction'
 import { Link, Redirect } from "react-router-dom";
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from 'mdbreact';
 
+
 class NavigationBar extends Component {
   constructor(props) {
     super(props);
@@ -32,6 +33,7 @@ class NavigationBar extends Component {
   render() {
     const bgNav = { backgroundColor: 'black' }
     const { isAuthenticated, user } = this.props.auth;
+    
     const authLinks = (
       <NavbarNav right>
         <MDBDropdown>
@@ -47,7 +49,10 @@ class NavigationBar extends Component {
             <Link to="/currentselling">
               <MDBDropdownItem ><Fa icon="camera-retro" />{' '}Your current selling</MDBDropdownItem>
             </Link>
-            <MDBDropdownItem ><Fa icon="camera-retro" />{' '}Sale History</MDBDropdownItem>
+            <Link to= {`/saleshistory/${user.id}`}>
+              <MDBDropdownItem ><Fa icon="camera-retro" />{' '}Sale History</MDBDropdownItem>
+            </Link>
+            
             <MDBDropdownItem divider />
             <MDBDropdownItem onClick={this.onLogoutClick.bind(this)} ><Fa icon="spinner" /> Log Out !</MDBDropdownItem>
           </MDBDropdownMenu>
