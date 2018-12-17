@@ -26,6 +26,8 @@ import CurrentSellingPage from "../CurrentSellingPage/CurrentSellingPage";
 import EditProfile from "../UserProfileView/EditProfile";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
+import SalesHistory from "../SalesHistory/SalesHistory";
+
 class RouterURL extends Component {
   render() {
     return (
@@ -37,6 +39,7 @@ class RouterURL extends Component {
         <Route path="/register" component={Register} />
         <Route path="/checkout/:_id" component={OrdersPage} />
         <Route path="/details/:_id" component={Details} />
+        <Route path="/saleshistory/:_id" component={SalesHistory} />
         <PrivateRoute path="/admin/" component={AdminPage} /> 
         <PrivateRoute path="/userprofile/" component={UserProfileView} />
         {/* <PrivateRoute path="/userprofile" component={UserProfile} /> */}
