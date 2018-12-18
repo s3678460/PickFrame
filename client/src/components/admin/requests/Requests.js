@@ -2,11 +2,41 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getRequests } from "../../../actions/requestActions";
-
+import { getContributor } from "../../../actions/contributorActions";
+import axios from "axios";
 class Requests extends Component {
   state = {
-    request: ""
+    request: "",
+    rejectionForm: "",
+    rejectComplete: false
   };
+
+  onChange = e =>
+    this.setState({
+      rejectionForm: [...e.target.options]
+        .filter(option => option.selected)
+        .map(option => option.value)
+    });
+
+  onSubmit = async e => {
+    e.preventDefault();
+    const message = this.state.rejectionForm;
+    const imageID = this.state.request.imageID;
+    const email = this.props.user.email;
+    this.setState({ rejectionForm: "", rejectComplete: true });
+    await axios.post("/api/form", {
+      email,
+      imageID,
+      message
+    });
+  };
+
+  onRequestClick = request => {
+    this.setState({ request, rejectComplete: false }, () =>
+      this.props.getContributor(request.user)
+    );
+  };
+
   componentDidMount() {
     this.props.getRequests();
   }
@@ -23,7 +53,12 @@ class Requests extends Component {
                   <a
                     className="list-group-item "
                     href="#"
-                    onClick={() => this.setState({ request })}
+                    onClick={() => this.onRequestClick(request)}
+                    // onClick={() =>
+                    //   this.setState({ request }, () =>
+                    //     this.props.getContributor(request.user)
+                    //   )
+                    // }
                   >
                     {request.imageID}
                   </a>
@@ -32,110 +67,140 @@ class Requests extends Component {
             </div>
           </div>
           <div className="col-md-9">
-            <div className="card border-dark mb-3">
-              <img
-                className="card-img-top"
-                src={
-                  process.env.PUBLIC_URL +
-                  `/storageimages/${this.state.request.originalImage}`
-                }
-                alt="Card image cap"
-              />
-              <div className="card-body text-center">
-                <a
-                  href="#"
-                  className="btn btn-outline-danger"
-                  data-toggle="modal"
-                  data-target="#rejectModal"
-                >
-                  Reject
-                </a>
+            <div
+              className="card border-dark mb-3"
+              style={{ minHeight: "30rem" }}
+            >
+              {this.state.request !== "" ? (
+                <div>
+                  <img
+                    className="card-img-top"
+                    src={
+                      process.env.PUBLIC_URL +
+                      `/storageimages/${this.state.request.originalImage}`
+                    }
+                    alt="Card image cap"
+                  />
+                  <div className="card-body text-center">
+                    <a
+                      href="#"
+                      className="btn btn-danger"
+                      data-toggle="modal"
+                      data-target="#rejectModal"
+                    >
+                      Reject
+                    </a>
+                    <a href="#" className="btn btn-success">
+                      Approve
+                    </a>
 
-                {/* <!-- Modal --> */}
-                <div
-                  class="modal fade"
-                  id="rejectModal"
-                  tabindex="-1"
-                  role="dialog"
-                  aria-labelledby="exampleModalLabel"
-                  aria-hidden="true"
-                >
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">
-                          Rejection form
-                        </h5>
-                        <button
-                          type="button"
-                          class="close"
-                          data-dismiss="modal"
-                          aria-label="Close"
-                        >
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <form>
-                          <div class="form-group row">
-                            <label
-                              for="staticEmail"
-                              class="col-md-3 col-form-label"
+                    {/* <!-- Modal --> */}
+                    <div
+                      class="modal fade"
+                      id="rejectModal"
+                      tabindex="-1"
+                      role="dialog"
+                      aria-labelledby="exampleModalLabel"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header text-white bg-info">
+                            <h5 class="modal-title" id="exampleModalLabel">
+                              Rejection form
+                            </h5>
+                            <button
+                              type="button"
+                              className="close text-white"
+                              data-dismiss="modal"
+                              aria-label="Close"
                             >
-                              Email
-                            </label>
-                            <div class="col-md-9">
-                              <input
-                                type="text"
-                                readonly
-                                class="form-control-plaintext"
-                                id="staticEmail"
-                                value="email@example.com"
-                              />
-                            </div>
+                              <span aria-hidden="true">&times;</span>
+                            </button>
                           </div>
-                          <div class="form-group row">
-                            <label
-                              for="exampleFormControlSelect1"
-                              class="col-md-3 col-form-label"
+                          <div class="modal-body">
+                            {this.state.rejectComplete ? (
+                              <p className="lead">Review Completed</p>
+                            ) : (
+                              <form>
+                                <div class="form-group row">
+                                  <label
+                                    for="staticEmail"
+                                    class="col-md-3 col-form-label"
+                                  >
+                                    Email
+                                  </label>
+                                  <div class="col-md-9">
+                                    <input
+                                      type="text"
+                                      readonly
+                                      class="form-control-plaintext"
+                                      id="staticEmail"
+                                      value={this.props.user.email}
+                                    />
+                                  </div>
+                                </div>
+                                <div class="form-group row">
+                                  <label
+                                    for="exampleFormControlSelect1"
+                                    class="col-md-3 col-form-label"
+                                  >
+                                    Reasons
+                                  </label>
+                                  <div class="col-md-9">
+                                    <select
+                                      multiple
+                                      class="form-control"
+                                      id="exampleFormControlSelect1"
+                                      onChange={this.onChange}
+                                    >
+                                      <option>Model Release</option>
+                                      <option>Visible Trademark</option>
+                                      <option>Focus</option>
+                                      <option>
+                                        Noise, Artifacts or Film Grain
+                                      </option>
+                                      <option>Title</option>
+                                      <option>Exposure</option>
+                                      <option>Composition</option>
+                                      <option>Intellectual Property</option>
+                                      <option>Previously Approved Image</option>
+                                      <option>Objectionable Content</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </form>
+                            )}
+                          </div>
+                          <div class="modal-footer">
+                            <button
+                              type="button"
+                              class="btn btn-dark"
+                              data-dismiss="modal"
                             >
-                              Reasons
-                            </label>
-                            <div class="col-md-9">
-                              <select
-                                class="form-control"
-                                id="exampleFormControlSelect1"
+                              Close
+                            </button>
+                            {!this.state.rejectComplete ? (
+                              <button
+                                type="button"
+                                class="btn btn-primary"
+                                onClick={this.onSubmit}
                               >
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                              </select>
-                            </div>
+                                Email rejection
+                              </button>
+                            ) : null}
                           </div>
-                        </form>
-                      </div>
-                      <div class="modal-footer">
-                        <button
-                          type="button"
-                          class="btn btn-outline-dark"
-                          data-dismiss="modal"
-                        >
-                          Close
-                        </button>
-                        <button type="button" class="btn btn-outline-primary">
-                          Save changes
-                        </button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-
-                <a href="#" className="btn btn-outline-success">
-                  Approve
-                </a>
-              </div>
+              ) : (
+                <div class="card-body text-center">
+                  <h5 class="card-title">Process Requests</h5>
+                  <p class="card-text">Select an image to review</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -146,14 +211,16 @@ class Requests extends Component {
 
 Requests.propTypes = {
   requests: PropTypes.array.isRequired,
-  getRequests: PropTypes.func.isRequired
+  getRequests: PropTypes.func.isRequired,
+  getContributor: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  requests: state.request.requests
+  requests: state.request.requests,
+  user: state.contributor.contributor
 });
 
 export default connect(
   mapStateToProps,
-  { getRequests }
+  { getRequests, getContributor }
 )(Requests);
