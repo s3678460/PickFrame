@@ -1,4 +1,4 @@
-import { GET_REQUESTS } from "./../actions/types";
+import { GET_REQUESTS, REJECT_IMAGE } from "./../actions/types";
 import axios from "axios";
 
 export const getRequests = () => dispatch => {
@@ -8,4 +8,12 @@ export const getRequests = () => dispatch => {
       payload: res.data
     })
   );
+};
+
+export const deleteRequest = _id => async dispatch => {
+  await axios.delete(`http://localhost:5000/api/admin/rejectimage/${_id}`);
+  dispatch({
+    type: REJECT_IMAGE,
+    payload: _id
+  });
 };

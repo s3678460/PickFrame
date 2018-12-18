@@ -30,3 +30,4 @@ export const SET_LOGIN_ERROR = "SET_LOGIN_ERROR";
 
 // Requests
 export const GET_REQUESTS = "GET_REQUESTS";
+export const REJECT_IMAGE = "REJECT_IMAGE";
