@@ -4,6 +4,11 @@ export const DELETE_ORDER = "DELETE_ORDER";
 export const ADD_ORDER = "ADD_ORDER";
 export const UPDATE_ORDER = "UPDATE_ORDER";
 
+//Sale History Type
+export const ADD_SALEHISTORY = "ADD_SALEHISTORY";
+export const GET_SALEHISTORY = "GET_SALEHISTORY";
+
+//Contributor type
 export const GET_CONTRIBUTORS = "GET_CONTRIBUTORS";
 export const GET_CONTRIBUTOR = "GET_CONTRIBUTOR";
 export const UPDATE_CONTRIBUTOR = "UPDATE_CONTRIBUTOR";
