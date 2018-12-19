@@ -26,36 +26,18 @@ class SalesHistory extends Component {
 
    
 
-   componentWillMount = () => {
+   componentDidMount = () => {
        this.props.getSaleHistory(this.props.match.params._id);
    }
    
-   checkOrder = (id) => {
-    const {orders} = this.props.order;
-    var listItems = orders.map((order) => {
-        return order.productId
-    });
-    if(listItems.indexOf(id) != -1){
-        return true
-    } else { 
-        return false
-    }
-   }
+
 
     render() {
-        const {errors} = this.state;
+        const {errors} = this.props;
         
         const {saleHistories} = this.props.saleHistory;
-        console.log(saleHistories);
-    //     console.log(images);
-    //     console.log(orders);
-    //    var listItems = orders.map((image) => {
-    //         return image.productId
-    //     });
-       
-    //   console.log(listItems)
-    //   console.log(listItems.indexOf("78687678876"))
-    //   console.log(this.checkOrder(listItems[0]))
+        // console.log(saleHistories);
+    
 
     
 
@@ -103,8 +85,14 @@ class SalesHistory extends Component {
                 backgroundImage: `url(${bgImage})`,
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat'}}>
+                backgroundRepeat: 'no-repeat'}} >
 
+                {!errors.nosale
+                        ? ""
+                        : (<div style={{ paddingTop: 100, paddingBottom: 100 }}>
+                            <h1 className="text-center text-white">{errors.nosale ? errors.nosale : ""}</h1>
+                        </div>)
+                }
                 <div className = 'container'> 
                     {listImages}
                 </div>

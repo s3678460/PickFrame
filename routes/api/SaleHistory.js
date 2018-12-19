@@ -37,19 +37,17 @@ router.post("/", (req, res) => {
 //@desc GET an saleHistory by seller ID
 //@access Public
 
-
-
 router.get("/seller/:seller", (req, res) => {
     const errors = {};
     SaleHistory.find({seller: req.params.seller})
-        .then(saleHistory => {
-            if (isEmpty(saleHistory)) {
+        .then(saleHs => {
+            if (isEmpty(saleHs)) {
                 errors.nosale = 'You do not have any image that is purchased'
                 return res.status(404).json(errors);
             }
-            res.json(saleHistory)
+            res.json(saleHs)
         })
-        .catch(err => res.status(404).json({saleHistory: 'You do not have any image that is purchased'}))
+        .catch(err => res.status(404).json({saleHs: 'You do not have any image that is purchased'}))
 })
 
 module.exports = router;
