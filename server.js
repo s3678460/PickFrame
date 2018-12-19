@@ -9,6 +9,8 @@ const images = require("./routes/api/Images");
 const users = require("./routes/api/Users");
 const admins = require("./routes/api/Admins");
 const orders = require("./routes/api/Orders");
+const saleHistory = require("./routes/api/SaleHistory");
+const form = require("./routes/api/form");
 
 const app = express();
 
@@ -44,6 +46,8 @@ app.use("/api/images", images);
 app.use("/api/users", users);
 app.use("/api/admins", admins);
 app.use("/api/orders", orders);
+app.use("/api/saleHistory", saleHistory);
+app.use("/api/form", form);
 
 //Serve static assets if in production
 

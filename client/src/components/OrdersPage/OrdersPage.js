@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {addOrders} from "../../actions/orderActions";
+import {addSaleHistory} from "../../actions/saleHistoryAction";
 
 
 import classnames from "classnames";
@@ -24,6 +25,11 @@ class OrdersPage extends Component {
             productId: '',
             total: '',
             // status: '',
+
+            imageName:'',
+            originalImage: '',
+            category:'',
+            seller:'',
             errors:{}
 
         };
@@ -41,7 +47,11 @@ class OrdersPage extends Component {
         })
 
         this.setState({
-            productId: imageTarget._id,
+            originalImage: imageTarget.originalImage,
+            category: imageTarget.category,
+            seller: imageTarget.user,
+            imageName: imageTarget.name,
+            productId: imageTarget.imageID,
             total: imageTarget.price
         })
 
@@ -64,6 +74,16 @@ class OrdersPage extends Component {
         e.preventDefault();
         // console.log('submit');
         
+        const newSaleHistory ={
+            imageID: this.state.productId,
+            name: this.state.imageName,
+            price: this.state.total,
+            originalImage: this.state.originalImage,
+            category: this.state.category,
+            seller: this.state.seller,
+            
+        }
+
         const newOrder = {
             companyName: this.state.companyName,
             address: this.state.address,
@@ -77,6 +97,7 @@ class OrdersPage extends Component {
             email: this.state.email
         }
 
+        this.props.addSaleHistory(newSaleHistory);
         this.props.addOrders(newOrder, this.props.history);
         this.setState({
             companyName: '',
@@ -248,6 +269,7 @@ class OrdersPage extends Component {
 }
 
 OrdersPage.propTypes = {
+    addSaleHistory: PropTypes.func.isRequired,
     addOrders: PropTypes.func.isRequired,
     errors: PropTypes.object.isRequired,
     // getImage: PropTypes.func.isRequired
@@ -258,4 +280,4 @@ const mapStateToProps = state => ({
     image: state.image
 })
 
-export default connect(mapStateToProps, {addOrders})(OrdersPage);
+export default connect(mapStateToProps, {addOrders, addSaleHistory})(OrdersPage);

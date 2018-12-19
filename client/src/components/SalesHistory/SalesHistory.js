@@ -11,6 +11,7 @@ import bgImage from "../../images/demo4.jpg"
 // import classnames from "classnames";
 import { getUserImages} from "../../actions/imageActions";
 import {getOrders} from "../../actions/orderActions";
+import {getSaleHistory} from "../../actions/saleHistoryAction";
 
 
 
@@ -18,43 +19,30 @@ class SalesHistory extends Component {
 
     constructor(props){
         super(props);
-        this.state = {}
+        this.state = {
+            errors: {}
+        }
     }
+
+   
 
    componentDidMount = () => {
-     this.props.getOrders();
-     this.props.getUserImages()
+       this.props.getSaleHistory(this.props.match.params._id);
    }
    
-   checkOrder = (id) => {
-    const {orders} = this.props.order;
-    var listItems = orders.map((order) => {
-        return order.productId
-    });
-    if(listItems.indexOf(id) != -1){
-        return true
-    } else { 
-        return false
-    }
-   }
+
 
     render() {
-        const {orders} = this.props.order;
-        const {images} = this.props.image;
-    //     console.log(images);
-    //     console.log(orders);
-    //    var listItems = orders.map((image) => {
-    //         return image.productId
-    //     });
-       
-    //   console.log(listItems)
-    //   console.log(listItems.indexOf("78687678876"))
-    //   console.log(this.checkOrder(listItems[0]))
+        const {errors} = this.props;
+        
+        const {saleHistories} = this.props.saleHistory;
+        // console.log(saleHistories);
+    
 
     
 
-        var listImages = images.map((image, index) => {
-            if(this.checkOrder(image._id)){
+        var listImages = saleHistories.map((image, index) => {
+            
             return (
                 <div key={index} className="row pt-4">
                     <div className="col-12 hoverable" style={{ backgroundColor: "white" }}>
@@ -70,13 +58,15 @@ class SalesHistory extends Component {
                                     <dl className="row">
                                         <dt className="col-sm-3">ID</dt>
                                         <dd className="col-sm-9">{image.imageID}</dd>
-                                        <dt className="col-sm-3">Size</dt>
-                                        <dd className="col-sm-9">{image.size.width}x{image.size.height}</dd>
+                                        
                                         <dt className="col-sm-3">Category</dt>
                                         <dd className="col-sm-9">{image.category[0]}</dd>
                                         
                                         <dt className="col-sm-3">Price</dt>
                                         <dd className="col-sm-9">{image.price}$</dd>
+
+                                        <dt className="col-sm-3">Order Date</dt>
+                                        <dd className="col-sm-9">{image.orderDate}$</dd>
                                     </dl>
                                    
                                 </div>
@@ -85,7 +75,7 @@ class SalesHistory extends Component {
                     </div>
                 </div>
             )
-            }
+            
         })
         
 
@@ -95,8 +85,14 @@ class SalesHistory extends Component {
                 backgroundImage: `url(${bgImage})`,
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat'}}>
+                backgroundRepeat: 'no-repeat'}} >
 
+                {!errors.nosale
+                        ? ""
+                        : (<div style={{ paddingTop: 100, paddingBottom: 100 }}>
+                            <h1 className="text-center text-white">{errors.nosale ? errors.nosale : ""}</h1>
+                        </div>)
+                }
                 <div className = 'container'> 
                     {listImages}
                 </div>
@@ -107,18 +103,21 @@ class SalesHistory extends Component {
 }
 
 SalesHistory.propTypes = {
-    getOrders: PropTypes.func.isRequired,
-    getUserImages: PropTypes.func.isRequired,
+    // getOrders: PropTypes.func.isRequired,
+    // getUserImages: PropTypes.func.isRequired,
+    getSaleHistory: PropTypes.func.isRequired,
+    errors: PropTypes.object.isRequired,
     
-    // getImage: PropTypes.func.isRequired
 }
 
 
 const mapStateToProps = state => {
     return {
-        image: state.image,
-        order: state.order
+        // image: state.image,
+        // order: state.order,
+        saleHistory: state.saleHistory,
+        errors: state.errors
     }
 }
 
-export default connect(mapStateToProps, { getUserImages, getOrders})(SalesHistory);
+export default connect(mapStateToProps, { getSaleHistory})(SalesHistory);
