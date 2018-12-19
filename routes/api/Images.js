@@ -217,7 +217,6 @@ router.delete("/admin/rejectimage/:_id", (req, res) => {
 //@desc get all image requests
 //@access Public
 router.get("/admin/requests", (req, res) => {
-  console.log("API admin requests");
   Image.find({ isValid: false }).then(images => res.json(images));
 });
 

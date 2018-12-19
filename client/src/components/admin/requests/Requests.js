@@ -1,30 +1,50 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getRequests } from "../../../actions/requestActions";
+import { getRequests, rejectImage } from "../../../actions/requestActions";
 import { getContributor } from "../../../actions/contributorActions";
-import axios from "axios";
+import CheckBox from "./CheckBox";
+
 class Requests extends Component {
   state = {
     request: "",
-    rejectionForm: "",
-    rejectComplete: false
+    showRequest: false,
+    rejectComplete: false,
+    reasons: [
+      { id: 1, value: "Model Release", isChecked: false },
+      { id: 2, value: "Visible Trademark", isChecked: false },
+      { id: 3, value: "Focus", isChecked: false },
+      { id: 4, value: "Noise, Artifacts or Film Grain", isChecked: false },
+      { id: 5, value: "Title", isChecked: false },
+      { id: 6, value: "Exposure", isChecked: false },
+      { id: 7, value: "Composition", isChecked: false },
+      { id: 8, value: "Intellectual Property", isChecked: false },
+      { id: 9, value: "Previously Approved Image", isChecked: false },
+      { id: 10, value: "Objectionable Content", isChecked: false }
+    ]
   };
 
-  onChange = e =>
-    this.setState({
-      rejectionForm: [...e.target.options]
-        .filter(option => option.selected)
-        .map(option => option.value)
+  handleCheckChildElement = e => {
+    let reasons = this.state.reasons;
+    reasons.forEach(reason => {
+      if (reason.value === e.target.value) reason.isChecked = e.target.checked;
     });
+    this.setState({ reasons });
+  };
 
   onSubmit = async e => {
     e.preventDefault();
-    const message = this.state.rejectionForm;
+    this.setState({
+      rejectComplete: true
+    });
+
+    const message = this.state.reasons
+      .filter(r => r.isChecked)
+      .map(r => r.value);
     const imageID = this.state.request.imageID;
     const email = this.props.user.email;
-    this.setState({ rejectionForm: "", rejectComplete: true });
-    await axios.post("/api/form", {
+
+    await this.props.rejectImage(this.state.request._id, {
       email,
       imageID,
       message
@@ -32,8 +52,16 @@ class Requests extends Component {
   };
 
   onRequestClick = request => {
-    this.setState({ request, rejectComplete: false }, () =>
-      this.props.getContributor(request.user)
+    this.setState(
+      {
+        request,
+        showRequest: true,
+        rejectComplete: false,
+        reasons: this.state.reasons.map(r =>
+          Object.assign(r, { isChecked: false })
+        )
+      },
+      () => this.props.getContributor(request.user)
     );
   };
 
@@ -67,11 +95,8 @@ class Requests extends Component {
             </div>
           </div>
           <div className="col-md-9">
-            <div
-              className="card border-dark mb-3"
-              style={{ minHeight: "30rem" }}
-            >
-              {this.state.request !== "" ? (
+            <div className="card mb-3" style={{ minHeight: "30rem" }}>
+              {this.state.showRequest ? (
                 <div>
                   <img
                     className="card-img-top"
@@ -126,7 +151,7 @@ class Requests extends Component {
                                 <div class="form-group row">
                                   <label
                                     for="staticEmail"
-                                    class="col-md-3 col-form-label"
+                                    class="col-md-3 col-form-label text-muted"
                                   >
                                     Email
                                   </label>
@@ -142,31 +167,27 @@ class Requests extends Component {
                                 </div>
                                 <div class="form-group row">
                                   <label
-                                    for="exampleFormControlSelect1"
-                                    class="col-md-3 col-form-label"
+                                    for="reasonList"
+                                    class="col-md-3 col-form-label text-muted"
                                   >
                                     Reasons
                                   </label>
-                                  <div class="col-md-9">
-                                    <select
-                                      multiple
-                                      class="form-control"
-                                      id="exampleFormControlSelect1"
-                                      onChange={this.onChange}
+                                  <div class="col-md-9 text">
+                                    <ul
+                                      id="reasonList"
+                                      className="text-left list-unstyled"
                                     >
-                                      <option>Model Release</option>
-                                      <option>Visible Trademark</option>
-                                      <option>Focus</option>
-                                      <option>
-                                        Noise, Artifacts or Film Grain
-                                      </option>
-                                      <option>Title</option>
-                                      <option>Exposure</option>
-                                      <option>Composition</option>
-                                      <option>Intellectual Property</option>
-                                      <option>Previously Approved Image</option>
-                                      <option>Objectionable Content</option>
-                                    </select>
+                                      {this.state.reasons.map(reason => {
+                                        return (
+                                          <CheckBox
+                                            handleCheckChildElement={
+                                              this.handleCheckChildElement
+                                            }
+                                            {...reason}
+                                          />
+                                        );
+                                      })}
+                                    </ul>
                                   </div>
                                 </div>
                               </form>
@@ -212,6 +233,7 @@ class Requests extends Component {
 Requests.propTypes = {
   requests: PropTypes.array.isRequired,
   getRequests: PropTypes.func.isRequired,
+  rejectImage: PropTypes.func.isRequired,
   getContributor: PropTypes.func.isRequired
 };
 
@@ -222,5 +244,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getRequests, getContributor }
+  { getRequests, getContributor, rejectImage }
 )(Requests);
