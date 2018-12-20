@@ -25,6 +25,7 @@ router.post("/", (req, res) => {
       originalImage: req.body.originalImage,
       category: req.body.category,
       seller: req.body.seller,
+      companyName: req.body.companyName,
       orderDate: date.format(now, 'YYYY/MM/DD HH:mm:ss [GMT]Z')
      
     });

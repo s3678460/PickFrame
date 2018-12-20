@@ -65,8 +65,11 @@ class SalesHistory extends Component {
                                         <dt className="col-sm-3">Price</dt>
                                         <dd className="col-sm-9">{image.price}$</dd>
 
+                                        <dt className="col-sm-3">Buyer</dt>
+                                        <dd className="col-sm-9">{image.companyName}</dd>
+
                                         <dt className="col-sm-3">Order Date</dt>
-                                        <dd className="col-sm-9">{image.orderDate}$</dd>
+                                        <dd className="col-sm-9">{image.orderDate}</dd>
                                     </dl>
                                    
                                 </div>

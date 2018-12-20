@@ -95,7 +95,7 @@ class Details extends Component {
                             </form>
                             <div className="download-button">
                                 <Fragment>
-                                    <Link to={`/checkout/${imageTarget._id}`}><MDBBtn rounded color="danger" size="lg">Download this image</MDBBtn></Link>
+                                    <Link to={`/checkout/${imageTarget._id}`}><MDBBtn rounded color="danger" size="lg">Purchase this image</MDBBtn></Link>
                                 </Fragment>
                             </div>
                             <div className="keyword">
