@@ -14,7 +14,7 @@ import EditPassword from "../UserProfileView/EditPassword"
 import OrdersPage from "../OrdersPage/OrdersPage";
 import PostEditProfile from "../LandingPages/PostEditProfile"
 import ConfirmPassword from "../UserProfileView/ConfirmPassword"
-
+import Verification from "../Verification/Verification"
 import Details from "../Details/Details";
 import PostRegister from "../LandingPages/PostRegister";
 import UserProfileView from "../UserProfileView/UserProfileView";
@@ -45,6 +45,7 @@ class RouterURL extends Component {
         <Route path="/postregister/" component={PostRegister}/>
         <Route path="/postedit" component={PostEditProfile}/>
         <Route path="/confirmpassword" component={ConfirmPassword}/>
+        <Route path="/verification" component={Verification}/>
         <Route path="/Aboutus" component={Aboutus} />
         <Route path="/QA" component={QandA} />
         <Route path="/Sitemap" component={Sitemap}/>

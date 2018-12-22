@@ -1,0 +1,130 @@
+.verification{
+	
+	background-image: url(https://images.pexels.com/photos/715995/pexels-photo-715995.jpeg?cs=srgb&dl=ashtray-black-background-bottle-715995.jpg&fm=jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  
+    	
+}
+  .vid-container-verification{
+    position:relative;
+    height:100vh;
+  }
+  
+  .inner {
+    position: absolute;
+  }
+  .inner-container-verification{
+    width:400px;
+    height:400px;
+    position:absolute;
+    top:calc(50vh - 200px);
+    left:calc(50vw - 200px);
+  }
+  
+  .box-verification{
+    position:absolute;
+    height:100%;
+    width:100%;
+    font-family:Helvetica;
+    
+    
+    padding:30px 0px;
+    border: 10px solid rgba(12,13,13,0.25);
+    border-radius: 10px;
+    background: white;
+    background-clip: padding-box;
+    
+    
+  }
+  .box-verification h1{
+    text-align:center;
+    background-color: black;
+    height: 60px;
+    position: relative;
+    top: -30px;
+    
+  }
+
+  .context{
+      text-align: center;
+      
+  }
+
+  .form-registration{
+    margin-left: 4%;
+    margin-top: 4%;
+    margin-right: 3%;
+    margin-bottom: 4%;
+}
+
+.form-registration{
+    margin-left: 4%;
+    margin-top: 4%;
+    margin-right: 3%;
+    margin-bottom: 4%;
+    display: block;
+    
+}
+
+.form-registration input{
+    display:block;
+    width:300px;
+    margin:20px auto ;
+    padding:15px;
+    background:white;
+    
+    border: 2px solid #666e6e;
+}
+
+.form-registration input::placeholder{
+    color: black;
+    font-size: 13pt;
+}
+
+.form-registration select{
+    display:block;
+    width:300px;
+    margin:20px auto ;
+    padding:15px;
+    background:white;
+    height: 49px;
+    
+    border: 2px solid #666e6e;
+}
+
+.form-registration input:focus,.box input:active,.box button:focus,.box button:active{
+    outline:none;
+  }
+
+
+  .form-registration span{
+      display: block;
+      
+  }
+
+
+  .form-registration button{
+    background-color: black;
+    border: 1px solid gray;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 0 2px 0 rgba(255,255,255,0.5);
+    box-shadow: inset 0 0 2px 0 rgba(255,255,255,0.5);
+    color: white;
+    cursor: pointer;
+    padding:10px;
+    font-size:20px;
+    width:330px;
+    margin:20px auto;
+    display:block;
+    cursor:pointer;
+    
+  }
+
+  .form-registration button:hover{
+      background:gray;
+  }
+  .form-registration button:active{
+    background:lightseagreen;
+  }
+  

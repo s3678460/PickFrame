@@ -44,7 +44,15 @@ const UserSchema = new Schema({
   isPassChanged:{
     type:String,
     default: 'false'
+  },
+  secretToken:{
+    type:String
+  },
+  active:{
+    type:Boolean
   }
+
+  
 });
 
 module.exports = User = mongoose.model("user", UserSchema);
