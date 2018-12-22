@@ -1,0 +1,24 @@
+import { GET_REQUESTS, REJECT_IMAGE } from "./../actions/types";
+
+const initialState = {
+  requests: []
+};
+
+export default function(state = initialState, action) {
+  switch (action.type) {
+    case GET_REQUESTS:
+      return {
+        ...state,
+        requests: action.payload
+      };
+    case REJECT_IMAGE:
+      return {
+        ...state,
+        requests: state.requests.filter(
+          request => request._id !== action.payload
+        )
+      };
+    default:
+      return state;
+  }
+}

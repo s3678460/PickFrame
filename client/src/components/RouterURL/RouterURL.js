@@ -9,8 +9,11 @@ import Aboutus from "../Aboutus/Aboutus";
 import QandA from "../Q&A/QandA";
 import Contactus from "../ContactUs/Contactus";
 import Sitemap from "../SiteMap/Sitemap";
-import EditAccountEmail from "../UserProfileView/EditAccountEmail"
-import EditPassword from "../UserProfileView/EditPassword"
+import LegalPrivacy from "../LegalPrivacy/LegalPrivacy";
+import LicenseTerm from "../LicenseTerm/LicenseTerm";
+
+import EditAccountEmail from "../UserProfileView/EditAccountEmail";
+import EditPassword from "../UserProfileView/EditPassword";
 import OrdersPage from "../OrdersPage/OrdersPage";
 import PostEditProfile from "../LandingPages/PostEditProfile"
 import ConfirmPassword from "../UserProfileView/ConfirmPassword"
@@ -22,6 +25,8 @@ import SellingPage from "../SellingPage/SellingPage";
 import CurrentSellingPage from "../CurrentSellingPage/CurrentSellingPage";
 import EditProfile from "../UserProfileView/EditProfile";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+
+import SalesHistory from "../SalesHistory/SalesHistory";
 
 class RouterURL extends Component {
   render() {

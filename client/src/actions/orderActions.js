@@ -9,7 +9,7 @@ import {
 import axios from "axios";
 
 export const getOrders = () => async dispatch => {
-  const res = await axios.get("http://localhost:5000/api/orders");
+  const res = await axios.get("/api/orders");
   dispatch({
     type: GET_ORDERS,
     payload: res.data
@@ -34,23 +34,20 @@ export const deleteOrder = _id => async dispatch => {
 
 export const addOrders = (orderData, history) => dispatch => {
   axios
-    .post('/api/orders', orderData)
-    .then(
-      res => 
-        dispatch({
-          type: ADD_ORDER,
-          payload: res.data
-        })
+    .post("/api/orders", orderData)
+    .then(res =>
+      dispatch({
+        type: ADD_ORDER,
+        payload: res.data
+      })
     )
-    .then(
-      res=>history.push('/')
-    )
-    .catch(err => 
+    .then(res => history.push("/"))
+    .catch(err =>
       dispatch({
         type: GET_ERRORS,
         payload: err.response.data
       })
-    )
+    );
 };
 
 export const updateOrder = order => async dispatch => {

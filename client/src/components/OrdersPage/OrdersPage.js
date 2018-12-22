@@ -4,13 +4,15 @@ import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {addOrders} from "../../actions/orderActions";
+import {addSaleHistory} from "../../actions/saleHistoryAction";
+
 
 import classnames from "classnames";
 
 class OrdersPage extends Component {
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state={
             companyName: '',
             address: '',
@@ -20,9 +22,14 @@ class OrdersPage extends Component {
             bankName:'',
             bankBranch:'',
             email: '',
-            // productId: '',
-            // total: '',
+            productId: '',
+            total: '',
             // status: '',
+
+            imageName:'',
+            originalImage: '',
+            category:'',
+            seller:'',
             errors:{}
 
         };
@@ -31,6 +38,25 @@ class OrdersPage extends Component {
     // this.onSubmit=this.onSubmit.bind(this);
     }
 
+  
+    componentWillMount(){
+        const { images } = this.props.image;
+        const imageIDTarget = this.props.match.params._id
+        const imageTarget = images.find((image) => {
+            return image._id === imageIDTarget
+        })
+
+        this.setState({
+            originalImage: imageTarget.originalImage,
+            category: imageTarget.category,
+            seller: imageTarget.user,
+            imageName: imageTarget.name,
+            productId: imageTarget.imageID,
+            total: imageTarget.price
+        })
+
+    }
+    
     componentWillReceiveProps(newProps){
         console.log(newProps);
         if (newProps.errors){
@@ -42,9 +68,22 @@ class OrdersPage extends Component {
         this.setState({[e.target.name]: e.target.value});
     }
 
+    
+
     onSubmit = (e) =>{
         e.preventDefault();
         // console.log('submit');
+        
+        const newSaleHistory ={
+            imageID: this.state.productId,
+            name: this.state.imageName,
+            price: this.state.total,
+            originalImage: this.state.originalImage,
+            category: this.state.category,
+            seller: this.state.seller,
+            companyName: this.state.companyName
+            
+        }
 
         const newOrder = {
             companyName: this.state.companyName,
@@ -54,9 +93,12 @@ class OrdersPage extends Component {
             cardNumber: this.state.cardNumber,
             bankName: this.state.bankName,
             bankBranch: this.state.bankBranch,
+            productId: this.state.productId,
+            total: this.state.total,
             email: this.state.email
         }
 
+        this.props.addSaleHistory(newSaleHistory);
         this.props.addOrders(newOrder, this.props.history);
         this.setState({
             companyName: '',
@@ -66,14 +108,32 @@ class OrdersPage extends Component {
             cardNumber:'',
             bankName:'',
             bankBranch:'',
+            productId: '',
+            total: '',
             email: ''
         })
         
     }
 
+   
+
 
     render() {
+        console.log(this.props.match.params._id);
+        const { images } = this.props.image;
+        const imageIDTarget = this.props.match.params._id
+        const imageTarget = images.find((image) => {
+            return image._id === imageIDTarget
+        })
+        
+        
+      
+        
+        // console.log(this.state.productId);
 
+        const linkImage = process.env.PUBLIC_URL + `/storageimages/${imageTarget.originalImage}`
+
+       
         const {errors} = this.state;
 
         return (
@@ -155,12 +215,14 @@ class OrdersPage extends Component {
                                     
                                     
                                     <div className="total">
+                                        <h2>Product ID</h2>
+                                        <b  >{imageTarget.imageID}</b>
+
                                         <h2  >Total</h2>
-                                        <b>$30.00 USD</b>
+                                        <b  >{imageTarget.price} USD</b>
                                         <b style={{fontSize:"10pt"}}><p>I have read and accept our <Link to="#">Website Terms</Link>, <Link to="#">Privacy Policy</Link>, and <Link to="#">Licensing Terms.</Link> </p></b>
                                         <button type = "submit" className = "btn btn-info btn-block mt-4">Submit</button>
-                                          
-                                        
+                                       
                                     </div>
                                 </form>
                             </div>
@@ -175,31 +237,22 @@ class OrdersPage extends Component {
                     <div className="checkout-box-2">
                     
                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        
-                    
-                    
-                    <div className="summary-image">
-                    <img src="https://images3.alphacoders.com/823/82317.jpg" style={{height:"180%",width:"180%"}}></img>
-                    </div>
-                    <p style={{fontSize:"10pt"}}>1 PickFrame Credit</p>
-                    
+                        <div className="summary-image">
+                            <img src={linkImage} alt={imageTarget.name} style={{height:"180%",width:"180%"}}></img>
+                        </div>
+                        <p style={{fontSize:"10pt"}}>1 PickFrame Credit</p>
                     </div>
                     
 
                     
                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <b>$30.00 USD</b>
+                        <b>{imageTarget.price} USD</b>
                     </div>
                     
-
-                    
-                    
-                    
-                    
-                    
+                   
                     </div>
                     <span style={{paddingRight:"50px",paddingLeft:"18px",fontSize:"20pt"}}>Total</span>
-                    <span style={{textAlign:"right",fontWeight:"bold",fontSize:"20pt"}}>$30.00 USD</span>
+                    <span style={{textAlign:"right",fontWeight:"bold",fontSize:"20pt"}}>{imageTarget.price} USD</span>
                     
                     </div>
 
@@ -217,12 +270,15 @@ class OrdersPage extends Component {
 }
 
 OrdersPage.propTypes = {
+    addSaleHistory: PropTypes.func.isRequired,
     addOrders: PropTypes.func.isRequired,
-    errors: PropTypes.object.isRequired
+    errors: PropTypes.object.isRequired,
+    // getImage: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
     errors: state.errors,
+    image: state.image
 })
 
-export default connect(mapStateToProps, {addOrders})(OrdersPage);
+export default connect(mapStateToProps, {addOrders, addSaleHistory})(OrdersPage);

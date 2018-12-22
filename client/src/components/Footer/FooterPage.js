@@ -17,8 +17,8 @@ class FooterPage extends Component {
                             <div className="blocklink">
                                 <h5>Learn More</h5>
                                 <a href="#">Promo codes</a>
-                                <a href="#">License information</a>
-                                <a href="#">Legal / Privacy</a>
+                                <Link to="/LicenseTerm"><a>License Term</a></Link>
+                                <Link to="/LegalPrivacy"><a>Legal / Privacy</a></Link>
                             </div>
                         </Col>
                         <Col md="2">

@@ -43,7 +43,7 @@ class Aboutus extends Component {
                 all the requirements or which should be forbidden.
               </p1></div>
             
-            <section style={{backgroundColor: 'rgba(192,192,192,0.3)'}}>
+            <section style={{backgroundColor: 'rgba(192,192,192,0.3)', padding: 30, margin: 50}}>
             <p style={{textAlign: 'center', fontSize: '180%',fontFamily:'verdana'}}>The crew of Oasis<br/><br/></p>
               <p4>
                 <pre style={{fontSize:'150%'}}>    Huynh Cong Minh</pre>

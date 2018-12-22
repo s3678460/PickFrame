@@ -48,6 +48,10 @@ const ImageSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'user'
+    },
+    isValid: {
+        type: Boolean,
+        default: false
     }
 })
 
