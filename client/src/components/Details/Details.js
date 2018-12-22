@@ -34,7 +34,9 @@ class Details extends Component {
         const imageTarget = images.find((image) => {
             return image._id === imageIDTarget
         })
-
+        //set _idImage to localStorage
+        localStorage.setItem("currentDeatil", JSON.stringify(imageTarget))
+        
         const linkImage = process.env.PUBLIC_URL + `/storageimages/${imageTarget.originalImage}`
         var settings = {
             dots: true,
@@ -52,7 +54,7 @@ class Details extends Component {
                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                         <div className="detail-inner-box-left">
                             <h1>{imageTarget.name}</h1>
-                            <h2>Nature, beach, blue, sea, vacation</h2>
+                            <h2>Category: {imageTarget.category[0]}</h2>
                             <section className="image-card">
                                 <ImageZoom
                                     image={{
@@ -95,7 +97,7 @@ class Details extends Component {
                             </form>
                             <div className="download-button">
                                 <Fragment>
-                                    <Link to={`/checkout/${imageTarget._id}`}><MDBBtn rounded color="danger" size="lg">Download this image</MDBBtn></Link>
+                                    <Link to={`/checkout/${imageTarget._id}`}><MDBBtn rounded color="danger" size="lg">Purchase this image</MDBBtn></Link>
                                 </Fragment>
                             </div>
                             <div className="keyword">

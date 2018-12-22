@@ -43,6 +43,10 @@ const SaleHistorySchema = new Schema({
     orderDate: {
         type: String,
         required: false
+    },
+    companyName: {
+        type: String,
+        required: false
     }
     
 })

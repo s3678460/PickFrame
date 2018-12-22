@@ -19,9 +19,12 @@ class PostEditProfile extends Component {
                                         <h1><a href="#" target="_blank"><img src="http://funkyimg.com/p/2NhH3.png" alt="Free Image Hosting at FunkyIMG.com" border={0} /></a></h1></div>
                                 </div>
                                 <div className="context" >
-                                Your account has been expired because we receive some changes in your profile. For your account security, login again to see changes.
+                                <i className="fa fa-check" style={{fontSize: '80px', color: 'orange'}} />
+                                <div style={{fontSize:"40px"}}>Expired</div>
+                                Your account has expired since you edited your profile
+                                
 
-                                <p>Getting inside now by<span></span></p>
+                                <p>Login again to see changes<span></span></p>
                                 <Link to="/login"><b style={{fontSize:30}}>Login</b> </Link>
                                 </div>
                             </div>

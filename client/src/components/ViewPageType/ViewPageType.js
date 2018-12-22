@@ -1,39 +1,61 @@
 import React, { Component } from 'react';
+import ReactDOM from "react-dom"
 import "./ViewPageType.css";
 import { View, Mask } from "mdbreact";
-import { Link } from "react-router-dom"
+import { Link, Redirect } from "react-router-dom"
 import { connect } from "react-redux"
 import { getImages } from "../../actions/imageActions"
 import bgforViewPage from "../../images/bgforViewPage.jpg"
 import { } from "reactstrap"
+import Gallery from "react-photo-gallery";
 
 class ViewPageType extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            _idImage: '',
+            isRedirect: false
         }
     }
     componentDidMount() {
         this.props.getImages();
     }
 
+    handleClickImage = (event, obj) => {
+        this.setState({
+            _idImage: obj.photo._id,
+            isRedirect: true
+        })
+    }
     render() {
-        const { images } = this.props.image
+        const { images } = this.props.image;
+        if(this.state.isRedirect){
+            return <Redirect to={`/details/` + this.state._idImage}/>
+        }
         //return images
-        var listImages = images.map((image, index) => {
-            return <div key={index} className="col-4 pt-4">
-                <Link to={`/details/${image._id}`}>
-                    <div className="containerImage hoverable">
-                        <img
-                            src={process.env.PUBLIC_URL + `/storageimages/${image.originalImage}`}
-                            alt={image.name}
-                            className="imageCata"
-                        />
-                        <div className="overlayCata">{image.name}</div>
-                        <div className="overlayID">{image.imageID}</div>
-                    </div>
-                </Link>
-            </div>
+        // var listImages = images.map((image, index) => {
+        //     return <div key={index} className="col-4 pt-4">
+        //         <Link to={`/details/${image._id}`}>
+        //             <div className="containerImage hoverable">
+        //                 <img
+        //                     src={process.env.PUBLIC_URL + `/storageimages/${image.originalImage}`}
+        //                     alt={image.name}
+        //                     className="imageCata"
+        //                 />
+        //                 <div className="overlayCata">{image.name}</div>
+        //                 <div className="overlayID">{image.imageID}</div>
+        //             </div>
+        //         </Link>
+        //     </div>
+        // })
+        var listImages = [];
+        images.map((image) => {
+            listImages.push({
+                src: `${process.env.PUBLIC_URL}/storageimages/${image.originalImage}`,
+                width: parseInt(image.size.width),
+                height: parseInt(image.size.height),
+                _id: image._id
+            })
         })
 
         return (
@@ -49,7 +71,7 @@ class ViewPageType extends Component {
                 <div className="mt-5 container">
                     <div className="row">
                         <div className="col-6">
-                            
+
                         </div>
                     </div>
                     <div className="row">
@@ -63,7 +85,12 @@ class ViewPageType extends Component {
                                 </div>
                             </Link>
                         </div> */}
-                        {listImages}
+                        {/* {listImages} */}
+                        <Gallery
+                            photos={listImages}
+                            direction={'row'}
+                            onClick={this.handleClickImage}
+                        />
 
                     </div>
                 </div>

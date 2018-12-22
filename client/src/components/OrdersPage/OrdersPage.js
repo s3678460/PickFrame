@@ -81,6 +81,7 @@ class OrdersPage extends Component {
             originalImage: this.state.originalImage,
             category: this.state.category,
             seller: this.state.seller,
+            companyName: this.state.companyName
             
         }
 
