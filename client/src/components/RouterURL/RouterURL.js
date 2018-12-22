@@ -37,7 +37,7 @@ class RouterURL extends Component {
         <Route path="/view/:type/" component={ViewPageType} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route path="/checkout" component={OrdersPage} />
+        <Route path="/checkout/:_id" component={OrdersPage} />
         <Route path="/details/:_id" component={Details} />
         <PrivateRoute path="/admin/" component={AdminPage} /> 
         <PrivateRoute path="/userprofile/" component={UserProfileView} />
