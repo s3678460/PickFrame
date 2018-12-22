@@ -29,8 +29,8 @@ class ViewPageType extends Component {
     }
     render() {
         const { images } = this.props.image;
-        if(this.state.isRedirect){
-            return <Redirect to={`/details/` + this.state._idImage}/>
+        if (this.state.isRedirect) {
+            return <Redirect to={`/details/` + this.state._idImage} />
         }
         //return images
         // var listImages = images.map((image, index) => {
@@ -68,7 +68,7 @@ class ViewPageType extends Component {
                         </Mask>
                     </View>
                 </div>
-                <div className="mt-5 container">
+                <div className="mt-5 ml-4 mr-4">
                     <div className="row">
                         <div className="col-6">
 
@@ -87,6 +87,7 @@ class ViewPageType extends Component {
                         </div> */}
                         {/* {listImages} */}
                         <Gallery
+                            margin={8}
                             photos={listImages}
                             direction={'row'}
                             onClick={this.handleClickImage}

@@ -25,7 +25,6 @@ import SellingPage from "../SellingPage/SellingPage";
 import CurrentSellingPage from "../CurrentSellingPage/CurrentSellingPage";
 import EditProfile from "../UserProfileView/EditProfile";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
-
 import SalesHistory from "../SalesHistory/SalesHistory";
 
 class RouterURL extends Component {
