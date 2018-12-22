@@ -44,6 +44,7 @@ class RouterURL extends Component {
         {/* <PrivateRoute path="/userprofile" component={UserProfile} /> */}
         <PrivateRoute path="/sellingimage/" component={SellingPage}/>
         <PrivateRoute path="/currentselling/" component={CurrentSellingPage}/>
+        <PrivateRoute path="/saleshistory/:_id" component={SalesHistory}/>
         <Route path="/editprofile" component={EditProfile}/>
         <Route path ="/editemail" component = {EditAccountEmail}/>
         <Route path ="/editpassword" component = {EditPassword}/>
