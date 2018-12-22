@@ -86,7 +86,6 @@ class ViewPageType extends Component {
                             </Link>
                         </div> */}
                         {/* {listImages} */}
-                        <Link to={`/details/` + this.state._idImage} ref="detailPage">ABC</Link>
                         <Gallery
                             photos={listImages}
                             direction={'row'}
