@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Details.css';
 import { Container, Button, Modal, ModalBody, ModalHeader, ModalFooter } from 'mdbreact';
 import ImageZoom from 'react-medium-image-zoom';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { GoPerson } from "react-icons/go"
 import { MDBBtn } from "mdbreact";
 import { Fragment } from "react";
@@ -34,6 +34,10 @@ class Details extends Component {
         const imageTarget = images.find((image) => {
             return image._id === imageIDTarget
         })
+        if(!imageTarget){
+            return <Redirect to="/" />
+        }
+        
         //set _idImage to localStorage
         localStorage.setItem("currentDeatil", JSON.stringify(imageTarget))
         

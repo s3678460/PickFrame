@@ -1,11 +1,12 @@
-import { 
-    GET_IMAGE, 
-    GET_IMAGES, 
+import {
+    GET_IMAGE,
+    GET_IMAGES,
     GET_USER_IMAGES,
-    ADD_IMAGE, 
-    DELETE_IMAGE, 
-    UPDATE_IMAGE, 
-    GET_ERRORS 
+    ADD_IMAGE,
+    DELETE_IMAGE,
+    UPDATE_IMAGE,
+    GET_ERRORS,
+    RESET_IMAGES
 } from "./../actions/types"
 import axios from "axios"
 
@@ -17,10 +18,13 @@ export const getUserImages = () => dispatch => {
             type: GET_USER_IMAGES,
             payload: res.data
         }))
-        .catch(err => dispatch({
-            type: GET_ERRORS,
-            payload: err.response.data
-        }))
+        .catch(err => {
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        }
+        )
 }
 export const getImages = () => dispatch => {
     axios
@@ -42,18 +46,18 @@ export const getImage = (id) => dispatch => {
 
 export const deleteImage = (id, originalImage) => dispatch => {
     axios
-    .delete(`/api/images/${id}`)
-    .then(res => dispatch({
-        type: DELETE_IMAGE,
-        payload: id
-    }))
-    .then(res => {
-        var deletedImage = {
-            imageLink: originalImage
-        }
-        axios.post("/api/images/deleteimage", deletedImage)
-    })
-    .then(res => dispatch(getUserImages()))
+        .delete(`/api/images/${id}`)
+        .then(res => dispatch({
+            type: DELETE_IMAGE,
+            payload: id
+        }))
+        .then(res => {
+            var deletedImage = {
+                imageLink: originalImage
+            }
+            axios.post("/api/images/deleteimage", deletedImage)
+        })
+        .then(res => dispatch(getUserImages()))
 }
 
 export const addImage = (newImage, newFile) => dispatch => {
@@ -93,4 +97,14 @@ export const updateImage = (newImage) => dispatch => {
             type: GET_ERRORS,
             payload: err.response.data
         }))
+}
+export const resetImages = () => dispatch => {
+    dispatch({
+        type: RESET_IMAGES,
+        payload: []
+    })
+    dispatch({
+        type: GET_ERRORS,
+        payload: {}
+    })
 }
