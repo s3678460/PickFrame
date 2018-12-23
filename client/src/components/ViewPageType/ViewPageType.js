@@ -102,7 +102,7 @@ class ViewPageType extends Component {
                         </Mask>
                     </View>
                 </div>
-                <div className="mt-5 ml-4 mr-4">
+                <div className="mt-5 ml-2 mr-2">
                     <div className="row">
                         <div className="col-12">
                             <Button color="primary" onClick={this.handlFilter}>Filter</Button>
@@ -112,7 +112,7 @@ class ViewPageType extends Component {
                         ? <div className="row">
                             <div className="col-2">
                                 <div>
-                                    <h1>Filter By Category</h1>
+                                    <p>Filter By Category</p>
                                     {/* Selected category */}
                                     <FormGroup row>
                                         {/* <Label for="category" sm={2}>Category</Label> */}
@@ -134,7 +134,7 @@ class ViewPageType extends Component {
                                         </Col>
                                     </FormGroup>
                                     {this.state.isFilter
-                                        ? <Button onClick={this.handleClearFilter} size="sm">Clear Filter</Button>
+                                        ? <Button color="primary" onClick={this.handleClearFilter} size="sm">Clear Filter</Button>
                                         : ""
                                     }
                                 </div>
