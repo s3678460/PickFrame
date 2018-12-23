@@ -19,7 +19,9 @@ class AdminPage extends Component {
           <Header />
           <div className="container">
             <Switch>
-              <Route exact path="/admin" component={Orders} />
+              <Route exact path="/admin" component={Requests} />
+              <Route exact path="/admin/orders" component={Orders} />
+              <Route exact path="/admin/requests" component={Requests} />
               <Route exact path="/admin/order/edit/:id" component={EditOrder} />
               <Route
                 exact
