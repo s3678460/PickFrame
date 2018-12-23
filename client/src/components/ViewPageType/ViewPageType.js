@@ -8,13 +8,17 @@ import { getImages } from "../../actions/imageActions"
 import bgforViewPage from "../../images/bgforViewPage.jpg"
 import { } from "reactstrap"
 import Gallery from "react-photo-gallery";
+import { FormGroup, Col, Input, Button } from "reactstrap";
 
 class ViewPageType extends Component {
     constructor(props) {
         super(props);
         this.state = {
             _idImage: '',
-            isRedirect: false
+            isRedirect: false,
+            showFilter: false,
+            categoryKey: '',
+            isFilter: false,
         }
     }
     componentDidMount() {
@@ -27,11 +31,41 @@ class ViewPageType extends Component {
             isRedirect: true
         })
     }
+    handlFilter = () => {
+        this.setState({
+            showFilter: !this.state.showFilter
+        })
+    }
+    handleFilterCategory = (e) => {
+        var target = e.target;
+        var name = target.name;
+        var value = target.value;
+        this.setState({
+            categoryKey: value,
+            isFilter: true
+        })
+    }
+    handleClearFilter = () => {
+        this.setState({
+            isFilter: false,
+            categoryKey: ''
+        })
+    }
     render() {
-        const { images } = this.props.image;
+        var { images } = this.props.image;
+        console.log(this.state.categoryKey)
         if (this.state.isRedirect) {
             return <Redirect to={`/details/` + this.state._idImage} />
         }
+        //filter by category
+        if (!(this.state.categoryKey === '')) {
+            images = images.filter((image) => {
+                return image.category[0] === this.state.categoryKey
+            })
+        }
+
+
+
         //return images
         // var listImages = images.map((image, index) => {
         //     return <div key={index} className="col-4 pt-4">
@@ -70,13 +104,64 @@ class ViewPageType extends Component {
                 </div>
                 <div className="mt-5 ml-4 mr-4">
                     <div className="row">
-                        <div className="col-6">
-
+                        <div className="col-12">
+                            <Button color="primary" onClick={this.handlFilter}>Filter</Button>
                         </div>
                     </div>
-                    <div className="row">
-                        {/* one image */}
-                        {/* <div className="col-4 pt-4">
+                    {this.state.showFilter
+                        ? <div className="row">
+                            <div className="col-2">
+                                <div>
+                                    <h1>Filter By Category</h1>
+                                    {/* Selected category */}
+                                    <FormGroup row>
+                                        {/* <Label for="category" sm={2}>Category</Label> */}
+                                        <Col sm={12}>
+                                            <Input
+                                                type="select"
+                                                name="category"
+                                                id="category"
+                                                value={this.state.categoryKey}
+                                                onChange={this.handleFilterCategory}
+                                            >
+                                                <option value="" className="text-muted">Choose your category...</option>
+                                                <option value="Nature">Nature</option>
+                                                <option value="Love">Love</option>
+                                                <option value="Sport">Sport</option>
+                                                <option value="Animal">Animal</option>
+                                                <option value="Business">Business</option>
+                                            </Input>
+                                        </Col>
+                                    </FormGroup>
+                                    {this.state.isFilter
+                                        ? <Button onClick={this.handleClearFilter} size="sm">Clear Filter</Button>
+                                        : ""
+                                    }
+                                </div>
+                            </div>
+                            <div className="col-10">
+                                <Gallery
+                                    margin={8}
+                                    photos={listImages}
+                                    direction={'row'}
+                                    onClick={this.handleClickImage}
+                                />
+                            </div>
+                        </div>
+                        : <div className="row">
+                            <div className="col-12">
+                                <Gallery
+                                    margin={8}
+                                    photos={listImages}
+                                    direction={'row'}
+                                    onClick={this.handleClickImage}
+                                />
+                            </div>
+                        </div>
+                    }
+
+                    {/* <div className="row">
+                        <div className="col-4 pt-4">
                             <Link to="/details">
                                 <div className="containerImage hoverable">
                                     <img src="https://picsum.photos/1000/1000/?random" alt="Avatar" className="imageCata" />
@@ -84,8 +169,8 @@ class ViewPageType extends Component {
                                     <div className="overlayID">#123456</div>
                                 </div>
                             </Link>
-                        </div> */}
-                        {/* {listImages} */}
+                        </div>
+                        {listImages}
                         <Gallery
                             margin={8}
                             photos={listImages}
@@ -93,7 +178,7 @@ class ViewPageType extends Component {
                             onClick={this.handleClickImage}
                         />
 
-                    </div>
+                    </div> */}
                 </div>
             </div>
         );
