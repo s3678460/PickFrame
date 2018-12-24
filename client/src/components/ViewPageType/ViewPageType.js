@@ -6,7 +6,7 @@ import { Link, Redirect } from "react-router-dom"
 import { connect } from "react-redux"
 import { getImages } from "../../actions/imageActions"
 import bgforViewPage from "../../images/bgforViewPage.jpg"
-import { } from "reactstrap"
+import { Collapse, Label, Fade } from "reactstrap"
 import Gallery from "react-photo-gallery";
 import { FormGroup, Col, Input, Button } from "reactstrap";
 
@@ -18,7 +18,8 @@ class ViewPageType extends Component {
             isRedirect: false,
             showFilter: false,
             categoryKey: '',
-            isFilter: false,
+            nameKey: '',
+            collapse: false,
         }
     }
     componentDidMount() {
@@ -31,40 +32,59 @@ class ViewPageType extends Component {
             isRedirect: true
         })
     }
-    handlFilter = () => {
+    onFilter = () => {
         this.setState({
-            showFilter: !this.state.showFilter
+            collapse: !this.state.collapse
         })
     }
-    handleFilterCategory = (e) => {
+    onChange = (e) => {
         var target = e.target;
         var name = target.name;
         var value = target.value;
         this.setState({
-            categoryKey: value,
-            isFilter: true
+            [name]: value,
+        })
+    }
+    onChangeNameKey = (e) => {
+        var target = e.target;
+        var name = target.name;
+        var value = target.value;
+        this.setState({
+            nameKey: value,
         })
     }
     handleClearFilter = () => {
         this.setState({
-            isFilter: false,
-            categoryKey: ''
+            categoryKey: '',
+            nameKey: ''
         })
     }
     render() {
         var { images } = this.props.image;
+        var { categoryKey, nameKey } = this.state;
         console.log(this.state.categoryKey)
         if (this.state.isRedirect) {
             return <Redirect to={`/details/` + this.state._idImage} />
         }
+        //filter by name key
+        images = images.filter((image) => {
+            return image.name.toLowerCase().indexOf(nameKey.toLowerCase()) !== -1
+        })
+
         //filter by category
+        // images = images.filter((image) => {
+        //     if (image.category[0] === categoryKey) {
+        //         return true
+        //     }
+        //     return false
+        // })
         if (!(this.state.categoryKey === '')) {
             images = images.filter((image) => {
                 return image.category[0] === this.state.categoryKey
             })
         }
 
-
+        var checkExistFilter = (this.state.categoryKey === '' && this.state.nameKey === '') ? false : true
 
         //return images
         // var listImages = images.map((image, index) => {
@@ -105,24 +125,41 @@ class ViewPageType extends Component {
                 <div className="mt-5 ml-2 mr-2">
                     <div className="row">
                         <div className="col-12">
-                            <Button color="primary" onClick={this.handlFilter}>Filter</Button>
+                            <Button color="black" onClick={this.onFilter}>Filter</Button>
+                            <div className="pull-right">
+                                <Fade in={checkExistFilter}>
+                                    <Button color="danger" onClick={this.handleClearFilter}>Clear Filter</Button>
+                                </Fade>
+                            </div>
                         </div>
                     </div>
-                    {this.state.showFilter
-                        ? <div className="row">
-                            <div className="col-2">
+                    <div className="row">
+                        <Collapse isOpen={this.state.collapse}>
+                            <div className="col-12 ml-2 mr-2" >
                                 <div>
-                                    <p>Filter By Category</p>
-                                    {/* Selected category */}
+                                    {/* Filter by Name */}
                                     <FormGroup row>
-                                        {/* <Label for="category" sm={2}>Category</Label> */}
+                                        <Label for="nameKey" sm={2} style={{ fontWeight: "bold" }}>By Name</Label>
+                                        <Col sm={12}>
+                                            <Input
+                                                type="text"
+                                                name="nameKey"
+                                                id="nameKey"
+                                                value={this.state.nameKey}
+                                                onChange={this.onChangeNameKey}
+                                            />
+                                        </Col>
+                                    </FormGroup>
+                                    {/* Filter category */}
+                                    <FormGroup row>
+                                        <Label for="category" sm={2} style={{ fontWeight: "bold" }}>By Category</Label>
                                         <Col sm={12}>
                                             <Input
                                                 type="select"
-                                                name="category"
+                                                name="categoryKey"
                                                 id="category"
                                                 value={this.state.categoryKey}
-                                                onChange={this.handleFilterCategory}
+                                                onChange={this.onChange}
                                             >
                                                 <option value="" className="text-muted">Choose your category...</option>
                                                 <option value="Nature">Nature</option>
@@ -133,32 +170,18 @@ class ViewPageType extends Component {
                                             </Input>
                                         </Col>
                                     </FormGroup>
-                                    {this.state.isFilter
-                                        ? <Button color="primary" onClick={this.handleClearFilter} size="sm">Clear Filter</Button>
-                                        : ""
-                                    }
                                 </div>
                             </div>
-                            <div className="col-10">
-                                <Gallery
-                                    margin={8}
-                                    photos={listImages}
-                                    direction={'row'}
-                                    onClick={this.handleClickImage}
-                                />
-                            </div>
+                        </Collapse>
+                        <div className="col-12">
+                            <Gallery
+                                margin={8}
+                                photos={listImages}
+                                direction={'row'}
+                                onClick={this.handleClickImage}
+                            />
                         </div>
-                        : <div className="row">
-                            <div className="col-12">
-                                <Gallery
-                                    margin={8}
-                                    photos={listImages}
-                                    direction={'row'}
-                                    onClick={this.handleClickImage}
-                                />
-                            </div>
-                        </div>
-                    }
+                    </div>
 
                     {/* <div className="row">
                         <div className="col-4 pt-4">
