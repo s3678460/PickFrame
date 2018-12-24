@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getRequests, rejectImage } from "../../../actions/requestActions";
+import {
+  getRequests,
+  rejectImage,
+  approveImage
+} from "../../../actions/requestActions";
 import { getContributor } from "../../../actions/contributorActions";
 import CheckBox from "./CheckBox";
 
@@ -9,7 +13,7 @@ class Requests extends Component {
   state = {
     request: "",
     showRequest: false,
-    rejectComplete: false,
+    reviewComplete: false,
     reasons: [
       { id: 1, value: "Model Release", isChecked: false },
       { id: 2, value: "Visible Trademark", isChecked: false },
@@ -32,10 +36,19 @@ class Requests extends Component {
     this.setState({ reasons });
   };
 
-  onSubmit = async e => {
+  approve = e => {
     e.preventDefault();
     this.setState({
-      rejectComplete: true
+      reviewComplete: true
+    });
+    const updRequest = { ...this.state.request, isValid: true };
+    console.log(updRequest);
+    this.props.approveImage(updRequest);
+  };
+  reject = async e => {
+    e.preventDefault();
+    this.setState({
+      reviewComplete: true
     });
 
     const message = this.state.reasons
@@ -56,7 +69,7 @@ class Requests extends Component {
       {
         request,
         showRequest: true,
-        rejectComplete: false,
+        reviewComplete: false,
         reasons: this.state.reasons.map(r =>
           Object.assign(r, { isChecked: false })
         )
@@ -115,11 +128,73 @@ class Requests extends Component {
                     >
                       Reject
                     </a>
-                    <a href="#" className="btn btn-success">
+                    <a
+                      href="#"
+                      className="btn btn-success"
+                      data-toggle="modal"
+                      data-target="#approveModal"
+                    >
                       Approve
                     </a>
-
-                    {/* <!-- Modal --> */}
+                    {/* <!-- ApproveModal --> */}
+                    <div
+                      class="modal fade"
+                      id="approveModal"
+                      tabindex="-1"
+                      role="dialog"
+                      aria-labelledby="exampleModalLabel"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div
+                            class="modal-header"
+                            style={{ backgroundColor: "#e3f2fd" }}
+                          >
+                            <h5 class="modal-title" id="exampleModalLabel">
+                              Approve Request
+                            </h5>
+                            <button
+                              type="button"
+                              class="close"
+                              data-dismiss="modal"
+                              aria-label="Close"
+                            >
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            {this.state.reviewComplete ? (
+                              <p className="lead">Review Completed</p>
+                            ) : (
+                              <div>...</div>
+                            )}
+                          </div>
+                          <div class="modal-footer">
+                            <button
+                              type="button"
+                              class="btn btn-dark"
+                              data-dismiss="modal"
+                              onClick={() =>
+                                this.setState({ showRequest: false })
+                              }
+                            >
+                              Close
+                            </button>
+                            {!this.state.reviewComplete ? (
+                              <button
+                                type="button"
+                                class="btn btn-primary"
+                                onClick={this.approve}
+                              >
+                                Upload and Approve
+                              </button>
+                            ) : null}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {/* <!-- RejectModal --> */}
                     <div
                       class="modal fade"
                       id="rejectModal"
@@ -130,9 +205,12 @@ class Requests extends Component {
                     >
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
-                          <div class="modal-header text-white bg-info">
+                          <div
+                            class="modal-header"
+                            style={{ backgroundColor: "#e3f2fd" }}
+                          >
                             <h5 class="modal-title" id="exampleModalLabel">
-                              Rejection form
+                              Reject Request
                             </h5>
                             <button
                               type="button"
@@ -144,7 +222,7 @@ class Requests extends Component {
                             </button>
                           </div>
                           <div class="modal-body">
-                            {this.state.rejectComplete ? (
+                            {this.state.reviewComplete ? (
                               <p className="lead">Review Completed</p>
                             ) : (
                               <form>
@@ -198,14 +276,17 @@ class Requests extends Component {
                               type="button"
                               class="btn btn-dark"
                               data-dismiss="modal"
+                              onClick={() =>
+                                this.setState({ showRequest: false })
+                              }
                             >
                               Close
                             </button>
-                            {!this.state.rejectComplete ? (
+                            {!this.state.reviewComplete ? (
                               <button
                                 type="button"
                                 class="btn btn-primary"
-                                onClick={this.onSubmit}
+                                onClick={this.reject}
                               >
                                 Email rejection
                               </button>
@@ -234,6 +315,7 @@ Requests.propTypes = {
   requests: PropTypes.array.isRequired,
   getRequests: PropTypes.func.isRequired,
   rejectImage: PropTypes.func.isRequired,
+  approveImage: PropTypes.func.isRequired,
   getContributor: PropTypes.func.isRequired
 };
 
@@ -244,5 +326,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getRequests, getContributor, rejectImage }
+  { getRequests, getContributor, rejectImage, approveImage }
 )(Requests);

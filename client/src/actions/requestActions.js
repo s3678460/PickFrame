@@ -1,4 +1,4 @@
-import { GET_REQUESTS, REJECT_IMAGE } from "./../actions/types";
+import { GET_REQUESTS, REJECT_IMAGE, APPROVE_IMAGE } from "./../actions/types";
 import axios from "axios";
 
 export const getRequests = () => dispatch => {
@@ -20,5 +20,16 @@ export const rejectImage = (_id, content) => async dispatch => {
   });
   await axios.post("/api/form", {
     ...content
+  });
+};
+
+export const approveImage = request => async dispatch => {
+  const res = await axios.put(
+    `http://localhost:5000/api/images/admin/approveimage/${request._id}`,
+    request
+  );
+  dispatch({
+    type: APPROVE_IMAGE,
+    payload: res.data
   });
 };

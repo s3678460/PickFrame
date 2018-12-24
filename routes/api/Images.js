@@ -191,8 +191,8 @@ router.delete(
 //@access Public
 router.put("/admin/approveimage/:_id", (req, res) => {
   var update = req.body;
-  Image.findByIdAndUpdate(req.params._id, update)
-    .then(() => res.json({ update: true }))
+  Image.findByIdAndUpdate(req.params._id, update, { new: true })
+    .then(request => res.json(request))
     .catch(err => res.status(404).json({ update: false }));
 });
 

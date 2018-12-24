@@ -8,6 +8,7 @@ import Requests from "./requests/Requests";
 import ContributorDetails from "./contributors/ContributorDetails";
 import Login from "./auth/Login";
 import NotFound from "./NotFound";
+import "bootstrap/dist/css/bootstrap.css";
 
 import { connect } from "react-redux";
 
