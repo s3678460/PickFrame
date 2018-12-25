@@ -11,6 +11,8 @@ import Contactus from "../ContactUs/Contactus";
 import Sitemap from "../SiteMap/Sitemap";
 import LegalPrivacy from "../LegalPrivacy/LegalPrivacy";
 import LicenseTerm from "../LicenseTerm/LicenseTerm";
+import getContact from "../ContactUs/getContact";
+
 
 import EditAccountEmail from "../UserProfileView/EditAccountEmail"
 import EditPassword from "../UserProfileView/EditPassword"
@@ -25,6 +27,7 @@ import SellingPage from "../SellingPage/SellingPage";
 import CurrentSellingPage from "../CurrentSellingPage/CurrentSellingPage";
 import EditProfile from "../UserProfileView/EditProfile";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+
 
 class RouterURL extends Component {
   render() {
@@ -54,6 +57,8 @@ class RouterURL extends Component {
         <Route path="/Contactus" component={Contactus}/>
         <Route path="/LegalPrivacy" component={LegalPrivacy}/>
         <Route path="/LicenseTerm" component={LicenseTerm}/>
+        <Route path="/getContact" component={getContact}/>
+
         <Route component={HomePage} /> 
         </Switch>
       </div>
