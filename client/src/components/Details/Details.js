@@ -9,6 +9,11 @@ import { Fragment } from "react";
 import Slider from 'react-slick';
 import { connect } from "react-redux"
 import { getImages } from "../../actions/imageActions"
+import mergeImages from 'merge-images';
+import watermarkImage from "../../images/Untitled.png"
+import bgImage from "../../images/demo4.jpg"
+
+
 
 
 
@@ -36,8 +41,31 @@ class Details extends Component {
         })
         //set _idImage to localStorage
         localStorage.setItem("currentDeatil", JSON.stringify(imageTarget))
-        
+
         const linkImage = process.env.PUBLIC_URL + `/storageimages/${imageTarget.originalImage}`
+        
+        
+        
+        const watermark = mergeImages([
+            {src:linkImage},
+            {src:watermarkImage,}
+        ],{
+            width:imageTarget.size.width,
+            height:imageTarget.size.height,
+        })
+          
+            
+        
+        .then(result=>
+            document.querySelector('.watermark').src=result
+        
+        )
+
+
+
+
+
+
         var settings = {
             dots: true,
             infinite: true,
@@ -58,17 +86,23 @@ class Details extends Component {
                             <section className="image-card">
                                 <ImageZoom
                                     image={{
-                                        src: linkImage,
+                                        
                                         alt: `${imageTarget.name}`,
-                                        className: 'img',
+                                        className: 'watermark',
                                         style: { width: '100%', height: '100%' }
                                     }}
                                     zoomImage={{
-                                        src: linkImage,
-                                        alt: `${imageTarget.name}`
+                                        
+                                        alt: `${imageTarget.name}`,
+                                        style: { width: '100%', height: '100%' },
+                                        className:'watermark'
+
                                     }}
                                 />
+
                             </section>
+
+
 
                             <div className="text-section">
                                 <div className="content-details">

@@ -11,7 +11,7 @@ import Contactus from "../ContactUs/Contactus";
 import Sitemap from "../SiteMap/Sitemap";
 import LegalPrivacy from "../LegalPrivacy/LegalPrivacy";
 import LicenseTerm from "../LicenseTerm/LicenseTerm";
-
+import CustomerChat from "../CustomerChat/CustomerChat";
 import EditAccountEmail from "../UserProfileView/EditAccountEmail";
 import EditPassword from "../UserProfileView/EditPassword";
 import OrdersPage from "../OrdersPage/OrdersPage";
@@ -37,7 +37,7 @@ class RouterURL extends Component {
         <Route path="/view/:type/" component={ViewPageType} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route path="/checkout" component={OrdersPage} />
+        <Route path="/checkout/:_id" component={OrdersPage} />
         <Route path="/details/:_id" component={Details} />
         <PrivateRoute path="/admin/" component={AdminPage} /> 
         <PrivateRoute path="/userprofile/" component={UserProfileView} />
@@ -53,6 +53,7 @@ class RouterURL extends Component {
         <Route path="/verification" component={Verification}/>
         <Route path="/Aboutus" component={Aboutus} />
         <Route path="/QA" component={QandA} />
+        <Route path="/Customerchat" component={CustomerChat}/>
         <Route path="/Sitemap" component={Sitemap}/>
         <Route path="/Contactus" component={Contactus}/>
         <Route component={HomePage} /> 
