@@ -11,7 +11,7 @@ import Contactus from "../ContactUs/Contactus";
 import Sitemap from "../SiteMap/Sitemap";
 import LegalPrivacy from "../LegalPrivacy/LegalPrivacy";
 import LicenseTerm from "../LicenseTerm/LicenseTerm";
-
+import CustomerChat from "../CustomerChat/CustomerChat";
 import EditAccountEmail from "../UserProfileView/EditAccountEmail";
 import EditPassword from "../UserProfileView/EditPassword";
 import OrdersPage from "../OrdersPage/OrdersPage";
@@ -54,6 +54,7 @@ class RouterURL extends Component {
           <Route path="/postedit" component={PostEditProfile} />
           <Route path="/confirmpassword" component={ConfirmPassword} />
           <Route path="/verification" component={Verification} />
+          <Route path="/Customerchat" component={CustomerChat}/>
           <Route path="/Aboutus" component={Aboutus} />
           <Route path="/QA" component={QandA} />
           <Route path="/Sitemap" component={Sitemap} />
