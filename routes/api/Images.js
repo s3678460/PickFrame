@@ -10,9 +10,24 @@ const isEmty = require("../../validation/is-empty");
 //Load Image model
 const Image = require("../../models/Image");
 
+//path Storage image
+var pathStorageImages;
+if (process.env.NODE_ENV === 'production') {
+  pathStorageImages = "../../client/build/storageimages"
+}
+else {
+  pathStorageImages = "../../client/public/storageimages"
+}
 //Test API
-
-router.get("/test", (req, res) => res.json({ msg: "Image works" }));
+router.get("/test", (req, res) => {
+  if (process.env.NODE_ENV === 'production') {
+    res.json({ msg: "production" })
+  } else if (process.env.NODE_ENV === 'development') {
+    res.json({ msg: "development" })
+  } else {
+    res.json({ msg: "Undified" })
+  }
+});
 
 //@route GET api/userimage
 //@desc GET Images of current user
@@ -37,10 +52,10 @@ router.get(
 
 //Set Storage Images
 const storage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, path.join(__dirname, "../../client/public/storageimages"));
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, pathStorageImages));
   },
-  filename: function(req, file, cb) {
+  filename: function (req, file, cb) {
     // cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname));
     cb(null, file.originalname);
   }
@@ -49,7 +64,7 @@ const storage = multer.diskStorage({
 // Init Upload
 const upload = multer({
   storage: storage,
-  fileFilter: function(req, file, cb) {
+  fileFilter: function (req, file, cb) {
     checkFileType(file, cb);
   }
 }).single("uploadimage");
@@ -87,7 +102,7 @@ router.post("/deleteimage", (req, res) => {
   //delete local image
   var filepath = path.join(
     __dirname,
-    `../../client/public/storageimages/${req.body.imageLink}`
+    `${pathStorageImages}/${req.body.imageLink}`
   );
   fs.unlinkSync(filepath);
 });
@@ -205,7 +220,7 @@ router.delete("/admin/rejectimage/:_id", (req, res) => {
       // delete local image
       var filepath = path.join(
         __dirname,
-        `../../client/public/storageimages/${removedImage.originalImage}`
+        `${pathStorageImages}/${removedImage.originalImage}`
       );
       fs.unlinkSync(filepath);
       res.send(removedImage);
