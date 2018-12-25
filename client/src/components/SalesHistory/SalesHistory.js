@@ -47,12 +47,12 @@ class SalesHistory extends Component {
                 <div key={index} className="row pt-4">
                     <div className="col-12 hoverable" style={{ backgroundColor: "white" }}>
                         <div className="row">
-                            <div className="col-6">
+                            {/* <div className="col-6">
                                 <div style={{ padding: "12px 12px 12px 0px" }}>
                                     <img style={{ maxHeight: "100%", maxWidth: "100%" }} src={process.env.PUBLIC_URL + `/storageimages/${image.originalImage}`} className="img-fluid" />
                                 </div>
-                            </div>
-                            <div className="col-6">
+                            </div> */}
+                            <div className="col-12">
                                 <div style={{ paddingTop: "12px" }}>
                                     <h2 className="h2-responsive">{image.name}</h2>
                                     <dl className="row">

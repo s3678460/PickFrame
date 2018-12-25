@@ -26,9 +26,13 @@ class Login extends Component {
     let { isLoginPending, isLoginSuccess, loginError } = this.props;
     return (
       <div>
-        <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-3 py-0">
+        <nav
+          class="navbar navbar-expand-lg navbar-light mb-3"
+          style={{ backgroundColor: "#e3f2fd" }}
+        >
           <div className="container">
-            <a href="/admin" className="navbar-brand">
+            <a class="navbar-brand" href="#">
+              {" "}
               PickFrame Admin
             </a>
           </div>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Details.css';
 import { Container, Button, Modal, ModalBody, ModalHeader, ModalFooter } from 'mdbreact';
 import ImageZoom from 'react-medium-image-zoom';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { GoPerson } from "react-icons/go"
 import { MDBBtn } from "mdbreact";
 import { Fragment } from "react";
@@ -39,6 +39,24 @@ class Details extends Component {
         const imageTarget = images.find((image) => {
             return image._id === imageIDTarget
         })
+        if (!imageTarget) {
+            return <Redirect to="/" />
+        }
+
+        //render similar images
+        const listSimilarImage = images.filter((image) => {
+            return image.category[0] === imageTarget.category[0]
+        })
+        console.log(listSimilarImage.length)
+        const renderSimilarImages = listSimilarImage.map((image, index) => {
+            return <div key={index}>
+                <Link to={`/details/` + image._id}>
+                    <img
+                        src={process.env.PUBLIC_URL + `/storageimages/${image.originalImage}`}
+                        className="img-thumbnail" />
+                </Link>
+            </div>
+        })
         //set _idImage to localStorage
         localStorage.setItem("currentDeatil", JSON.stringify(imageTarget))
 
@@ -70,7 +88,7 @@ class Details extends Component {
             dots: true,
             infinite: true,
             speed: 500,
-            slidesToShow: 3,
+            slidesToShow: listSimilarImage.length >= 3 ? 3 : listSimilarImage.length,
             slidesToScroll: 1,
             centerMode: true,
             autoplay: true,
@@ -146,20 +164,25 @@ class Details extends Component {
                 </div>
                 <div className="container-fluid-similar-image" >
                     <div className="slider-images">
-                        <span><b>Similar images</b> <Link to="/view/photos">View all photos  ></Link></span>
+                        <span><b>Similar images</b> <Link to="/view/photos">View all photos</Link></span>
 
                         <Slider {...settings}>
+                            {renderSimilarImages}
+                            {/* <div>
+                                <Link to="/#"><img src="https://images7.alphacoders.com/411/thumb-1920-411820.jpg" className="img-thumbnail"></img></Link>
+                            </div>
                             <div>
-                                <Link to="/#"><img src="https://images7.alphacoders.com/411/thumb-1920-411820.jpg" className="img-thumbnail"></img></Link>                        </div>
+                                <Link to="/#"><img src="http://4.bp.blogspot.com/-oxlezteeOII/TfiTImj4RlI/AAAAAAAAA1k/UAgctmU5VZo/s1600/Widescreen+Unique+And+Beautiful+Photography+%25284%2529.jpg" className="img-thumbnail" ></img></Link>
+                            </div>
                             <div>
-                                <Link to="/#"><img src="http://4.bp.blogspot.com/-oxlezteeOII/TfiTImj4RlI/AAAAAAAAA1k/UAgctmU5VZo/s1600/Widescreen+Unique+And+Beautiful+Photography+%25284%2529.jpg" className="img-thumbnail" ></img></Link>                        </div>
+                                <Link to="/#"><img src="http://hdwpro.com/wp-content/uploads/2016/12/Spring-HD-Pic.jpg" className="img-thumbnail" ></img></Link>
+                            </div>
                             <div>
-                                <Link to="/#"><img src="http://hdwpro.com/wp-content/uploads/2016/12/Spring-HD-Pic.jpg" className="img-thumbnail" ></img></Link>                        </div>
-                            <div>
-                                <Link to="/#"><img src="http://www.wallpapereast.com/static/images/Hawaii-Beach-Wallpaper-HD_kgppCjh.jpg" className="img-thumbnail"></img></Link>                        </div>
-                        </Slider></div>
+                                <Link to="/#"><img src="http://www.wallpapereast.com/static/images/Hawaii-Beach-Wallpaper-HD_kgppCjh.jpg" className="img-thumbnail"></img></Link>
+                            </div> */}
+                        </Slider>
+                    </div>
                 </div>
-
             </div>
         );
     }

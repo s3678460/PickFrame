@@ -22,7 +22,7 @@ import {
     CustomInput
 } from 'reactstrap';
 import classNames from "classnames"
-import { getUserImages, deleteImage, updateImage } from "../../actions/imageActions"
+import { getUserImages, deleteImage, updateImage, resetImages } from "../../actions/imageActions"
 
 class CurrentSellingPage extends Component {
     constructor(props) {
@@ -62,6 +62,9 @@ class CurrentSellingPage extends Component {
                 errors: nextProps.errors
             })
         }
+    }
+    componentWillMount(){
+        this.props.resetImages()
     }
     componentDidMount() {
         this.props.getUserImages()
@@ -360,4 +363,4 @@ const mapStateTpProps = state => {
     }
 }
 
-export default connect(mapStateTpProps, { getUserImages, deleteImage, updateImage })(CurrentSellingPage);
+export default connect(mapStateTpProps, { getUserImages, deleteImage, updateImage, resetImages })(CurrentSellingPage);

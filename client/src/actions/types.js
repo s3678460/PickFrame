@@ -20,6 +20,7 @@ export const GET_IMAGE = "GET_IMAGE";
 export const DELETE_IMAGE = "DELETE_IMAGE";
 export const ADD_IMAGE = "ADD_IMAGE";
 export const UPDATE_IMAGE = "UPDATE_IMAGE";
+export const RESET_IMAGES = "RESET_IMAGES";
 
 //User type
 
@@ -36,3 +37,4 @@ export const SET_LOGIN_ERROR = "SET_LOGIN_ERROR";
 // Requests
 export const GET_REQUESTS = "GET_REQUESTS";
 export const REJECT_IMAGE = "REJECT_IMAGE";
+export const APPROVE_IMAGE = "APPROVE_IMAGE";

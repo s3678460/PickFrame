@@ -8,6 +8,7 @@ import Requests from "./requests/Requests";
 import ContributorDetails from "./contributors/ContributorDetails";
 import Login from "./auth/Login";
 import NotFound from "./NotFound";
+import "bootstrap/dist/css/bootstrap.css";
 
 import { connect } from "react-redux";
 
@@ -19,7 +20,9 @@ class AdminPage extends Component {
           <Header />
           <div className="container">
             <Switch>
-              <Route exact path="/admin" component={Orders} />
+              <Route exact path="/admin" component={Requests} />
+              <Route exact path="/admin/orders" component={Orders} />
+              <Route exact path="/admin/requests" component={Requests} />
               <Route exact path="/admin/order/edit/:id" component={EditOrder} />
               <Route
                 exact

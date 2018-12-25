@@ -6,8 +6,8 @@ module.exports=function validateOrderInput(data){
     let errors ={};
 
     //companyName
-    if (!Validator.isLength(data.companyName,{min:6,max:30})){
-        errors.companyName = 'Company Name must be between 6 and 30 characters'
+    if (!Validator.isLength(data.companyName,{min:1,max:30})){
+        errors.companyName = 'Company Name must be between 1 and 30 characters'
     }
     if(Validator.isEmpty(data.companyName)){
         errors.companyName="Company Name field is required";
