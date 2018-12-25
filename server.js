@@ -49,13 +49,13 @@ app.use("/api/orders", orders);
 app.use("/api/saleHistory", saleHistory);
 app.use("/api/form", form);
 
-//Serve static assets if in production
+// Serve static assets if in production
 
-// app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.join(__dirname, "client/build")));
 
-// app.get("/*", function (req, res) {
-//   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-// });
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 const port = process.env.PORT || 5000;
 
