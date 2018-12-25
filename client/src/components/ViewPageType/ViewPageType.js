@@ -125,7 +125,7 @@ class ViewPageType extends Component {
                 <div className="mt-5 ml-2 mr-2">
                     <div className="row">
                         <div className="col-12">
-                            <Button color="black" onClick={this.onFilter}>Filter</Button>
+                            <Button color="black" onClick={this.onFilter}>{this.state.collapse ? 'Close Filter' : 'Filter'}</Button>
                             <div className="pull-right">
                                 <Fade in={checkExistFilter}>
                                     <Button color="danger" onClick={this.handleClearFilter}>Clear Filter</Button>
@@ -139,7 +139,7 @@ class ViewPageType extends Component {
                                 <div>
                                     {/* Filter by Name */}
                                     <FormGroup row>
-                                        <Label for="nameKey" sm={2} style={{ fontWeight: "bold" }}>By Name</Label>
+                                        <Label for="nameKey" sm={2} style={{ fontWeight: "bold" }}>Name</Label>
                                         <Col sm={12}>
                                             <Input
                                                 type="text"
@@ -152,7 +152,7 @@ class ViewPageType extends Component {
                                     </FormGroup>
                                     {/* Filter category */}
                                     <FormGroup row>
-                                        <Label for="category" sm={2} style={{ fontWeight: "bold" }}>By Category</Label>
+                                        <Label for="category" sm={2} style={{ fontWeight: "bold" }}>Category</Label>
                                         <Col sm={12}>
                                             <Input
                                                 type="select"
