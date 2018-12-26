@@ -22,6 +22,13 @@ class ViewPageType extends Component {
             collapse: false,
         }
     }
+    componentWillMount() {
+        if (!(this.props.match.params.type === 'photos')) {
+            this.setState({
+                categoryKey: this.props.match.params.type
+            })
+        }
+    }
     componentDidMount() {
         this.props.getImages();
     }
@@ -62,7 +69,6 @@ class ViewPageType extends Component {
     render() {
         var { images } = this.props.image;
         var { categoryKey, nameKey } = this.state;
-        console.log(this.state.categoryKey)
         if (this.state.isRedirect) {
             return <Redirect to={`/details/` + this.state._idImage} />
         }
@@ -78,9 +84,23 @@ class ViewPageType extends Component {
         //     }
         //     return false
         // })
-        if (!(this.state.categoryKey === '')) {
+        //Set category
+        // if (this.props.match.params.type === 'animal') {
+        //     categoryKey = 'Animal'
+        // }
+        // else if (this.props.match.params.type === 'business') {
+        //     categoryKey = 'Business'
+        // }
+        // else if (this.props.match.params.type === 'nature') {
+        //     categoryKey = 'Nature'
+        // }
+        // else {
+        //     categoryKey = ''
+        // }
+
+        if (!(categoryKey === '')) {
             images = images.filter((image) => {
-                return image.category[0] === this.state.categoryKey
+                return image.category[0].toLowerCase() === categoryKey.toLowerCase()
             })
         }
 
