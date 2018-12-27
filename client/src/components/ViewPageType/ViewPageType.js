@@ -22,13 +22,26 @@ class ViewPageType extends Component {
             collapse: false,
         }
     }
-    componentWillMount() {
-        if (!(this.props.match.params.type === 'photos')) {
+    componentWillReceiveProps(nextProps) {
+        const { typesearch, type } = nextProps.match.params;
+        if ((typesearch === 'all')) {
             this.setState({
-                categoryKey: this.props.match.params.type
+                categoryKey: '',
+                nameKey: '',
+            })
+        }
+        if ((typesearch === 'keyword')) {
+            this.setState({
+                nameKey: type
+            })
+        }
+        if ((typesearch === 'category')) {
+            this.setState({
+                categoryKey: type
             })
         }
     }
+
     componentDidMount() {
         this.props.getImages();
     }
@@ -67,6 +80,7 @@ class ViewPageType extends Component {
         })
     }
     render() {
+        console.log(this.props.match.params.type)
         var { images } = this.props.image;
         var { categoryKey, nameKey } = this.state;
         if (this.state.isRedirect) {
@@ -147,7 +161,7 @@ class ViewPageType extends Component {
                         <div className="col-12">
                             <Button color="black" onClick={this.onFilter}>{this.state.collapse ? 'Close Filter' : 'Filter'}</Button>
                             <div className="pull-right">
-                                <Fade in={checkExistFilter}>
+                                <Fade in={(checkExistFilter && this.state.collapse) ? true : false}>
                                     <Button color="danger" onClick={this.handleClearFilter}>Clear Filter</Button>
                                 </Fade>
                             </div>
@@ -182,11 +196,11 @@ class ViewPageType extends Component {
                                                 onChange={this.onChange}
                                             >
                                                 <option value="" className="text-muted">Choose your category...</option>
-                                                <option value="Nature">Nature</option>
-                                                <option value="Love">Love</option>
-                                                <option value="Sport">Sport</option>
-                                                <option value="Animal">Animal</option>
-                                                <option value="Business">Business</option>
+                                                <option value="nature">Nature</option>
+                                                <option value="love">Love</option>
+                                                <option value="sport">Sport</option>
+                                                <option value="animal">Animal</option>
+                                                <option value="business">Business</option>
                                             </Input>
                                         </Col>
                                     </FormGroup>

@@ -39,7 +39,7 @@ class RouterURL extends Component {
       <div>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/view/:type" component={ViewPageType} />
+          <Route path="/view/:typesearch/:type" component={ViewPageType} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/checkout/:_id" component={OrdersPage} />
