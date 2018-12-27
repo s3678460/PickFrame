@@ -67,7 +67,7 @@ class Order extends Component {
                     value={status}
                     className="form-control"
                     onChange={this.handleChange}
-                    style={{ width: "400px" }}
+                    style={{ width: "300px" }}
                   >
                     <option value="Pending">Pending</option>
                     <option value="Awaiting Payment">Awaiting Payment</option>
