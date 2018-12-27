@@ -23,7 +23,7 @@ export const rejectImage = (_id, content) => async dispatch => {
   });
 };
 
-export const approveImage = request => async dispatch => {
+export const approveImage = (request, content) => async dispatch => {
   const res = await axios.put(
     `http://localhost:5000/api/images/admin/approveimage/${request._id}`,
     request
@@ -31,5 +31,8 @@ export const approveImage = request => async dispatch => {
   dispatch({
     type: APPROVE_IMAGE,
     payload: res.data
+  });
+  await axios.post("/api/form", {
+    ...content
   });
 };

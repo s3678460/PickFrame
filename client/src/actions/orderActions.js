@@ -17,7 +17,7 @@ export const getOrders = () => async dispatch => {
 };
 
 export const getOrder = _id => async dispatch => {
-  const res = await axios.get(`http://localhost:5000/api/orders/${_id}`);
+  const res = await axios.get(`api/orders/${_id}`);
   dispatch({
     type: GET_ORDER,
     payload: res.data

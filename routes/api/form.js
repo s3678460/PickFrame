@@ -6,12 +6,16 @@ var nodemailer = require("nodemailer");
 router.post("/", (req, res) => {
   console.log("form post request");
   nodemailer.createTestAccount((err, account) => {
-    const htmlEmail = `
-    <h3>Image ID</h3>
-    <p>${req.body.imageID}</p> 
-    <h3>Rejection Reasons</h3>
-    <ul>${req.body.message}</ul>
-    `;
+    const htmlEmail =
+      req.body.message === "approve"
+        ? `<p>Congratulations, your request for image <b>${
+            req.body.imageID
+          }</b> is approved.<p>`
+        : `<p>Your request for image <b>${
+            req.body.imageID
+          }</b> is rejected for the following reasons: <b>${
+            req.body.message
+          }</b>.</p>`;
     let transporter = nodemailer.createTransport({
       host: "smtp.ethereal.email",
       port: 587,
@@ -25,7 +29,8 @@ router.post("/", (req, res) => {
       from: "admin@example.com",
       to: req.body.email,
       replyTo: "admin@example.com",
-      subject: "Rejection Message",
+      subject:
+        req.body.message === "approve" ? "Image Approved" : "Image Rejected",
       text: req.body.imageID,
       html: htmlEmail
     };

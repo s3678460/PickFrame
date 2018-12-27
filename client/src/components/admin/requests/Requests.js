@@ -41,9 +41,15 @@ class Requests extends Component {
     this.setState({
       reviewComplete: true
     });
+    const imageID = this.state.request.imageID;
+    const email = this.props.user.email;
+    const message = "approve";
     const updRequest = { ...this.state.request, isValid: true };
-    console.log(updRequest);
-    this.props.approveImage(updRequest);
+    this.props.approveImage(updRequest, {
+      email,
+      imageID,
+      message
+    });
   };
   reject = async e => {
     e.preventDefault();
@@ -85,7 +91,7 @@ class Requests extends Component {
     const { requests } = this.props;
     return (
       <React.Fragment>
-        <div className="row my-5">
+        <div className="row">
           <div className="col-md-3">
             <div className="card text-white bg-dark mb-3">
               <h5 className="card-header">Requests</h5>
@@ -95,11 +101,6 @@ class Requests extends Component {
                     className="list-group-item "
                     href="#"
                     onClick={() => this.onRequestClick(request)}
-                    // onClick={() =>
-                    //   this.setState({ request }, () =>
-                    //     this.props.getContributor(request.user)
-                    //   )
-                    // }
                   >
                     {request.imageID}
                   </a>
@@ -167,7 +168,9 @@ class Requests extends Component {
                             {this.state.reviewComplete ? (
                               <p className="lead">Review Completed</p>
                             ) : (
-                              <div>...</div>
+                              <div className="lead">
+                                Are you sure you want to approve this image?
+                              </div>
                             )}
                           </div>
                           <div class="modal-footer">
@@ -187,7 +190,7 @@ class Requests extends Component {
                                 class="btn btn-primary"
                                 onClick={this.approve}
                               >
-                                Upload and Approve
+                                Email Approval
                               </button>
                             ) : null}
                           </div>
@@ -214,7 +217,7 @@ class Requests extends Component {
                             </h5>
                             <button
                               type="button"
-                              className="close text-white"
+                              className="close"
                               data-dismiss="modal"
                               aria-label="Close"
                             >

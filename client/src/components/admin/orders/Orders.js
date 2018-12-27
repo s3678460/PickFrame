@@ -12,9 +12,6 @@ class Orders extends Component {
     const { orders } = this.props;
     return (
       <React.Fragment>
-        <h1 className="display-4 mb-2">
-          <span className="text-info">Order</span> List
-        </h1>
         {orders.map(order => (
           <Order key={order.id} order={order} />
         ))}
