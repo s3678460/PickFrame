@@ -10,6 +10,8 @@ const users = require("./routes/api/Users");
 const admins = require("./routes/api/Admins");
 const orders = require("./routes/api/Orders");
 const contact = require("./routes/api/Contact");
+const saleHistory = require("./routes/api/SaleHistory");
+const form = require("./routes/api/form");
 
 const app = express();
 
@@ -46,14 +48,16 @@ app.use("/api/users", users);
 app.use("/api/admins", admins);
 app.use("/api/orders", orders);
 app.use("/api/contacts",contact);
+app.use("/api/saleHistory", saleHistory);
+app.use("/api/form", form);
 
-//Serve static assets if in production
+// Serve static assets if in production
 
-// app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.join(__dirname, "client/build")));
 
-// app.get("/*", function (req, res) {
-//   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-// });
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 const port = process.env.PORT || 5000;
 

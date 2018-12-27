@@ -1,11 +1,24 @@
-import { GET_IMAGE, GET_IMAGES, ADD_IMAGE, DELETE_IMAGE, UPDATE_IMAGE, GET_USER_IMAGES } from "./../actions/types"
+import { GET_IMAGE, GET_IMAGES, ADD_IMAGE, DELETE_IMAGE, UPDATE_IMAGE, GET_USER_IMAGES, RESET_IMAGES } from "./../actions/types"
 
-//InitialState 
-const initialState = {
-    images: []
+//InitialState
+function initialState() {
+    if (localStorage.currentDeatil) {
+        const currentDeatil = JSON.parse(localStorage.currentDeatil)
+        return {
+            images: [currentDeatil]
+        }
+    } else {
+        return {
+            images: []
+        }
+    }
 }
+// const initialState = {
+//     images: []
+// }
 
-export default function (state = initialState, action) {
+
+export default function (state = initialState(), action) {
     switch (action.type) {
         case GET_IMAGES:
             return {
@@ -36,6 +49,11 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 images: [action.payload, ...state.images]
+            }
+        case RESET_IMAGES:
+            return {
+                ...state,
+                images: action.payload
             }
         default:
             return state

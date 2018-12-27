@@ -111,3 +111,12 @@ export const editUserPassword = (updateProfilePassword, id,history) => dispatch 
 
 }
 
+export const userVerification =(secretToken,history)=> dispatch=>{
+    axios.post('/api/users/verify', secretToken)
+    .then(res=>history.push('/login'))
+    .catch(err=>dispatch({
+        type:GET_ERRORS,
+        payload:err.response.data
+    }))
+}
+

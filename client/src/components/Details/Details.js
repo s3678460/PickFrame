@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import './Details.css';
 import { Container, Button, Modal, ModalBody, ModalHeader, ModalFooter } from 'mdbreact';
 import ImageZoom from 'react-medium-image-zoom';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { GoPerson } from "react-icons/go"
 import { MDBBtn } from "mdbreact";
 import { Fragment } from "react";
 import Slider from 'react-slick';
 import { connect } from "react-redux"
 import { getImages } from "../../actions/imageActions"
+import mergeImages from 'merge-images';
+import watermarkImage from "../../images/Untitled.png"
+import bgImage from "../../images/demo4.jpg"
+
+
 
 
 
@@ -34,13 +39,56 @@ class Details extends Component {
         const imageTarget = images.find((image) => {
             return image._id === imageIDTarget
         })
+        if (!imageTarget) {
+            return <Redirect to="/" />
+        }
+
+        //render similar images
+        const listSimilarImage = images.filter((image) => {
+            return image.category[0] === imageTarget.category[0]
+        })
+        console.log(listSimilarImage.length)
+        const renderSimilarImages = listSimilarImage.map((image, index) => {
+            return <div key={index}>
+                <Link to={`/details/` + image._id}>
+                    <img
+                        src={process.env.PUBLIC_URL + `/storageimages/${image.originalImage}`}
+                        className="img-thumbnail" />
+                </Link>
+            </div>
+        })
+        //set _idImage to localStorage
+        localStorage.setItem("currentDeatil", JSON.stringify(imageTarget))
 
         const linkImage = process.env.PUBLIC_URL + `/storageimages/${imageTarget.originalImage}`
+        
+        
+        
+        const watermark = mergeImages([
+            {src:linkImage},
+            {src:watermarkImage,}
+        ],{
+            width:imageTarget.size.width,
+            height:imageTarget.size.height,
+        })
+          
+            
+        
+        .then(result=>
+            document.querySelector('.watermark').src=result
+        
+        )
+
+
+
+
+
+
         var settings = {
             dots: true,
             infinite: true,
             speed: 500,
-            slidesToShow: 3,
+            slidesToShow: listSimilarImage.length >= 3 ? 3 : listSimilarImage.length,
             slidesToScroll: 1,
             centerMode: true,
             autoplay: true,
@@ -52,21 +100,27 @@ class Details extends Component {
                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                         <div className="detail-inner-box-left">
                             <h1>{imageTarget.name}</h1>
-                            <h2>Nature, beach, blue, sea, vacation</h2>
+                            <h2>Category: {imageTarget.category[0]}</h2>
                             <section className="image-card">
                                 <ImageZoom
                                     image={{
-                                        src: linkImage,
+                                        
                                         alt: `${imageTarget.name}`,
-                                        className: 'img',
+                                        className: 'watermark',
                                         style: { width: '100%', height: '100%' }
                                     }}
                                     zoomImage={{
-                                        src: linkImage,
-                                        alt: `${imageTarget.name}`
+                                        
+                                        alt: `${imageTarget.name}`,
+                                        style: { width: '100%', height: '100%' },
+                                        className:'watermark'
+
                                     }}
                                 />
+
                             </section>
+
+
 
                             <div className="text-section">
                                 <div className="content-details">
@@ -95,7 +149,7 @@ class Details extends Component {
                             </form>
                             <div className="download-button">
                                 <Fragment>
-                                    <Link to={`/checkout/${imageTarget._id}`}><MDBBtn rounded color="danger" size="lg">Download this image</MDBBtn></Link>
+                                    <Link to={`/checkout/${imageTarget._id}`}><MDBBtn rounded color="danger" size="lg">Purchase this image</MDBBtn></Link>
                                 </Fragment>
                             </div>
                             <div className="keyword">
@@ -110,20 +164,25 @@ class Details extends Component {
                 </div>
                 <div className="container-fluid-similar-image" >
                     <div className="slider-images">
-                        <span><b>Similar images</b> <Link to="/view/photos">View all photos  ></Link></span>
+                        <span><b>Similar images</b> <Link to="/view/photos">View all photos</Link></span>
 
                         <Slider {...settings}>
+                            {renderSimilarImages}
+                            {/* <div>
+                                <Link to="/#"><img src="https://images7.alphacoders.com/411/thumb-1920-411820.jpg" className="img-thumbnail"></img></Link>
+                            </div>
                             <div>
-                                <Link to="/#"><img src="https://images7.alphacoders.com/411/thumb-1920-411820.jpg" className="img-thumbnail"></img></Link>                        </div>
+                                <Link to="/#"><img src="http://4.bp.blogspot.com/-oxlezteeOII/TfiTImj4RlI/AAAAAAAAA1k/UAgctmU5VZo/s1600/Widescreen+Unique+And+Beautiful+Photography+%25284%2529.jpg" className="img-thumbnail" ></img></Link>
+                            </div>
                             <div>
-                                <Link to="/#"><img src="http://4.bp.blogspot.com/-oxlezteeOII/TfiTImj4RlI/AAAAAAAAA1k/UAgctmU5VZo/s1600/Widescreen+Unique+And+Beautiful+Photography+%25284%2529.jpg" className="img-thumbnail" ></img></Link>                        </div>
+                                <Link to="/#"><img src="http://hdwpro.com/wp-content/uploads/2016/12/Spring-HD-Pic.jpg" className="img-thumbnail" ></img></Link>
+                            </div>
                             <div>
-                                <Link to="/#"><img src="http://hdwpro.com/wp-content/uploads/2016/12/Spring-HD-Pic.jpg" className="img-thumbnail" ></img></Link>                        </div>
-                            <div>
-                                <Link to="/#"><img src="http://www.wallpapereast.com/static/images/Hawaii-Beach-Wallpaper-HD_kgppCjh.jpg" className="img-thumbnail"></img></Link>                        </div>
-                        </Slider></div>
+                                <Link to="/#"><img src="http://www.wallpapereast.com/static/images/Hawaii-Beach-Wallpaper-HD_kgppCjh.jpg" className="img-thumbnail"></img></Link>
+                            </div> */}
+                        </Slider>
+                    </div>
                 </div>
-
             </div>
         );
     }
