@@ -11,6 +11,7 @@ class Contributors extends Component {
   }
   render() {
     const { contributors } = this.props;
+    
 
     if (contributors) {
       return (

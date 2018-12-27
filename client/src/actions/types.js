@@ -30,3 +30,4 @@ export const SET_LOGIN_ERROR = "SET_LOGIN_ERROR";
 
 //Contact
 export const POST_CONTACTS = "POST_CONTACTS";
+export const GET_CONTACTS = "GET_CONTACTS";
