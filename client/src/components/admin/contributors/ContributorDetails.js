@@ -1,11 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import {
-  getContributor,
-  updateContributor
-} from "../../../actions/contributorActions";
+import { updateContributor } from "../../../actions/contributorActions";
 import classnames from "classnames";
 
 class ContributorDetails extends Component {
@@ -16,8 +12,6 @@ class ContributorDetails extends Component {
   };
 
   componentDidMount() {
-    const { _id } = this.props.match.params;
-    this.props.getContributor(_id);
     this.setState({ balance: this.props.contributor.balance });
   }
 
@@ -46,9 +40,7 @@ class ContributorDetails extends Component {
 
   render() {
     const {
-      _id,
       fullName,
-      password,
       displayName,
       accountHolder,
       cardNumber,
@@ -65,7 +57,7 @@ class ContributorDetails extends Component {
           <div className="md-form input-group">
             <input
               type="text"
-              className="form form-control"
+              className="form form-control lead"
               name="balanceUpdateAmount"
               placeholder="Add New Balance"
               value={balanceUpdateAmount}
@@ -87,75 +79,77 @@ class ContributorDetails extends Component {
 
     return (
       <div>
-        <div className="row">
-          <div className="col-md-6">
-            <Link to="/admin/contributors" className="btn btn-link">
-              <i className="fas fa-arrow-circle-left" /> Back To DashBoard
-            </Link>
-          </div>
-          <div className="col-md-6">
-            <div className="btn-group float-right">
-              <Link
-                to={`/admin/contributor/edit/${_id}`}
-                className="btn btn-dark"
-              >
-                Edit
-              </Link>
-              <button className="btn btn-danger">Delete</button>
-            </div>
-          </div>
-        </div>
-        <hr />
         <div className="card">
           <div className="card-header">
             <h3>{fullName}</h3>
           </div>
           <div className="card-body">
-            <div className="row">
-              <div className="col-md-8 col-sm-6">
-                <h4>
-                  Contributor ID: <span className="text-secondary">{_id}</span>
-                </h4>
-              </div>
-              <div className="col-md-4 col-sm-6">
-                <h3 className="pull-right">
-                  Balance:{" "}
-                  <span
-                    className={classnames({
-                      "text-danger": balance > 0,
-                      "text-success": balance === 0
-                    })}
-                  >
-                    VND {balance}
-                  </span>
-                  <small>
-                    <a
-                      href="#!"
-                      onClick={() =>
-                        this.setState({
-                          showBalanceUpdate: !this.state.showBalanceUpdate
-                        })
-                      }
-                    >
-                      {" "}
-                      <i className="fas fa-pencil-alt" />
-                    </a>
-                  </small>
-                </h3>
-                {balanceForm}
-              </div>
-            </div>
-            <hr />
             <ul className="list-group">
-              <li className="list-group-item">Display Name: {displayName}</li>
-              <li className="list-group-item">Email: {email}</li>
-              <li className="list-group-item">Password: {password}</li>
-              <li className="list-group-item">
-                Account Holder: {accountHolder}
+              <li className="list-group-item lead">
+                <div className="row">
+                  <div className="col-md-3">Balance</div>
+                  <div className="col-md-9">
+                    <span
+                      className={classnames({
+                        "text-danger": balance > 0,
+                        "text-success": balance === 0
+                      })}
+                    >
+                      VND {balance}
+                    </span>
+                    <small>
+                      <a
+                        href="#!"
+                        onClick={() =>
+                          this.setState({
+                            showBalanceUpdate: !this.state.showBalanceUpdate
+                          })
+                        }
+                      >
+                        {" "}
+                        <i className="fas fa-pencil-alt" />
+                      </a>
+                    </small>
+                    {balanceForm}
+                  </div>
+                </div>
               </li>
-              <li className="list-group-item">Account Number: {cardNumber}</li>
-              <li className="list-group-item">Bank Name: {bankName}</li>
-              <li className="list-group-item">Bank Branch: {bankBranch}</li>
+              <li className="list-group-item">
+                <div className="row">
+                  <div className="col-md-3">Display Name</div>
+                  <div className="col-md-9">{displayName}</div>
+                </div>
+              </li>
+              <li className="list-group-item">
+                <div className="row">
+                  <div className="col-md-3">Email</div>
+                  <div className="col-md-9">{email}</div>
+                </div>
+              </li>
+              <li className="list-group-item">
+                <div className="row">
+                  <div className="col-md-3">Account Holder</div>
+                  <div className="col-md-9">{accountHolder}</div>
+                </div>
+              </li>
+              <li className="list-group-item">
+                <div className="row">
+                  <div className="col-md-3">Account Number</div>
+                  <div className="col-md-9">{cardNumber}</div>
+                </div>
+              </li>
+              <li className="list-group-item">
+                <div className="row">
+                  <div className="col-md-3">Bank Name</div>
+                  <div className="col-md-9">{bankName}</div>
+                </div>
+              </li>
+              <li className="list-group-item">
+                <div className="row">
+                  <div className="col-md-3">Bank Branch</div>
+                  <div className="col-md-9">{bankBranch}</div>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
@@ -165,8 +159,7 @@ class ContributorDetails extends Component {
 }
 
 ContributorDetails.propTypes = {
-  contributor: PropTypes.object.isRequired,
-  getContributor: PropTypes.func.isRequired
+  contributor: PropTypes.object.isRequired
 };
 
 ContributorDetails.defaultProps = {
@@ -178,5 +171,5 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  { getContributor, updateContributor }
+  { updateContributor }
 )(ContributorDetails);

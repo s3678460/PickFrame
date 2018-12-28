@@ -38,6 +38,7 @@ router.post("/", (req, res) => {
     bankBranch: req.body.bankBranch,
     email: req.body.email,
     productId: req.body.productId,
+    seller: req.body.seller,
     total: req.body.total,
     status: "Awaiting Payment",
     date: date.format(now, "YYYY/MM/DD HH:mm:ss [GMT]Z")
