@@ -13,9 +13,6 @@ import LegalPrivacy from "../LegalPrivacy/LegalPrivacy";
 import LicenseTerm from "../LicenseTerm/LicenseTerm";
 import getContact from "../ContactUs/getContact";
 
-
-
-
 import CustomerChat from "../CustomerChat/CustomerChat";
 import EditAccountEmail from "../UserProfileView/EditAccountEmail";
 import EditPassword from "../UserProfileView/EditPassword";

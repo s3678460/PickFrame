@@ -238,7 +238,7 @@ class OrdersPage extends Component {
                     
                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <div className="summary-image">
-                            <img src={linkImage} alt={imageTarget.name} style={{height:"180%",width:"180%",pointerEvents:'none'}}></img>
+                            <img src={linkImage} alt={imageTarget.name} style={{height:"80%",width:"80%",pointerEvents:'none'}}></img>
                         </div>
                         <p style={{fontSize:"10pt"}}>1 PickFrame Credit</p>
                     </div>

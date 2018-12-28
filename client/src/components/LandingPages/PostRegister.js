@@ -22,13 +22,15 @@ class PostRegister extends Component {
                                 </div>
                                 
                                 <div className="context" >
-                                <i className="fa fa-check" style={{fontSize: '80px', color: 'orange'}} />
+                                <i className="fa fa-check" style={{fontSize: '20px', color: 'green'}} />
                                 <div style={{fontSize:"40px"}}> Congratulations!</div>
-                                You have succesfully registered for an account on
-                                <div style={{fontSize:"25px"}}>PickFrame</div>
+                                You have succesfully registered for an account on PickFrame. <br/>
+                                You need to verify your account firstly by passing the confirmation code to the link that you will receive in your mailbox within an hour.
+                                Whether you can not see any reponse from us, contact us directly through the Live-Chat or Making a Contact Request! 
 
-                                <p>Getting inside now by<span></span></p>
-                                <Link to="/login"><b style={{fontSize:20}}>Login</b> </Link>
+                                
+
+                                
                                 </div>
                             </div>
                         </div>
