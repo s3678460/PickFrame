@@ -30,6 +30,7 @@ class Order extends Component {
       bankBranch,
       email,
       productId,
+      seller,
       total,
       status,
       date
@@ -132,8 +133,14 @@ class Order extends Component {
             </li>
             <li className="list-group-item list-group-item-light lead">
               <div className="row">
-                <div className="col-sm-4">Product</div>
+                <div className="col-sm-4">Product ID</div>
                 <div className="col-sm-8">{productId}</div>
+              </div>
+            </li>
+            <li className="list-group-item list-group-item-light lead">
+              <div className="row">
+                <div className="col-sm-4">Seller ID</div>
+                <div className="col-sm-8">{seller}</div>
               </div>
             </li>
             <li className="list-group-item list-group-item-light lead">
