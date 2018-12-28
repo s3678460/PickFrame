@@ -15,10 +15,6 @@ class Contributors extends Component {
     if (contributors) {
       return (
         <div>
-          <h2 className="display-4 mb-2">
-            <i className="fas fa-user-ninja" />{" "}
-            <span className="text-info">Contributors</span>
-          </h2>
           <div className="table-responsive">
             <table className="table table-striped">
               <thead className="thead-dark">
