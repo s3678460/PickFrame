@@ -11,6 +11,11 @@ import Contactus from "../ContactUs/Contactus";
 import Sitemap from "../SiteMap/Sitemap";
 import LegalPrivacy from "../LegalPrivacy/LegalPrivacy";
 import LicenseTerm from "../LicenseTerm/LicenseTerm";
+import getContact from "../ContactUs/getContact";
+
+
+
+
 import CustomerChat from "../CustomerChat/CustomerChat";
 import EditAccountEmail from "../UserProfileView/EditAccountEmail";
 import EditPassword from "../UserProfileView/EditPassword";
@@ -27,13 +32,14 @@ import EditProfile from "../UserProfileView/EditProfile";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import SalesHistory from "../SalesHistory/SalesHistory";
 
+
 class RouterURL extends Component {
   render() {
     return (
       <div>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/view/:type" component={ViewPageType} />
+          <Route path="/view/:typesearch/:type" component={ViewPageType} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/checkout/:_id" component={OrdersPage} />
@@ -59,6 +65,9 @@ class RouterURL extends Component {
           <Route path="/QA" component={QandA} />
           <Route path="/Sitemap" component={Sitemap} />
           <Route path="/Contactus" component={Contactus} />
+          <Route path="/LicenseTerm" component={LicenseTerm}/>
+          <Route path="/LegalPrivacy" component={LegalPrivacy}/>
+          <Route path="/getContact" component={getContact}/>
           <Route component={HomePage} />
         </Switch>
       </div>

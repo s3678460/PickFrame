@@ -34,6 +34,9 @@ export const SET_LOGIN_PENDING = "SET_LOGIN_PENDING";
 export const SET_LOGIN_SUCCESS = "SET_LOGIN_SUCCESS";
 export const SET_LOGIN_ERROR = "SET_LOGIN_ERROR";
 
+//Contact
+export const POST_CONTACTS = "POST_CONTACTS";
+export const GET_CONTACTS = "GET_CONTACTS";
 // Requests
 export const GET_REQUESTS = "GET_REQUESTS";
 export const REJECT_IMAGE = "REJECT_IMAGE";

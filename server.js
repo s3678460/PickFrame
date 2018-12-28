@@ -9,6 +9,7 @@ const images = require("./routes/api/Images");
 const users = require("./routes/api/Users");
 const admins = require("./routes/api/Admins");
 const orders = require("./routes/api/Orders");
+const contact = require("./routes/api/Contact");
 const saleHistory = require("./routes/api/SaleHistory");
 const form = require("./routes/api/form");
 
@@ -46,6 +47,7 @@ app.use("/api/images", images);
 app.use("/api/users", users);
 app.use("/api/admins", admins);
 app.use("/api/orders", orders);
+app.use("/api/contacts",contact);
 app.use("/api/saleHistory", saleHistory);
 app.use("/api/form", form);
 

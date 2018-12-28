@@ -19,7 +19,7 @@ class Content extends Component {
                         <div className="row">
                             <div className="col-4">
                                 <div style={{ backgroundColor: "white", padding: "5px" }} className="text-center imagediv">
-                                    <Link to="/view/animal">
+                                    <Link to="/view/category/animal">
                                         <img style={{ width: "100%", height: "200px" }} src={photoAnimal} className="img-fluid" alt="Responsive image" />
                                     </Link>
                                     <h5 className="mt-3">Animal</h5>
@@ -27,7 +27,7 @@ class Content extends Component {
                             </div>
                             <div className="col-4">
                                 <div style={{ backgroundColor: "white", padding: "5px" }} className="text-center imagediv">
-                                    <Link to="/view/nature">
+                                    <Link to="/view/category/nature">
                                         <img style={{ width: "100%", height: "200px" }} src={photoNature} className="img-fluid" alt="Responsive image" />
                                     </Link>
                                     <h5 className="mt-3">Nature</h5>
@@ -35,7 +35,7 @@ class Content extends Component {
                             </div>
                             <div className="col-4">
                                 <div style={{ backgroundColor: "white", padding: "5px" }} className="text-center imagediv">
-                                    <Link to="/view/business">
+                                    <Link to="/view/category/business">
                                         <img style={{ width: "100%", height: "200px" }} src={photoBusiness} className="img-fluid" alt="Responsive image" />
                                     </Link>
                                     <h5 className="mt-3">Business</h5>
