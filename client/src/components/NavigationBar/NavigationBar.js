@@ -88,7 +88,7 @@ class NavigationBar extends Component {
           <Collapse isOpen={this.state.collapse} navbar>
             <NavbarNav left>
               <NavItem>
-                <NavLink to="/view/photos"><a style={{ fontWeight: "bold" }}>Photos</a></NavLink>
+                <NavLink to="/view/all/photos"><a style={{ fontWeight: "bold" }}>Photos</a></NavLink>
               </NavItem>
             </NavbarNav>
             {isAuthenticated ? authLinks : guestLinks}

@@ -57,7 +57,7 @@ router.post('/register', (req, res) => {
       Token: <b>${secretToken}<b/>
       <br/>
       On the following page:
-      <a href="http://localhost:3000/verification">http://localhost:3000/verification</a>
+      <a href="http://pickframe.tk/verification">http://pickframe.tk/verification</a>
       <br/>
       <br/>
       Have a good day!

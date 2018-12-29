@@ -13,9 +13,6 @@ import LegalPrivacy from "../LegalPrivacy/LegalPrivacy";
 import LicenseTerm from "../LicenseTerm/LicenseTerm";
 import getContact from "../ContactUs/getContact";
 
-
-
-
 import CustomerChat from "../CustomerChat/CustomerChat";
 import EditAccountEmail from "../UserProfileView/EditAccountEmail";
 import EditPassword from "../UserProfileView/EditPassword";
@@ -39,7 +36,7 @@ class RouterURL extends Component {
       <div>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/view/:type" component={ViewPageType} />
+          <Route path="/view/:typesearch/:type" component={ViewPageType} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/checkout/:_id" component={OrdersPage} />

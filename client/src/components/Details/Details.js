@@ -10,7 +10,7 @@ import Slider from 'react-slick';
 import { connect } from "react-redux"
 import { getImages } from "../../actions/imageActions"
 import mergeImages from 'merge-images';
-import watermarkImage from "../../images/Untitled.png"
+import watermarkImage from "../../images/Watermarkbig.png"
 import bgImage from "../../images/demo4.jpg"
 
 
