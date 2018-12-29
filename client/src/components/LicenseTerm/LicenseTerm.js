@@ -6,7 +6,7 @@ class LicenseTerm extends Component {
             <div>
             <style dangerouslySetInnerHTML={{__html: "\n\n\ndiv.transbox {\n  margin: 30px;\n  background-color: #ffffff;\n  border: 5px solid LightGray;\n  opacity: 0.8;\n  filter: alpha(opacity=60); /* For IE8 and earlier */\n}\n\ndiv.transbox p {\n  margin: 5%;\n  font-weight: bold;\n  color: #000000;\n}\n" }} />
             <div className="transbox">
-              <h1 style={{textAlign: 'center'}}>Website usage terms and conditions</h1>
+              <h1 style={{textAlign: 'center'}}><br />Website usage terms and conditions</h1>
               <p>
                 Welcome to our website. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern PickFrame’s relationship with you in relation to this website. If you disagree with any part of these terms and conditions, please do not use our website. 
                 The term ‘PickFrame’ or ‘us’ or ‘we’ refers to the owner of the website whose registered office is 702 Nguyễn Văn Linh, Tân Hưng, Quận 7, Hồ Chí Minh 700000. Our company registration number is 4444444488.  <br />The term ‘you’ refers to the user or viewer of our website. 

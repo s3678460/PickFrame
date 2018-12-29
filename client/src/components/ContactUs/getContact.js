@@ -17,8 +17,8 @@ class getContact extends Component {
         return (
             <div>
             
-            <h1 className="title"><br />Contact Post</h1>
             <div className="container">
+            <h1 className="title"><br />Contact Post</h1>
               <div className="row col-md-6 col-md-offset-2 custyle">
                 <table className="table table-striped custab">
                   <thead>
