@@ -13,7 +13,11 @@ export default function(state = initialState, action) {
     case GET_CONTRIBUTORS:
       return {
         ...state,
-        contributors: action.payload
+        contributors: action.payload,
+        cnt_1week: action.cnt_1week,
+        cnt_1month: action.cnt_1month,
+        cnt_3days: action.cnt_3days,
+        cnt_24hours: action.cnt_24hours
       };
     case GET_CONTRIBUTOR:
       return {

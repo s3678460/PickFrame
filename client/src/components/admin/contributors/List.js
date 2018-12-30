@@ -2,18 +2,12 @@ import React, { Component } from "react";
 import Item from "./ContributorDetails";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import {
-  getContributors,
-  getContributor
-} from "../../../actions/contributorActions";
+import { getContributor } from "../../../actions/contributorActions";
 
 class List extends Component {
   state = {
     blank: true
   };
-  componentDidMount() {
-    this.props.getContributors();
-  }
 
   handleClick = _id => {
     this.setState({ blank: false });
@@ -34,7 +28,7 @@ class List extends Component {
                   href="#"
                   onClick={() => this.handleClick(user._id)}
                 >
-                  {user._id}
+                  {user._id.substring(0, 15)}
                 </a>
               ))}
             </div>
@@ -47,8 +41,7 @@ class List extends Component {
 }
 
 List.propTypes = {
-  users: PropTypes.array.isRequired,
-  getContributors: PropTypes.func.isRequired
+  users: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -57,5 +50,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getContributors, getContributor }
+  { getContributor }
 )(List);

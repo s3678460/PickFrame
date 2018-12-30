@@ -29,7 +29,7 @@ class Header extends Component {
             <ul class="navbar-nav">
               <li class="nav-item">
                 <Link to="/admin/contributors" className="nav-link">
-                  <i className="fas fa-users" /> Users
+                  <i className="fas fa-users" /> Contributors
                 </Link>
               </li>
               <li class="nav-item">

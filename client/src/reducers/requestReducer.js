@@ -9,7 +9,11 @@ export default function(state = initialState, action) {
     case GET_REQUESTS:
       return {
         ...state,
-        requests: action.payload
+        requests: action.payload,
+        cnt_1week: action.cnt_1week,
+        cnt_1month: action.cnt_1month,
+        cnt_3days: action.cnt_3days,
+        cnt_24hours: action.cnt_24hours
       };
     case REJECT_IMAGE:
       return {

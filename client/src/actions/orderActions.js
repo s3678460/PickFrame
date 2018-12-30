@@ -10,9 +10,17 @@ import axios from "axios";
 
 export const getOrders = () => async dispatch => {
   const res = await axios.get("/api/orders");
+  const cnt_24hours = countOrders(res.data, 2);
+  const cnt_3days = countOrders(res.data, 4);
+  const cnt_1week = countOrders(res.data, 8);
+  const cnt_1month = countOrders(res.data, 31);
   dispatch({
     type: GET_ORDERS,
-    payload: res.data
+    payload: res.data,
+    cnt_24hours,
+    cnt_3days,
+    cnt_1week,
+    cnt_1month
   });
 };
 
@@ -59,4 +67,16 @@ export const updateOrder = order => async dispatch => {
     type: UPDATE_ORDER,
     payload: res.data
   });
+};
+
+const countOrders = (orders, period) => {
+  const end = new Date(new Date().getTime() - 1 * 24 * 60 * 60 * 1000);
+  const start = new Date(new Date().getTime() - period * 24 * 60 * 60 * 1000);
+  let cnt = 0;
+  orders.forEach(order => {
+    if (new Date(order.date) >= start && new Date(order.date) <= end) {
+      cnt++;
+    }
+  });
+  return cnt;
 };

@@ -20,39 +20,35 @@ const UserSchema = new Schema({
     required: true
   },
   accountHolder: {
-    type: String,
-
+    type: String
   },
   cardNumber: {
-    type: String,
-
+    type: String
   },
   bankName: {
-    type: String,
-
+    type: String
   },
   bankBranch: {
-    type: String,
-
+    type: String
   },
 
   balance: {
-    type: Number,
-
+    type: Number
   },
 
   isPassChanged: {
     type: String,
-    default: 'false'
+    default: "false"
   },
-  secretToken:{
-    type:String
+  secretToken: {
+    type: String
   },
-  active:{
-    type:Boolean
+  active: {
+    type: Boolean
+  },
+  joinDate: {
+    type: String
   }
-
-  
 });
 
 module.exports = User = mongoose.model("user", UserSchema);

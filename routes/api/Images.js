@@ -6,26 +6,26 @@ const multer = require("multer");
 const passport = require("passport");
 const validateImageInput = require("../../validation/image");
 const isEmty = require("../../validation/is-empty");
+let date = require("date-and-time");
 
 //Load Image model
 const Image = require("../../models/Image");
 
 //path Storage image
 var pathStorageImages;
-if (process.env.NODE_ENV === 'production') {
-  pathStorageImages = "../../client/build/storageimages"
-}
-else {
-  pathStorageImages = "../../client/public/storageimages"
+if (process.env.NODE_ENV === "production") {
+  pathStorageImages = "../../client/build/storageimages";
+} else {
+  pathStorageImages = "../../client/public/storageimages";
 }
 //Test API
 router.get("/test", (req, res) => {
-  if (process.env.NODE_ENV === 'production') {
-    res.json({ msg: "production" })
-  } else if (process.env.NODE_ENV === 'development') {
-    res.json({ msg: "development" })
+  if (process.env.NODE_ENV === "production") {
+    res.json({ msg: "production" });
+  } else if (process.env.NODE_ENV === "development") {
+    res.json({ msg: "development" });
   } else {
-    res.json({ msg: "Undified" })
+    res.json({ msg: "Undified" });
   }
 });
 
@@ -52,10 +52,10 @@ router.get(
 
 //Set Storage Images
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
+  destination: function(req, file, cb) {
     cb(null, path.join(__dirname, pathStorageImages));
   },
-  filename: function (req, file, cb) {
+  filename: function(req, file, cb) {
     // cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname));
     cb(null, file.originalname);
   }
@@ -64,7 +64,7 @@ const storage = multer.diskStorage({
 // Init Upload
 const upload = multer({
   storage: storage,
-  fileFilter: function (req, file, cb) {
+  fileFilter: function(req, file, cb) {
     checkFileType(file, cb);
   }
 }).single("uploadimage");
@@ -157,7 +157,11 @@ router.post(
       width: req.body.width,
       height: req.body.height
     };
-    imageFields.uploadDate = req.body.uploadDate;
+    // imageFields.uploadDate = req.body.uploadDate;
+    imageFields.uploadDate = date.format(
+      new Date(),
+      "YYYY/MM/DD HH:mm:ss [GMT]Z"
+    );
     imageFields.originalImage = req.body.originalImage;
     imageFields.watermarkImage = req.body.watermarkImage;
     imageFields.category = req.body.category.split(",");
