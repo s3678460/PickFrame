@@ -6,14 +6,19 @@ import { UPDATE_ORDER } from "../actions/types";
 
 const initialState = {
   orders: [],
-  order: {}
+  order: {},
+  cnt: 0
 };
 export default function(state = initialState, action) {
   switch (action.type) {
     case GET_ORDERS:
       return {
         ...state,
-        orders: action.payload
+        orders: action.payload,
+        cnt_1week: action.cnt_1week,
+        cnt_1month: action.cnt_1month,
+        cnt_3days: action.cnt_3days,
+        cnt_24hours: action.cnt_24hours
       };
     case GET_ORDER:
       return {

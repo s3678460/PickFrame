@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import {
-  getRequests,
-  rejectImage,
-  approveImage
-} from "../../../actions/requestActions";
+import { rejectImage, approveImage } from "../../../actions/requestActions";
 import { getContributor } from "../../../actions/contributorActions";
 import CheckBox from "./CheckBox";
 
@@ -84,9 +80,6 @@ class Requests extends Component {
     );
   };
 
-  componentDidMount() {
-    this.props.getRequests();
-  }
   render() {
     const { requests } = this.props;
     return (
@@ -316,7 +309,6 @@ class Requests extends Component {
 
 Requests.propTypes = {
   requests: PropTypes.array.isRequired,
-  getRequests: PropTypes.func.isRequired,
   rejectImage: PropTypes.func.isRequired,
   approveImage: PropTypes.func.isRequired,
   getContributor: PropTypes.func.isRequired
@@ -329,5 +321,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getRequests, getContributor, rejectImage, approveImage }
+  { getContributor, rejectImage, approveImage }
 )(Requests);

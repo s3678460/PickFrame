@@ -2,13 +2,9 @@ import React, { Component } from "react";
 import Order from "./Order";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getOrders } from "../../../actions/orderActions";
 import "./Orders.css";
 
 class Orders extends Component {
-  componentDidMount() {
-    this.props.getOrders();
-  }
   render() {
     const { orders } = this.props;
     return (
@@ -63,8 +59,7 @@ class Orders extends Component {
 }
 
 Orders.propTypes = {
-  orders: PropTypes.array.isRequired,
-  getOrders: PropTypes.func.isRequired
+  orders: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -73,5 +68,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getOrders }
+  null
 )(Orders);
