@@ -14,24 +14,24 @@ class Sitemap extends Component {
                   <h4 className="head">Learn more</h4>
                   <h1 style={{borderBottom: '1.8px solid LightGray'}} />
                   <p style={{textAlign: 'center'}}>
-                    <a style={{fontFamily: 'Arial Black'}} href="https://www.w3schools.com/html/" target="_blank">Promo codes</a><br /><a style={{fontFamily: 'Arial Black'}} href="https://www.w3schools.com/html/" target="_blank">License</a><br /><a style={{fontFamily: 'Arial Black'}} href="https://www.w3schools.com/html/" target="_blank">Information</a><br /><a style={{fontFamily: 'Arial Black'}} href="https://www.w3schools.com/html/" target="_blank">Legal/Privacy</a></p></div>
+                    <a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/LicenseTerm" target="_blank">Promo codes</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/LicenseTerm" target="_blank">License</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/aboutus" target="_blank">Information</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/LegalPrivacy" target="_blank">Legal/Privacy</a></p></div>
                 <br />
                 <div><h4 className="head">Support</h4>
                   <h1 style={{borderBottom: '1.8px solid LightGray'}} />
-                  <p style={{textAlign: 'center'}}><a style={{fontFamily: 'Arial Black'}} href="https://www.w3schools.com/html/" target="_blank">Contact us</a><br /><a style={{fontFamily: 'Arial Black'}} href="https://www.w3schools.com/html/" target="_blank">FAQ</a></p></div>
+                  <p style={{textAlign: 'center'}}><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/Contactus" target="_blank">Contact us</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/QA" target="_blank">FAQ</a></p></div>
               </p1>
               <p2 style={{fontSize: '80%'}}>
                 <div><h4 className="head">Company</h4>
                   <h1 style={{borderBottom: '1.8px solid LightGray'}} />
-                  <p style={{textAlign: 'center'}}><a style={{fontFamily: 'Arial Black'}} href="https://www.w3schools.com/html/" target="_blank">About us</a><br /><a style={{fontFamily: 'Arial Black'}} href="https://www.w3schools.com/html/" target="_blank">Press</a><br /><a style={{fontFamily: 'Arial Black'}} href="https://www.w3schools.com/html/" target="_blank">Careers</a><br /><a style={{fontFamily: 'Arial Black'}} href="https://www.w3schools.com/html/" target="_blank">Terms</a></p></div><br />
+                  <p style={{textAlign: 'center'}}><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/aboutus" target="_blank">About us</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/aboutus" target="_blank">Press</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/aboutus" target="_blank">Careers</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/LicenseTerm" target="_blank">Terms</a></p></div><br />
                 <div><h4 className="head">Photos</h4>
                   <h1 style={{borderBottom: '1.8px solid LightGray'}} />
-                  <p style={{textAlign: 'center'}}><a style={{fontFamily: 'Arial Black'}} href="https://www.w3schools.com/html/" target="_blank">Stock photos</a><br /><a style={{fontFamily: 'Arial Black'}} href="https://www.w3schools.com/html/" target="_blank">Stock illustrations</a><br /><a style={{fontFamily: 'Arial Black'}} href="https://www.w3schools.com/html/" target="_blank">Stock vector graphics</a></p></div>
+                  <p style={{textAlign: 'center'}}><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/view/all/photos" target="_blank">Stock photos</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/view/all/photos" target="_blank">Stock illustrations</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/view/photos" target="_blank">Stock vector graphics</a></p></div>
               </p2>
               <p3 style={{fontSize: '80%'}}>
                 <div><h4 className="head">Social</h4>
                   <h1 style={{borderBottom: '1.8px solid LightGray'}} />
-                  <p style={{textAlign: 'center'}}><a style={{fontFamily: 'Arial Black'}} href="https://www.w3schools.com/html/" target="_blank">Facebook</a><br /><a style={{fontFamily: 'Arial Black'}} href="https://www.w3schools.com/html/" target="_blank">Instagram</a><br /><a style={{fontFamily: 'Arial Black'}} href="https://www.w3schools.com/html/" target="_blank">Twitter</a><br /><a style={{fontFamily: 'Arial Black'}} href="https://www.w3schools.com/html/" target="_blank">Google Play</a></p></div><br />
+                  <p style={{textAlign: 'center'}}><a style={{fontFamily: 'Arial Black'}} href="https://www.facebook.com/pickframetm/" target="_blank">Facebook</a><br /><a style={{fontFamily: 'Arial Black'}} href="https://www.instagram.com/pick_frame/" target="_blank">Instagram</a><br /><a style={{fontFamily: 'Arial Black'}} href="https://www.facebook.com/pickframetm/" target="_blank">Twitter</a><br /><a style={{fontFamily: 'Arial Black'}} href="https://www.facebook.com/pickframetm/" target="_blank">Google Play</a></p></div><br />
               </p3>
               <p5>
               </p5>
