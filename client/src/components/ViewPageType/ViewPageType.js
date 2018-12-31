@@ -5,10 +5,11 @@ import { View, Mask } from "mdbreact";
 import { Link, Redirect } from "react-router-dom"
 import { connect } from "react-redux"
 import { getImages } from "../../actions/imageActions"
-import bgforViewPage from "../../images/bgforViewPage.jpg"
+import bgforViewPage from "../../images/bgforViewPage1.jpg"
 import { Collapse, Label, Fade } from "reactstrap"
 import Gallery from "react-photo-gallery";
 import { FormGroup, Col, Input, Button } from "reactstrap";
+import SearchFieldAlter from "../SearchField/SearchFieldAlter"
 
 class ViewPageType extends Component {
     constructor(props) {
@@ -147,13 +148,20 @@ class ViewPageType extends Component {
         })
 
         return (
+            
             <div className="pb-5">
+            <SearchFieldAlter/>
                 <div>
                     <View>
-                        <img src={bgforViewPage} className="img-fluid" alt="photos" style={{ width: "100%", height: "700px" }} />
+                        <img src={bgforViewPage} className="img-fluid" alt="photos" style={{ width: "100%", height: "400px" }} />
                         <Mask className="flex-center">
-                            <h2 className="white-text">Plenty of photos</h2>
+                        
+                            <h2 className="white-text">
+                            
+                            
+                            Pick the best stock photography from our collections</h2>
                         </Mask>
+                        
                     </View>
                 </div>
                 <div className="mt-5 ml-2 mr-2">

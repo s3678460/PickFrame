@@ -10,8 +10,9 @@ import Slider from 'react-slick';
 import { connect } from "react-redux"
 import { getImages } from "../../actions/imageActions"
 import mergeImages from 'merge-images';
-import watermarkImage from "../../images/Watermarkbig.png"
+import watermarkImage from "../../images/watermarkLast.png"
 import bgImage from "../../images/demo4.jpg"
+import SearchFieldAlter from "../SearchField/SearchFieldAlter"
 
 
 
@@ -96,6 +97,7 @@ class Details extends Component {
         };
         return (
             <div className="container-fluid-detail">
+            <SearchFieldAlter/>
                 <div className="row">
                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                         <div className="detail-inner-box-left">
@@ -154,10 +156,8 @@ class Details extends Component {
                             </div>
                             <div className="keyword">
                                 <h1>Keywords</h1>
-                                <span><MDBBtn color="elegant" size="sm">Nature</MDBBtn></span>
-                                <span><MDBBtn color="elegant" size="sm">Beach</MDBBtn></span>
-                                <span><MDBBtn color="elegant" size="sm">Vacation</MDBBtn></span>
-                                <span><MDBBtn color="elegant" size="sm">Holiday</MDBBtn></span>
+                                <span><MDBBtn color="elegant" size="sm">{imageTarget.category[0]}</MDBBtn></span>
+                               
                             </div>
                         </div>
                     </div>

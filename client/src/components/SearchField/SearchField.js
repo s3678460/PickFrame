@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import demoimage from '../../images/demoimage.jpg'
+import demoimage from '../../images/homepage.jpg'
 import './SearchField.css'
 import { Fa, Button, FormInline, Input } from 'mdbreact'
 import { Link } from "react-router-dom";
@@ -19,13 +19,13 @@ class SearchField extends Component {
     render() {
         return (
             <div className="containerSearch">
-                <img src={demoimage} className="mx-auto d-block" alt="demoimage" width="100%" height="700px" />
+                <img src={demoimage} className="mx-auto d-block" alt="demoimage" width="100%" height="600px" />
                 <div className="centered" style={{ width: "60%" }}>
                     <input
                         type="text"
                         value={this.state.keyword}
                         onChange={this.onChange}
-                        placeholder="Search.."
+                        placeholder="Find your perfect stock photos..."
                         name="keyword" />
                     <button
                         type="button"

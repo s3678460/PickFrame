@@ -1,0 +1,43 @@
+/* Container holding the image and the text */
+
+/* Centered text */
+
+/* Style the search field */
+.altersearch input[type=text] {
+    padding: 17px;
+    font-size: 25px;
+    border: none;
+    
+    width: 90%;
+    background: white;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+  }
+  
+.altersearch input[type=text]:hover {
+    background: white;
+  }
+.altersearch input[type=text]:focus {
+    outline: none;
+  }
+/* Style the submit button */
+.altersearch button {
+    color: #807b7e;
+    float: left;
+    width: 10%;
+    padding: 17px;
+    background: #ddd;
+    font-size: 25px;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+  }
+  
+.altersearch button:hover {
+    background: white;
+  }
+.altersearch button:focus {
+    outline: none;
+  }
