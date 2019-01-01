@@ -55,7 +55,7 @@ class FooterPage extends Component {
                 <div className="footer-copyright text-center pt-5 pb-3">
                     <Container fluid>
                         &copy; {new Date().getFullYear()} Copyright:{" "}
-                        <a href="https://www.pickframe.com"> PickFrame.com </a>
+                        <a href="https://www.pickframe.com"> PickFrame.tk </a>
                     </Container>
                 </div>
             </footer>

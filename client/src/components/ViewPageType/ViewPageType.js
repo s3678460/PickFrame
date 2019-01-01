@@ -139,12 +139,13 @@ class ViewPageType extends Component {
         // })
         var listImages = [];
         images.map((image) => {
+            if(image.isValid==true){
             listImages.push({
                 src: `${process.env.PUBLIC_URL}/storageimages/${image.originalImage}`,
                 width: parseInt(image.size.width),
                 height: parseInt(image.size.height),
                 _id: image._id
-            })
+            })}
         })
 
         return (
@@ -215,13 +216,17 @@ class ViewPageType extends Component {
                                 </div>
                             </div>
                         </Collapse>
-                        <div className="col-12">
+                        <div className="col-12" >
+                        <div>
                             <Gallery
                                 margin={8}
                                 photos={listImages}
                                 direction={'row'}
                                 onClick={this.handleClickImage}
+                                
+                                
                             />
+                            </div>
                         </div>
                     </div>
 
