@@ -51,26 +51,25 @@ class SalesHistory extends Component {
                 <Animation type="fadeIn">
                     {!errors.nosale?
                             (
+                                <div className="container">
+                                    <Table dark striped bordered size="sm" responsive>
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>ImageName</th>
+                                                <th>Category</th>
+                                                <th>Price</th>
+                                                <th>Buyer</th>
+                                                <th>OrderDate</th>
+                                            </tr>
+                                        </thead>
+                
+                                        <tbody>
+                                            {tableImages}
+                                        </tbody>
+                                    </Table>
+                                </div>
                             
-                                    <div className="container">
-                                        <Table dark striped bordered size="sm" responsive>
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>ImageName</th>
-                                                    <th>Category</th>
-                                                    <th>Price</th>
-                                                    <th>Buyer</th>
-                                                    <th>OrderDate</th>
-                                                </tr>
-                                            </thead>
-                    
-                                            <tbody>
-                                                {tableImages}
-                                            </tbody>
-                                        </Table>
-                                    </div>
-                                
                             )
                             : (
                                 <div style={{ paddingTop: 100, paddingBottom: 100 }}>

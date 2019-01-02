@@ -23,29 +23,24 @@ import { Link } from 'react-router-dom'
 class EditProfile extends Component {
     constructor(props) {
         super(props)
+        const {user} = this.props.auth;
         this.state = {
-            fullName: '',
-            displayName: '',
-
-            accountHolder: '',
-            cardNumber: '',
-            bankName: '',
-            bankBranch: '',
+            fullName: user.fullName,
+            displayName: user.displayName,
+            accountHolder: user.accountHolder,
+            cardNumber: user.cardNumber,
+            bankName: user.bankName,
+            bankBranch: user.bankBranch,
             errors: {}
-
         };
-
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.onClick = this.onClick.bind(this);
-
     }
     clearForm() {
         var newState = {
-
             fullName: '',
             displayName: '',
-
             accountHolder: '',
             cardNumber: '',
             bankName: '',
@@ -63,7 +58,6 @@ class EditProfile extends Component {
             cardNumber: user.cardNumber,
             bankName: user.bankName,
             bankBranch: user.bankBranch,
-
         })
     }
 
@@ -72,17 +66,12 @@ class EditProfile extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-
         const { user, isAuthenticated } = this.props.auth;
         if (nextProps.errors) {
             this.setState({ errors: nextProps.errors });
         }
-        
-
         //Set Current Profile Immediately
         
-
-
 
     }
 
@@ -97,15 +86,8 @@ class EditProfile extends Component {
             bankName: this.state.bankName,
             bankBranch: this.state.bankBranch,
             email:this.props.auth.user.email,
-            
-
         }
-
         this.props.editUser(newUserProfile, this.props.auth.user.id, this.props.history)
-
-
-
-
 
     }
     render() {
@@ -114,30 +96,26 @@ class EditProfile extends Component {
 
         const none = (
             <Input
-            className={classnames('', { 'is-invalid': errors.bankBranch })}
-            type="select"
-            name="bankBranch"
-
-            value={this.state.bankBranch}
-            onChange={this.onChange}
-        >
-            <option className="text-muted">Branch...</option>
-            
-            <option disabled>No results found</option>
-            
-        </Input>
+                className={classnames('', { 'is-invalid': errors.bankBranch })}
+                type="select"
+                name="bankBranch"
+                value={this.state.bankBranch}
+                onChange={this.onChange}
+            >
+                <option className="text-muted">Branch...</option>
+                <option disabled>No results found</option>
+            </Input>
         )
         const BANK = (
             <Input
                 className={classnames('', { 'is-invalid': errors.bankBranch })}
                 type="select"
                 name="bankBranch"
-
                 value={this.state.bankBranch}
                 onChange={this.onChange}
             >
                 <option value="" className="text-muted">Branch...</option>
-                
+    
                 <option>{this.state.bankName} {' '} QUANG NINH</option>
                 <option >{this.state.bankName} {' '} VINH PHUC</option>
                 <option >{this.state.bankName} {' '} BAC NINH</option>
@@ -177,7 +155,6 @@ class EditProfile extends Component {
                 <option >{this.state.bankName} {' '} HA NOI  </option>
                 <option >{this.state.bankName} {' '} THANG LONG </option>
             </Input>
-
         );
 
         return (
@@ -193,7 +170,7 @@ class EditProfile extends Component {
                             <div className="container pt-5 pb-5 z-depth-5" style={{ backgroundColor: "white" }}>
                                 <Link to="/userprofile" className="btn btn-link text-center left">
                                     <i className="fas fa-arrow-circle-left" /> Back To Your Current Profile
-            </Link>
+                                </Link>
                                 <h1 className="text-center mb-5">Edit Profile</h1>
                                 <Form onSubmit={this.onSubmit}>
                                     {/* name */}
@@ -275,14 +252,13 @@ class EditProfile extends Component {
                                     </FormGroup>
                                     <FormGroup row>
                                         <Col sm={12}>
-                                        {this.state.bankName!='' ? BANK : none }
-
+                                            {this.state.bankName!='' ? BANK : none }
                                         </Col>
                                     </FormGroup>
                                     <FormGroup check row className="text-center pt-5">
                                         <Col sm={12}>
                                             <Button color="default" >Submit</Button>
-                                            <Button color="default" onClick={this.onClick} >See current profile</Button>
+                                            {/* <Button color="default" onClick={this.onClick} >See current profile</Button> */}
                                         </Col>
                                     </FormGroup>
                                 </Form>
@@ -304,8 +280,6 @@ EditProfile.propTypes = {
 const mapStateToProps = (state) => ({
     auth: state.auth,
     errors: state.errors,
-
-
 });
 
 export default connect(mapStateToProps, { editUser, logoutUser })(EditProfile);
