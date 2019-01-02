@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import bgImage from "../../images/demo4.jpg"
 
 import { Table } from 'reactstrap';
+import { Animation } from "mdbreact"
 
 import {getSaleHistory} from "../../actions/saleHistoryAction";
 
@@ -47,36 +48,39 @@ class SalesHistory extends Component {
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'}} >
-
-                {!errors.nosale?
-                        (
-                            <div className="container">
-                                <Table dark striped bordered size="sm" responsive>
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>ImageName</th>
-                                            <th>Category</th>
-                                            <th>Price</th>
-                                            <th>Buyer</th>
-                                            <th>OrderDate</th>
-                                        </tr>
-                                    </thead>
-            
-                                    <tbody>
-                                        {tableImages}
-                                    </tbody>
-                                </Table>
-                            </div>
-                        )
-                        : (
-                            <div style={{ paddingTop: 100, paddingBottom: 100 }}>
-                                <h1 className="text-center text-white">
-                                    {errors.nosale ? errors.nosale : ""}
-                                </h1>
-                            </div>
-                        )
-                }
+                <Animation type="fadeIn">
+                    {!errors.nosale?
+                            (
+                            
+                                    <div className="container">
+                                        <Table dark striped bordered size="sm" responsive>
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>ImageName</th>
+                                                    <th>Category</th>
+                                                    <th>Price</th>
+                                                    <th>Buyer</th>
+                                                    <th>OrderDate</th>
+                                                </tr>
+                                            </thead>
+                    
+                                            <tbody>
+                                                {tableImages}
+                                            </tbody>
+                                        </Table>
+                                    </div>
+                                
+                            )
+                            : (
+                                <div style={{ paddingTop: 100, paddingBottom: 100 }}>
+                                    <h1 className="text-center text-white">
+                                        {errors.nosale ? errors.nosale : ""}
+                                    </h1>
+                                </div>
+                            )
+                    }
+                </Animation>
                 
             </div>
 
