@@ -214,12 +214,13 @@ router.post("/login", (req, res) => {
           fullName: user.fullName,
           displayName: user.displayName,
           email: user.email,
-          password: user.password,
+          
           accountHolder: user.accountHolder,
           cardNumber: user.cardNumber,
           bankName: user.bankName,
           bankBranch: user.bankBranch,
-          isPassChanged: user.isPassChanged
+          balance: user.balance
+          
         }; //Create JWT payload
         //Sign Token
         jwt.sign(
@@ -259,7 +260,7 @@ router.get(
       cardNumber: req.user.cardNumber,
       bankName: req.user.bankName,
       bankBranch: req.user.bankBranch,
-      balance: 0,
+      balance: req.user.balance,
       isPassChanged: false
     });
   }

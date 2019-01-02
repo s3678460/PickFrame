@@ -68,6 +68,7 @@ class UserProfileView extends Component {
 " />
                                 </h2></b>
                                 <h3>{user.fullName}</h3>
+                                <h3>Your Wallet: {user.balance}</h3>
                                 <Link to="/editprofile"><button  style={{marginLeft:"26%"}} type="button" className="btn btn-info btn-sm " >Edit Profile</button></Link>
                                 <div className="dropdown">
         <button className="btn btn-secondary btn-sm dropdown-toggle" style={{marginLeft:"23%"}} type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

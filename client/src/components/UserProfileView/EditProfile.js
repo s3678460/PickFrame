@@ -73,10 +73,16 @@ class EditProfile extends Component {
 
     componentWillReceiveProps(nextProps) {
 
-
+        const { user, isAuthenticated } = this.props.auth;
         if (nextProps.errors) {
             this.setState({ errors: nextProps.errors });
         }
+        
+
+        //Set Current Profile Immediately
+        
+
+
 
     }
 
