@@ -4,6 +4,7 @@ import Orders from "./orders/Orders";
 import Header from "./layout/Header";
 import List from "./contributors/List";
 import Requests from "./requests/Requests";
+import getContact from './../ContactUs/getContact'
 import Login from "./auth/Login";
 import NotFound from "./NotFound";
 import Dashboard from "./Dashboard";
@@ -22,6 +23,7 @@ class AdminPage extends Component {
               <Route exact path="/admin/orders" component={Orders} />
               <Route exact path="/admin/contributors" component={List} />
               <Route exact path="/admin/requests" component={Requests} />
+              <Route exact path ="/admin/contacts" component={getContact}/>
               <Route exact path="/admin/login" component={Login} />
               <Route component={NotFound} />
             </Switch>

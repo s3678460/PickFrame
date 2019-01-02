@@ -44,7 +44,7 @@ class FooterPage extends Component {
                                     <div className="iconsocial">
                                         <a href="https://www.facebook.com/pickframetm/" className="fa fa-facebook"></a>
                                         <a href="#" className="fa fa-twitter" />
-                                        <a href="#" className="fa fa-instagram" />
+                                        <a href="https://www.instagram.com/pick_frame/?hl=en" className="fa fa-instagram" />
                                         <a href="#" className="fa fa-google-plus" />
                                     </div>
                                 </Col>

@@ -64,7 +64,7 @@ class RouterURL extends Component {
           <Route path="/Contactus" component={Contactus} />
           <Route path="/LicenseTerm" component={LicenseTerm}/>
           <Route path="/LegalPrivacy" component={LegalPrivacy}/>
-          <Route path="/getContact" component={getContact}/>
+          
           <Route component={HomePage} />
         </Switch>
       </div>
