@@ -1,4 +1,4 @@
-import { GET_CONTACTS } from "../actions/types";
+import { GET_CONTACTS, DELETE_CONTACT } from "../actions/types";
 
 
 const initialState = {
@@ -11,6 +11,11 @@ const initialState = {
         return {
           ...state,
           contacts: action.payload
+        };
+      case DELETE_CONTACT:
+        return {
+          ...state,
+          contacts: state.contacts.filter(contact => contact._id !== action.payload)
         };
       default:
         return state;

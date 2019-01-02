@@ -14,3 +14,8 @@ h1 {
     text-transform: uppercase;
     
     }
+
+th, td {
+    padding: 15px;
+    
+    }

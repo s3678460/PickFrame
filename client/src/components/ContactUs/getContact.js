@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getContacts } from "../../actions/contactActions";
+import { getContacts, deleteContact } from "../../actions/contactActions";
 import { Table, Button } from 'reactstrap';
-import bgImage from "../../images/android-wallpaper-4k-4k-abstract-download-free-stunning-hd-backgrounds-for.jpg"
 
 
 import "./getContact.css";
@@ -12,19 +11,14 @@ class getContact extends Component {
   componentDidMount() {
     this.props.getContacts();
   }
+  onDeleteClick = (_id) => {
+    this.props.deleteContact(_id);
+  }
     render() {
       const { contacts } = this.props.contact;
       
         return (
-          <div>
-            
-            <div className="pt-5 pb-5"
-                    style={{
-                backgroundImage: `url(${bgImage})`,
-                backgroundPosition: 'center',
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat'}}>
-
+          
               <div className = "container">
                 <h1 className="title">
                   <br/>Contact Post
@@ -46,16 +40,16 @@ class getContact extends Component {
                           <td>{contact.email}</td>
                           <td>{contact.phoneNumber}</td>
                           <td>{contact.message}</td>
+                          {/* <td>
+                            <Button color="danger" size="sm" onClick = {this.onDeleteClick(contact._id)}>Delete</Button>
+                          </td> */}
                         </tr>
                       ))}
                     </tbody>
                   </Table>
                 </div>
               </div>  
-              
-            </div>
 
-          </div>
         );
     }
 }
@@ -71,4 +65,4 @@ const mapStateToProps = (state) => ({
 
 })
 
-export default connect(mapStateToProps, { getContacts })(getContact);
+export default connect(mapStateToProps, { getContacts, deleteContact })(getContact);
