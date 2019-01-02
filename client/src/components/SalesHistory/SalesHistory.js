@@ -52,7 +52,7 @@ class SalesHistory extends Component {
                     {!errors.nosale?
                             (
                                 <div className="container">
-                                    <Table dark striped bordered size="sm" responsive>
+                                    <Table dark striped bordered size="sm" hover responsive>
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
