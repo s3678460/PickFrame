@@ -147,19 +147,14 @@ class ViewPageType extends Component {
                 _id: image._id
             })}
         })
-
         return (
-            
             <div className="pb-5">
             <SearchFieldAlter/>
                 <div>
                     <View>
                         <img src={bgforViewPage} className="img-fluid" alt="photos" style={{ width: "100%", height: "400px" }} />
                         <Mask className="flex-center">
-                        
                             <h2 className="white-text">
-                            
-                            
                             Pick the best stock photography from our collections</h2>
                         </Mask>
                         

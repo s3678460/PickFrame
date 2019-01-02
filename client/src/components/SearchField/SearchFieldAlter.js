@@ -29,17 +29,12 @@ class SearchField extends Component {
                     type="button"
                     onClick={() => this.searchKeyword.click()}
                 ><Fa icon="search" size="lg" /></button>
-
-
-
-
                 <Link
                     innerRef={searchKeyword => this.searchKeyword = searchKeyword}
                     to={`/view/keyword/${this.state.keyword}`
                     } />
             </div>
         )
-
         const emptyKeywords = (
             <div className="altersearch">
                 <input
@@ -52,10 +47,6 @@ class SearchField extends Component {
                     type="button"
                     onClick={() => this.searchKeyword.click()}
                 ><Fa icon="search" size="lg" /></button>
-
-
-
-
                 <Link
                     innerRef={searchKeyword => this.searchKeyword = searchKeyword}
                     to={`/view/all/photos`
@@ -63,8 +54,6 @@ class SearchField extends Component {
             </div>
         )
         return (
-
-
             <div>
                 {this.state.keyword != '' ? haveKeywords : emptyKeywords}
             </div>
