@@ -37,9 +37,16 @@ class Header extends Component {
                   <i className="fas fa-warehouse" /> Orders
                 </Link>
               </li>
+              
               <li class="nav-item mr-auto">
                 <Link to="/admin/requests" className="nav-link">
                   <i className="fas fa-images" /> Requests
+                </Link>
+                
+              </li>
+              <li class="nav-item">
+                <Link to="/admin/contacts" className="nav-link">
+                  <i className="fas fa-warehouse" /> Contacts
                 </Link>
               </li>
             </ul>

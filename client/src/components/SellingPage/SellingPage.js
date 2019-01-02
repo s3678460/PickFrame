@@ -113,7 +113,7 @@ class SellingPage extends Component {
             }
             this.props.addImage(newImage, this.state.selectedFile)
             this.clearState();
-            window.alert("Submit successful!!")
+            window.alert("Submit successful! Your image will be examined and approved within 24 hours.")
         } else {
             var newImage = {
                 imageID: `#${Date.now()}`,
@@ -197,7 +197,7 @@ class SellingPage extends Component {
                                                 type="number"
                                                 name="price"
                                                 id="price"
-                                                placeholder="Price"
+                                                placeholder="Price in $"
                                                 onChange={this.onChange}
                                             />
                                             {errors.price && (<FormFeedback>{errors.price}</FormFeedback>)}
