@@ -130,7 +130,7 @@ router.get("/searchbykey/:keyword", (req, res) => {
 
 router.get("/searchbycate/:category", (req, res) => {
   var categorykey = req.params.category;
-  Image.find({ category: category }).then(images => res.json(images));
+  Image.find({ category: categorykey }).then(images => res.json(images));
 });
 
 //@route POST api/image
