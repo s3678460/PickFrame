@@ -21,6 +21,7 @@ import {
     FormFeedback,
     CustomInput
 } from 'reactstrap';
+import isEmpty from "../../validation/is-empty"
 import classNames from "classnames"
 import { getUserImages, deleteImage, updateImage, resetImages } from "../../actions/imageActions"
 
@@ -39,6 +40,7 @@ class CurrentSellingPage extends Component {
             originalImage: "",
             watermarkImage: "",
             user: "",
+            isValid: null,
             errors: {},
             modal: false
         }
@@ -86,7 +88,9 @@ class CurrentSellingPage extends Component {
             uploadDate,
             originalImage,
             watermarkImage,
-            user
+            isValid,
+            user,
+            errors
         } = this.state;
         var newUpdate = {
             imageID,
@@ -99,12 +103,10 @@ class CurrentSellingPage extends Component {
             uploadDate,
             originalImage,
             watermarkImage,
+            isValid,
             user
         }
         this.props.updateImage(newUpdate)
-        this.setState({
-            modal: false
-        })
     }
     onToggleEdit(image) {
 
@@ -133,6 +135,7 @@ class CurrentSellingPage extends Component {
             uploadDate: image.uploadDate,
             originalImage: image.originalImage,
             watermarkImage: image.watermarkImage,
+            isValid: image.isValid,
             user: image.user
         })
         this.toggle()
@@ -185,7 +188,6 @@ class CurrentSellingPage extends Component {
                                             </MDBBtn>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -205,8 +207,8 @@ class CurrentSellingPage extends Component {
                 }}>
                 <div className="container">
                     {/* modal */}
-                    <Modal centered isOpen={this.state.modal} toggle={this.toggle} position="right">
-                        <ModalHeader toggle={this.toggle}>Edite Table</ModalHeader>
+                    <Modal centered isOpen={this.state.modal} toggle={this.toggle}>
+                        <ModalHeader toggle={this.toggle}>Edit Table</ModalHeader>
                         <ModalBody>
                             <Form onSubmit={this.onSubmit}>
                                 {/* name */}
@@ -225,39 +227,6 @@ class CurrentSellingPage extends Component {
                                         {errors.name && (<FormFeedback>{errors.name}</FormFeedback>)}
                                     </Col>
                                 </FormGroup>
-                                {/* size width */}
-                                <FormGroup row >
-                                    <Label for="width" sm={2}>Width</Label>
-                                    <Col sm={10}>
-                                        <Input
-                                            className={classNames('', { 'is-invalid': errors.sizeWidth })}
-                                            value={this.state.width}
-                                            type="number"
-                                            name="width"
-                                            id="width"
-                                            placeholder="The width of your image"
-                                            onChange={this.onChange}
-                                        />
-                                        {errors.sizeWidth && (<FormFeedback>{errors.sizeWidth}</FormFeedback>)}
-                                    </Col>
-                                </FormGroup>
-                                {/* size height  */}
-                                <FormGroup row>
-                                    <Label for="height" sm={2}>Height</Label>
-                                    <Col sm={10}>
-                                        <Input
-                                            className={classNames('', { 'is-invalid': errors.sizeHeight })}
-                                            value={this.state.height}
-                                            type="number"
-                                            name="height"
-                                            id="height"
-                                            placeholder="The height of your image"
-                                            onChange={this.onChange}
-                                        />
-                                        {errors.sizeHeight && (<FormFeedback>{errors.sizeHeight}</FormFeedback>)}
-                                    </Col>
-                                </FormGroup>
-
                                 {/* Selected category */}
                                 <FormGroup row>
                                     <Label for="category" sm={2}>Category</Label>
