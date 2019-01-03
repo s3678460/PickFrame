@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getContacts } from "../../actions/contactActions";
-
+import { getContacts, deleteContact } from "../../actions/contactActions";
+import { Table, Button } from 'reactstrap';
 
 
 import "./getContact.css";
@@ -11,41 +11,45 @@ class getContact extends Component {
   componentDidMount() {
     this.props.getContacts();
   }
+  onDeleteClick = (id) => {
+    this.props.deleteContact(id);
+  }
     render() {
       const { contacts } = this.props.contact;
       
         return (
-            <div>
-            
-            <div className="container">
-            <h1 className="title"><br />Contact Post</h1>
-              <div className="row col-md-6 col-md-offset-2 custyle">
-                <table className="table table-striped custab">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>E-mail</th>
-                      <th>Phone Number</th>
-                      <th>Message</th>
-            
-                    </tr>
-                  </thead>
-                  <tbody>
-                {contacts.map(contact => (
-                  <tr key={contact._id}>
-                    <td>{contact.name}</td>
-                    <td>{contact.email}</td>
-                    <td>{contact.phoneNumber}</td>
-                    <td>{contact.message}</td>
-                   
-                    
-                  </tr>
-                ))}
-              </tbody>
-</table>
-              </div>
-            </div>
-          </div>
+          
+              <div className = "container">
+                <h1 className="title">
+                  <br/>Contact Post
+                </h1>
+                <div>
+                  <Table dark striped bordered size="sm" hover responsive>
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>E-mail</th>
+                        <th>Phone Number</th>
+                        <th>Message</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {contacts.map(contact => (
+                        <tr key={contact._id}>
+                          <td>{contact.name}</td>
+                          <td>{contact.email}</td>
+                          <td>{contact.phoneNumber}</td>
+                          <td>{contact.message}</td>
+                          {/* <td>
+                            <Button color="danger" size="sm" onClick = {this.onDeleteClick(contact._id)}>Delete</Button>
+                          </td> */}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>
+                </div>
+              </div>  
+
         );
     }
 }
@@ -61,4 +65,4 @@ const mapStateToProps = (state) => ({
 
 })
 
-export default connect(mapStateToProps, { getContacts })(getContact);
+export default connect(mapStateToProps, { getContacts, deleteContact })(getContact);

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ERRORS,POST_CONTACTS,GET_CONTACTS } from './types';
+import { GET_ERRORS,POST_CONTACTS,GET_CONTACTS, DELETE_CONTACT } from './types';
 
 //posting contact
 
@@ -20,5 +20,14 @@ export const getContacts = () => async dispatch => {
     dispatch({
       type: GET_CONTACTS,
       payload: res.data
+    });
+  };
+
+
+  export const deleteContact = _id => async dispatch => {
+    await axios.delete(`http://localhost:5000/api/contacts/${_id}`);
+    dispatch({
+      type: DELETE_CONTACT,
+      payload: _id
     });
   };

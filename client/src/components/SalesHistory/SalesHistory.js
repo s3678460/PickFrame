@@ -50,34 +50,34 @@ class SalesHistory extends Component {
                 backgroundRepeat: 'no-repeat'}} >
                 <Animation type="fadeIn">
                     {!errors.nosale?
-                        (
-                            <div className="container">
-                                <Table dark striped bordered size="sm" hover responsive>
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>ImageName</th>
-                                            <th>Category</th>
-                                            <th>Price</th>
-                                            <th>Buyer</th>
-                                            <th>OrderDate</th>
-                                        </tr>
-                                    </thead>
-            
-                                    <tbody>
-                                        {tableImages}
-                                    </tbody>
-                                </Table>
-                            </div>
-                        
-                        )
-                        : (
-                            <div style={{ paddingTop: 100, paddingBottom: 100 }}>
-                                <h1 className="text-center text-white">
-                                    {errors.nosale ? errors.nosale : ""}
-                                </h1>
-                            </div>
-                        )
+                            (
+                                <div className="container">
+                                    <Table dark striped bordered size="sm" hover responsive>
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>ImageName</th>
+                                                <th>Category</th>
+                                                <th>Price</th>
+                                                <th>Buyer</th>
+                                                <th>OrderDate</th>
+                                            </tr>
+                                        </thead>
+                
+                                        <tbody>
+                                            {tableImages}
+                                        </tbody>
+                                    </Table>
+                                </div>
+                            
+                            )
+                            : (
+                                <div style={{ paddingTop: 100, paddingBottom: 100 }}>
+                                    <h1 className="text-center text-white">
+                                        {errors.nosale ? errors.nosale : ""}
+                                    </h1>
+                                </div>
+                            )
                     }
                 </Animation>
                 
