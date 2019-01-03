@@ -14,19 +14,19 @@ class Sitemap extends Component {
                   <h4 className="head">Learn more</h4>
                   <h1 style={{borderBottom: '1.8px solid LightGray'}} />
                   <p style={{textAlign: 'center'}}>
-                    <a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/LicenseTerm" target="_blank">Promo codes</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/LicenseTerm" target="_blank">License</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/aboutus" target="_blank">Information</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/LegalPrivacy" target="_blank">Legal/Privacy</a></p></div>
+                    <a style={{fontFamily: 'Arial Black'}} href="http://pickframe.tk/LicenseTerm" target="_blank">Promo codes</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://pickframe.tk/LicenseTerm" target="_blank">License</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://pickframe.tk/aboutus" target="_blank">Information</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://pickframe.tk/LegalPrivacy" target="_blank">Legal/Privacy</a></p></div>
                 <br />
                 <div><h4 className="head">Support</h4>
                   <h1 style={{borderBottom: '1.8px solid LightGray'}} />
-                  <p style={{textAlign: 'center'}}><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/Contactus" target="_blank">Contact us</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/QA" target="_blank">FAQ</a></p></div>
+                  <p style={{textAlign: 'center'}}><a style={{fontFamily: 'Arial Black'}} href="http://pickframe.tk/Contactus" target="_blank">Contact us</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://pickframe.tk/QA" target="_blank">FAQ</a></p></div>
               </p1>
               <p2 style={{fontSize: '80%'}}>
                 <div><h4 className="head">Company</h4>
                   <h1 style={{borderBottom: '1.8px solid LightGray'}} />
-                  <p style={{textAlign: 'center'}}><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/aboutus" target="_blank">About us</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/aboutus" target="_blank">Press</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/aboutus" target="_blank">Careers</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/LicenseTerm" target="_blank">Terms</a></p></div><br />
+                  <p style={{textAlign: 'center'}}><a style={{fontFamily: 'Arial Black'}} href="http://pickframe.tk/aboutus" target="_blank">About us</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://pickframe.tk/aboutus" target="_blank">Press</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://pickframe.tk/aboutus" target="_blank">Careers</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://pickframe.tk/LicenseTerm" target="_blank">Terms</a></p></div><br />
                 <div><h4 className="head">Photos</h4>
                   <h1 style={{borderBottom: '1.8px solid LightGray'}} />
-                  <p style={{textAlign: 'center'}}><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/view/all/photos" target="_blank">Stock photos</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/view/all/photos" target="_blank">Stock illustrations</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://localhost:3000/view/photos" target="_blank">Stock vector graphics</a></p></div>
+                  <p style={{textAlign: 'center'}}><a style={{fontFamily: 'Arial Black'}} href="http://pickframe.tk/view/all/photos" target="_blank">Stock photos</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://pickframe.tk/view/all/photos" target="_blank">Stock illustrations</a><br /><a style={{fontFamily: 'Arial Black'}} href="http://pickframe.tk/view/photos" target="_blank">Stock vector graphics</a></p></div>
               </p2>
               <p3 style={{fontSize: '80%'}}>
                 <div><h4 className="head">Social</h4>
@@ -38,7 +38,7 @@ class Sitemap extends Component {
             </section>
             <br /><br /><h1 style={{borderBottom: '1.8px solid LightGray'}} /><br />
             <h1 style={{fontFamily: 'verdana', fontSize: '128%', textAlign: 'center'}}><b>Can't found what you want?</b></h1><br />
-            <h2 style={{fontSize: '120%', textAlign: 'center'}}><a style={{fontFamily: 'Arial Black', color: 'green'}} href="http://localhost:3000/Contactus" target="_blank">Contact Us &gt;</a></h2><h2><br /><br />
+            <h2 style={{fontSize: '120%', textAlign: 'center'}}><a style={{fontFamily: 'Arial Black', color: 'green'}} href="pickframe.tk/Contactus" target="_blank">Contact Us &gt;</a></h2><h2><br /><br />
             </h2></div>
         );
     }
