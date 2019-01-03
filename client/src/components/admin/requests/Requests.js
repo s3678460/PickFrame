@@ -37,6 +37,7 @@ class Requests extends Component {
     this.setState({
       reviewComplete: true
     });
+    console.log(this.state.request)
     const imageID = this.state.request.imageID;
     const email = this.props.user.email;
     const message = "approve";
@@ -89,8 +90,9 @@ class Requests extends Component {
             <div className="card text-white bg-dark mb-3">
               <h5 className="card-header">Requests</h5>
               <div className="list-group card-text">
-                {requests.map(request => (
+                {requests.map((request, index) => (
                   <a
+                    key={index}
                     className="list-group-item "
                     href="#"
                     onClick={() => this.onRequestClick(request)}
@@ -134,7 +136,7 @@ class Requests extends Component {
                     <div
                       class="modal fade"
                       id="approveModal"
-                      tabindex="-1"
+                      tabIndex="-1"
                       role="dialog"
                       aria-labelledby="exampleModalLabel"
                       aria-hidden="true"
@@ -161,10 +163,10 @@ class Requests extends Component {
                             {this.state.reviewComplete ? (
                               <p className="lead">Review Completed</p>
                             ) : (
-                              <div className="lead">
-                                Are you sure you want to approve this image?
+                                <div className="lead">
+                                  Are you sure you want to approve this image?
                               </div>
-                            )}
+                              )}
                           </div>
                           <div class="modal-footer">
                             <button
@@ -194,7 +196,7 @@ class Requests extends Component {
                     <div
                       class="modal fade"
                       id="rejectModal"
-                      tabindex="-1"
+                      tabIndex="-1"
                       role="dialog"
                       aria-labelledby="exampleModalLabel"
                       aria-hidden="true"
@@ -221,51 +223,52 @@ class Requests extends Component {
                             {this.state.reviewComplete ? (
                               <p className="lead">Review Completed</p>
                             ) : (
-                              <form>
-                                <div class="form-group row">
-                                  <label
-                                    for="staticEmail"
-                                    class="col-md-3 col-form-label text-muted"
-                                  >
-                                    Email
-                                  </label>
-                                  <div class="col-md-9">
-                                    <input
-                                      type="text"
-                                      readonly
-                                      class="form-control-plaintext"
-                                      id="staticEmail"
-                                      value={this.props.user.email}
-                                    />
-                                  </div>
-                                </div>
-                                <div class="form-group row">
-                                  <label
-                                    for="reasonList"
-                                    class="col-md-3 col-form-label text-muted"
-                                  >
-                                    Reasons
-                                  </label>
-                                  <div class="col-md-9 text">
-                                    <ul
-                                      id="reasonList"
-                                      className="text-left list-unstyled"
+                                <form>
+                                  <div class="form-group row">
+                                    <label
+                                      htmlFor="staticEmail"
+                                      class="col-md-3 col-form-label text-muted"
                                     >
-                                      {this.state.reasons.map(reason => {
-                                        return (
-                                          <CheckBox
-                                            handleCheckChildElement={
-                                              this.handleCheckChildElement
-                                            }
-                                            {...reason}
-                                          />
-                                        );
-                                      })}
-                                    </ul>
+                                      Email
+                                  </label>
+                                    <div class="col-md-9">
+                                      <input
+                                        type="text"
+                                        readOnly
+                                        class="form-control-plaintext"
+                                        id="staticEmail"
+                                        value={this.props.user.email}
+                                      />
+                                    </div>
                                   </div>
-                                </div>
-                              </form>
-                            )}
+                                  <div class="form-group row">
+                                    <label
+                                      htmlFor="reasonList"
+                                      class="col-md-3 col-form-label text-muted"
+                                    >
+                                      Reasons
+                                  </label>
+                                    <div class="col-md-9 text">
+                                      <ul
+                                        id="reasonList"
+                                        className="text-left list-unstyled"
+                                      >
+                                        {this.state.reasons.map((reason, index) => {
+                                          return (
+                                            <CheckBox
+                                              key={index}
+                                              handleCheckChildElement={
+                                                this.handleCheckChildElement
+                                              }
+                                              {...reason}
+                                            />
+                                          );
+                                        })}
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </form>
+                              )}
                           </div>
                           <div class="modal-footer">
                             <button
@@ -294,11 +297,11 @@ class Requests extends Component {
                   </div>
                 </div>
               ) : (
-                <div class="card-body text-center">
-                  <h5 class="card-title">Process Requests</h5>
-                  <p class="card-text">Select an image to review</p>
-                </div>
-              )}
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Process Requests</h5>
+                    <p class="card-text">Select an image to review</p>
+                  </div>
+                )}
             </div>
           </div>
         </div>

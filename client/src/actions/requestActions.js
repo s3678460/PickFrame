@@ -19,7 +19,7 @@ export const getRequests = () => async dispatch => {
 
 export const rejectImage = (_id, content) => async dispatch => {
   await axios.delete(
-    `http://localhost:5000/api/images/admin/rejectimage/${_id}`
+    `/api/images/admin/rejectimage/${_id}`
   );
   dispatch({
     type: REJECT_IMAGE,
@@ -32,7 +32,7 @@ export const rejectImage = (_id, content) => async dispatch => {
 
 export const approveImage = (request, content) => async dispatch => {
   const res = await axios.put(
-    `http://localhost:5000/api/images/admin/approveimage/${request._id}`,
+    `/api/images/admin/approveimage/${request._id}`,
     request
   );
   dispatch({

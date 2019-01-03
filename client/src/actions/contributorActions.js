@@ -8,7 +8,7 @@ import {
 import axios from "axios";
 
 export const getContributors = () => async dispatch => {
-  const res = await axios.get("http://localhost:5000/api/users");
+  const res = await axios.get("/api/users");
   const cnt_24hours = countUsers(res.data, 2);
   const cnt_3days = countUsers(res.data, 4);
   const cnt_1week = countUsers(res.data, 8);
@@ -24,7 +24,7 @@ export const getContributors = () => async dispatch => {
 };
 
 export const getContributor = _id => async dispatch => {
-  const res = await axios.get(`http://localhost:5000/api/users/${_id}`);
+  const res = await axios.get(`/api/users/${_id}`);
   dispatch({
     type: GET_CONTRIBUTOR,
     payload: res.data
@@ -33,7 +33,7 @@ export const getContributor = _id => async dispatch => {
 
 export const updateContributor = contributor => async dispatch => {
   const res = await axios.put(
-    `http://localhost:5000/api/users/${contributor._id}`,
+    `/api/users/${contributor._id}`,
     contributor
   );
   dispatch({
