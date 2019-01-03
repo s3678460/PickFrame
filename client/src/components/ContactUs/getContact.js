@@ -15,6 +15,7 @@ class getContact extends Component {
     this.props.getContacts();
   }
   onDelete = (_id) => {
+    
     this.props.deleteContact(_id);
   }
     render() {
