@@ -244,7 +244,7 @@ class Register extends Component {
 
                         </div>
                         <button type="submit">Login</button>
-                        <b style={{ textAlign: "center" }}><p>By creating an account, I agree to PickFrame's <Link to="#">Website Terms</Link>, <Link to="#">Privacy Policy</Link>, and <Link to="#">Licensing Terms.</Link> </p></b>
+                        <b style={{ textAlign: "center" }}><p>By creating an account, I agree to PickFrame's <Link to="/LicenseTerm">Website Terms</Link>, <Link to="/LegalPrivacy">Privacy Policy</Link>, and <Link to="/LicenseTerm">Licensing Terms.</Link> </p></b>
                     </form>
 
 
