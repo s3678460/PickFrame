@@ -37,6 +37,8 @@ export const SET_LOGIN_ERROR = "SET_LOGIN_ERROR";
 //Contact
 export const POST_CONTACTS = "POST_CONTACTS";
 export const GET_CONTACTS = "GET_CONTACTS";
+export const DELETE_CONTACT = "DELETE_CONTACT";
+
 // Requests
 export const GET_REQUESTS = "GET_REQUESTS";
 export const REJECT_IMAGE = "REJECT_IMAGE";
