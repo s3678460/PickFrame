@@ -144,6 +144,7 @@ class CurrentSellingPage extends Component {
         console.log(this.state)
         //render list images
         var listImages = images.map((image, index) => {
+            if(image.isValid==true){
             return (
                 <div key={index} className="row pt-4">
                     <div className="col-12 hoverable" style={{ backgroundColor: "white" }}>
@@ -191,7 +192,7 @@ class CurrentSellingPage extends Component {
                     </div>
                 </div>
             )
-        })
+        }})
 
         return (
             <div
