@@ -337,8 +337,8 @@ class OrdersPage extends Component {
                       src={linkImage}
                       alt={imageTarget.name}
                       style={{
-                        height: "180%",
-                        width: "180%",
+                        height: "70%",
+                        width: "70%",
                         pointerEvents: "none"
                       }}
                     />

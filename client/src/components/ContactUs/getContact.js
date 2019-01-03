@@ -8,10 +8,14 @@ import { Table, Button } from 'reactstrap';
 import "./getContact.css";
 
 class getContact extends Component {
+  
+  
+
   componentDidMount() {
     this.props.getContacts();
   }
-  onDeleteClick = (_id) => {
+  onDelete = (_id) => {
+    
     this.props.deleteContact(_id);
   }
     render() {
@@ -20,7 +24,7 @@ class getContact extends Component {
         return (
           
               <div className = "container">
-                <h1 className="title">
+                <h1 className="titlecon">
                   <br/>Contact Post
                 </h1>
                 <div>
@@ -40,9 +44,9 @@ class getContact extends Component {
                           <td>{contact.email}</td>
                           <td>{contact.phoneNumber}</td>
                           <td>{contact.message}</td>
-                          {/* <td>
-                            <Button color="danger" size="sm" onClick = {this.onDeleteClick(contact._id)}>Delete</Button>
-                          </td> */}
+                           <td>
+                            <Button color="danger" size="sm" onClick={() => this.onDelete(contact._id)}>Delete</Button>
+                          </td> 
                         </tr>
                       ))}
                     </tbody>
