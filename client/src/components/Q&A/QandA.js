@@ -31,7 +31,7 @@ class QandA extends Component {
             </section>
             <br /><br /><h1 style={{borderBottom: '1.8px solid LightGray'}} /><br />
             <h1 style={{fontFamily: 'verdana', fontSize: '128%', textAlign: 'center'}}><b>Can't found your answer?</b></h1><br />
-            <h2 style={{fontSize: '120%', textAlign: 'center'}}><a style={{fontFamily: 'Arial Black', color: 'green'}} href="http://localhost:3000/Contactus" target="_blank">Contact Us &gt;</a></h2><h2><br /><br />
+            <h2 style={{fontSize: '120%', textAlign: 'center'}}><a style={{fontFamily: 'Arial Black', color: 'green'}} href="http://pickframe.tk/Contactus" target="_blank">Contact Us &gt;</a></h2><h2><br /><br />
             </h2></div>
         );
     }
