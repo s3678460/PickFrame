@@ -32,7 +32,7 @@ class FooterPage extends Component {
                         <Col md="2">
                             <div className="blocklink">
                                 <h5>Support</h5>
-                                <a href="#">0123456789</a>
+                                <a href="#">0905352082</a>
                                 <Link to="/Contactus"><a>Contact us</a></Link>
                                 <Link to="/QA"><a>FAQ</a></Link>
                                 <Link to="/Sitemap"><a>Site map</a></Link>
