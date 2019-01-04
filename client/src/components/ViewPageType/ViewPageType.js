@@ -115,7 +115,6 @@ class ViewPageType extends Component {
 
         if (!(categoryKey === '')) {
             images = images.filter((image) => {
-                console.log(image.category[0].toLowerCase(), categoryKey.toLowerCase())
                 return image.category[0].toLowerCase() === categoryKey.toLowerCase()
             })
         }
