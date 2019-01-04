@@ -58,7 +58,6 @@ class SellingPage extends Component {
         var selectedFileName = e.target.files[0] ? e.target.files[0].name : ""
         var selectedFile = e.target.files[0] ? e.target.files[0] : null
         if (selectedFile) {
-            console.log(true)
             getImageSize(selectedFile)
                 .then(result => {
                     const height = result.height;
@@ -111,42 +110,12 @@ class SellingPage extends Component {
             idSeller: user.id
         }
         this.props.addImage(newImage, this.state.selectedFile)
-        
-        //get link image
-        // if (!isEmpty(fileName)) {
-        //     //create new file name and save info to Mongodb
-        //     var newImage = {
-        //         imageID: `#${Date.now()}`,
-        //         name: this.state.nameImage,
-        //         price: this.state.price,
-        //         seller: user.fullName,
-        //         width: this.state.width.toString(),
-        //         height: this.state.height.toString(),
-        //         category: this.state.category,
-        //         uploadDate: timestamp('DD/MM/YYYY'),
-        //         originalImage: fileName,
-        //         watermarkImage: fileName,
-        //         idSeller: user.id
-        //     }
-        //     this.props.addImage(newImage, this.state.selectedFile)
-        //     this.clearState();
-        //     window.alert("Submit successful! Your image will be examined and approved within 24 hours.")
-        // } else {
-        //     var newImage = {
-        //         imageID: `#${Date.now()}`,
-        //         name: this.state.nameImage,
-        //         price: this.state.price,
-        //         seller: user.fullName,
-        //         width: this.state.width.toString(),
-        //         height: this.state.height.toString(),
-        //         category: this.state.category,
-        //         uploadDate: timestamp('DD/MM/YYYY'),
-        //         originalImage: '',
-        //         watermarkImage: '',
-        //         idSeller: user.id
-        //     }
-        //     this.props.addImage(newImage)
-        // }
+            .then(result => {
+                if (result) {
+                    window.alert("Submit successful! Your image will be examined and approved within 24 hours.")
+                    this.clearState()
+                }
+            })
     }
     render() {
         console.log(this.state)

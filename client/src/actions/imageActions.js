@@ -61,31 +61,33 @@ export const deleteImage = (id, originalImage) => dispatch => {
 }
 
 export const addImage = (newImage, newFile) => dispatch => {
-    axios
-        .post("/api/images", newImage)
-        .then(res => dispatch({
-            type: ADD_IMAGE,
-            payload: res.data
-        }))
-        .then(res => dispatch({
-            type: GET_ERRORS,
-            payload: {}
-        }))
-        .then(res => {
-            if (newFile) {
-                const fd = new FormData()
-                fd.append('uploadimage', newFile, newImage.originalImage);
-                axios.post(`/api/images/uploadimage`, fd)
-                    .then(res => {
-                        window.alert("Submit successful! Your image will be examined and approved within 24 hours.")
-                    })
-                    .catch(err => console.log(err))
-            }
-        })
-        .catch(err => dispatch({
-            type: GET_ERRORS,
-            payload: err.response.data
-        }))
+    return new Promise((resolve, reject) => {
+        axios
+            .post("/api/images", newImage)
+            .then(res => dispatch({
+                type: ADD_IMAGE,
+                payload: res.data
+            }))
+            .then(res => dispatch({
+                type: GET_ERRORS,
+                payload: {}
+            }))
+            .then(res => {
+                if (newFile) {
+                    const fd = new FormData()
+                    fd.append('uploadimage', newFile, newImage.originalImage);
+                    axios.post(`/api/images/uploadimage`, fd)
+                    resolve(true)
+                }
+            })
+            .catch(err => {
+                dispatch({
+                    type: GET_ERRORS,
+                    payload: err.response.data
+                })
+                resolve(false)
+            })
+    })
 }
 export const updateImage = (newImage) => dispatch => {
     axios
