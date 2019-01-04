@@ -16,7 +16,7 @@ export const postContact = (contactInput) => dispatch=>{
 }
 
 export const getContacts = () => async dispatch => {
-    const res = await axios.get("http://localhost:5000/api/contacts");
+    const res = await axios.get("/api/contacts");
     dispatch({
       type: GET_CONTACTS,
       payload: res.data
@@ -25,7 +25,7 @@ export const getContacts = () => async dispatch => {
 
 
   export const deleteContact = _id => async dispatch => {
-    await axios.delete(`http://localhost:5000/api/contacts/${_id}`);
+    await axios.delete(`/api/contacts/${_id}`);
     dispatch({
       type: DELETE_CONTACT,
       payload: _id
