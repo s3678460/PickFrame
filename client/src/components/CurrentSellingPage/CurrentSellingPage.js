@@ -242,6 +242,8 @@ class CurrentSellingPage extends Component {
                                             <option value="Sport">Sport</option>
                                             <option value="Animal">Animal</option>
                                             <option value="Business">Business</option>
+                                            <option value="Food">Food</option>
+                                            <option value="Life and Society">Life and Society</option>
                                         </Input>
                                         {errors.category && (<FormFeedback>{errors.category}</FormFeedback>)}
                                     </Col>
