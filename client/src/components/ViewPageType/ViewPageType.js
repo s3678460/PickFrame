@@ -115,6 +115,7 @@ class ViewPageType extends Component {
 
         if (!(categoryKey === '')) {
             images = images.filter((image) => {
+                console.log(image.category[0].toLowerCase(), categoryKey.toLowerCase())
                 return image.category[0].toLowerCase() === categoryKey.toLowerCase()
             })
         }
@@ -206,7 +207,7 @@ class ViewPageType extends Component {
                                                 <option value="animal">Animal</option>
                                                 <option value="business">Business</option>
                                                 <option value="food">Food</option>
-                                                <option value="life and sciety">Life and Society</option>
+                                                <option value="life and society">Life and Society</option>
                                             </Input>
                                         </Col>
                                     </FormGroup>
