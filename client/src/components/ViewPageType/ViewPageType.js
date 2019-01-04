@@ -205,6 +205,8 @@ class ViewPageType extends Component {
                                                 <option value="sport">Sport</option>
                                                 <option value="animal">Animal</option>
                                                 <option value="business">Business</option>
+                                                <option value="food">Food</option>
+                                                <option value="life and sciety">Life and Society</option>
                                             </Input>
                                         </Col>
                                     </FormGroup>

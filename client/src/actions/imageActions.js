@@ -67,15 +67,21 @@ export const addImage = (newImage, newFile) => dispatch => {
             type: ADD_IMAGE,
             payload: res.data
         }))
-        .then(res => {
-            const fd = new FormData()
-            fd.append('uploadimage', newFile, newImage.originalImage)
-            axios.post(`/api/images/uploadimage`, fd)
-        })
         .then(res => dispatch({
             type: GET_ERRORS,
             payload: {}
         }))
+        .then(res => {
+            if (newFile) {
+                const fd = new FormData()
+                fd.append('uploadimage', newFile, newImage.originalImage);
+                axios.post(`/api/images/uploadimage`, fd)
+                    .then(res => {
+                        window.alert("Submit successful! Your image will be examined and approved within 24 hours.")
+                    })
+                    .catch(err => console.log(err))
+            }
+        })
         .catch(err => dispatch({
             type: GET_ERRORS,
             payload: err.response.data

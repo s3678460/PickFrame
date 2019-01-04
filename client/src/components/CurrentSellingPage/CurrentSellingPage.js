@@ -65,7 +65,7 @@ class CurrentSellingPage extends Component {
             })
         }
     }
-    componentWillMount(){
+    componentWillMount() {
         this.props.resetImages()
     }
     componentDidMount() {
@@ -144,57 +144,54 @@ class CurrentSellingPage extends Component {
     render() {
         var { errors } = this.state;
         var { images } = this.props.image;
-        console.log(this.state)
+        console.log(images)
         //render list images
         var listImages = images.map((image, index) => {
-            if(image.isValid==true){
-            return (
-                <div key={index} className="row pt-4">
-                    <div className="col-12 hoverable" style={{ backgroundColor: "white" }}>
-                        <div className="row">
-                            <div className="col-6">
-                                <div style={{ padding: "12px 12px 12px 0px" }}>
-                                    <img style={{ maxHeight: "100%", maxWidth: "100%" }} src={process.env.PUBLIC_URL + `/storageimages/${image.originalImage}`} className="img-fluid" />
-                                </div>
+            return <div key={index} className="row pt-4">
+                <div className="col-12 hoverable" style={{ backgroundColor: "white" }}>
+                    <div className="row">
+                        <div className="col-6">
+                            <div style={{ padding: "12px 12px 12px 0px" }}>
+                                <img style={{ maxHeight: "100%", maxWidth: "100%" }} src={process.env.PUBLIC_URL + `/storageimages/${image.originalImage}`} className="img-fluid" />
                             </div>
-                            <div className="col-6">
-                                <div style={{ paddingTop: "12px" }}>
-                                    <h2 className="h2-responsive">{image.name}</h2>
-                                    <dl className="row">
-                                        <dt className="col-sm-3">ID</dt>
-                                        <dd className="col-sm-9">{image.imageID}</dd>
-                                        <dt className="col-sm-3">Size</dt>
-                                        <dd className="col-sm-9">{image.size.width}x{image.size.height}</dd>
-                                        <dt className="col-sm-3">Category</dt>
-                                        <dd className="col-sm-9">{image.category[0]}</dd>
-                                        <dt className="col-sm-3">Upload date</dt>
-                                        <dd className="col-sm-9">{image.uploadDate}</dd>
-                                        <dt className="col-sm-3">Price</dt>
-                                        <dd className="col-sm-9">{image.price}$</dd>
-                                    </dl>
-                                    <div className="row">
-                                        <div className="col-sm-12">
-                                            <MDBBtn
-                                                color="primary"
-                                                onClick={() => this.onToggleEdit(image)}
-                                            >
-                                                <MDBIcon icon="edit" className="mr-1" /> Edit
+                        </div>
+                        <div className="col-6">
+                            <div style={{ paddingTop: "12px" }}>
+                                <h2 className="h2-responsive">{image.name}</h2>
+                                <dl className="row">
+                                    <dt className="col-sm-3">ID</dt>
+                                    <dd className="col-sm-9">{image.imageID}</dd>
+                                    <dt className="col-sm-3">Size</dt>
+                                    <dd className="col-sm-9">{image.size.width}x{image.size.height}</dd>
+                                    <dt className="col-sm-3">Category</dt>
+                                    <dd className="col-sm-9">{image.category[0]}</dd>
+                                    <dt className="col-sm-3">Upload date</dt>
+                                    <dd className="col-sm-9">{image.uploadDate}</dd>
+                                    <dt className="col-sm-3">Price</dt>
+                                    <dd className="col-sm-9">{image.price}$</dd>
+                                </dl>
+                                <div className="row">
+                                    <div className="col-sm-12">
+                                        <MDBBtn
+                                            color="primary"
+                                            onClick={() => this.onToggleEdit(image)}
+                                        >
+                                            <MDBIcon icon="edit" className="mr-1" /> Edit
                                         </MDBBtn>
-                                            <MDBBtn
-                                                onClick={() => this.onDelete(image._id, image.originalImage)}
-                                                color="red"
-                                            >
-                                                Delete <MDBIcon icon="close" className="ml-1" />
-                                            </MDBBtn>
-                                        </div>
+                                        <MDBBtn
+                                            onClick={() => this.onDelete(image._id, image.originalImage)}
+                                            color="red"
+                                        >
+                                            Delete <MDBIcon icon="close" className="ml-1" />
+                                        </MDBBtn>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            )
-        }})
+            </div>
+        })
 
         return (
             <div

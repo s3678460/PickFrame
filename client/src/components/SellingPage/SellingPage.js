@@ -18,6 +18,7 @@ import timestamp from "time-stamp"
 import { addImage } from "../../actions/imageActions"
 import classNames from "classnames"
 import { Animation } from "mdbreact"
+import isEmpty from "../../validation/is-empty"
 
 class SellingPage extends Component {
     constructor(props) {
@@ -94,42 +95,58 @@ class SellingPage extends Component {
         //get infor of current user
         var { user } = this.props.auth
 
-        //get link image
-        if (this.state.selectedFile) {
-            //create new file name and save info to Mongodb
-            const fileName = `${Date.now() + '-' + this.state.selectedFile.name}`
-            var newImage = {
-                imageID: `#${Date.now()}`,
-                name: this.state.nameImage,
-                price: this.state.price,
-                seller: user.fullName,
-                width: this.state.width.toString(),
-                height: this.state.height.toString(),
-                category: this.state.category,
-                uploadDate: timestamp('DD/MM/YYYY'),
-                originalImage: fileName,
-                watermarkImage: fileName,
-                idSeller: user.id
-            }
-            this.props.addImage(newImage, this.state.selectedFile)
-            this.clearState();
-            window.alert("Submit successful! Your image will be examined and approved within 24 hours.")
-        } else {
-            var newImage = {
-                imageID: `#${Date.now()}`,
-                name: this.state.nameImage,
-                price: this.state.price,
-                seller: user.fullName,
-                width: this.state.width.toString(),
-                height: this.state.height.toString(),
-                category: this.state.category,
-                uploadDate: timestamp('DD/MM/YYYY'),
-                originalImage: '',
-                watermarkImage: '',
-                idSeller: user.id
-            }
-            this.props.addImage(newImage)
+        const fileName = this.state.selectedFile ? `${Date.now() + '-' + this.state.selectedFile.name}` : ''
+        //create new file name and save info to Mongodb
+        var newImage = {
+            imageID: `#${Date.now()}`,
+            name: this.state.nameImage,
+            price: this.state.price,
+            seller: user.fullName,
+            width: this.state.width.toString(),
+            height: this.state.height.toString(),
+            category: this.state.category,
+            uploadDate: timestamp('DD/MM/YYYY'),
+            originalImage: fileName,
+            watermarkImage: fileName,
+            idSeller: user.id
         }
+        this.props.addImage(newImage, this.state.selectedFile)
+        
+        //get link image
+        // if (!isEmpty(fileName)) {
+        //     //create new file name and save info to Mongodb
+        //     var newImage = {
+        //         imageID: `#${Date.now()}`,
+        //         name: this.state.nameImage,
+        //         price: this.state.price,
+        //         seller: user.fullName,
+        //         width: this.state.width.toString(),
+        //         height: this.state.height.toString(),
+        //         category: this.state.category,
+        //         uploadDate: timestamp('DD/MM/YYYY'),
+        //         originalImage: fileName,
+        //         watermarkImage: fileName,
+        //         idSeller: user.id
+        //     }
+        //     this.props.addImage(newImage, this.state.selectedFile)
+        //     this.clearState();
+        //     window.alert("Submit successful! Your image will be examined and approved within 24 hours.")
+        // } else {
+        //     var newImage = {
+        //         imageID: `#${Date.now()}`,
+        //         name: this.state.nameImage,
+        //         price: this.state.price,
+        //         seller: user.fullName,
+        //         width: this.state.width.toString(),
+        //         height: this.state.height.toString(),
+        //         category: this.state.category,
+        //         uploadDate: timestamp('DD/MM/YYYY'),
+        //         originalImage: '',
+        //         watermarkImage: '',
+        //         idSeller: user.id
+        //     }
+        //     this.props.addImage(newImage)
+        // }
     }
     render() {
         console.log(this.state)

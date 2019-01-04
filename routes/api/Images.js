@@ -38,7 +38,7 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const errors = {};
-    Image.find({ user: req.user.id })
+    Image.find({ user: req.user.id, isValid: true})
       .then(images => {
         if (isEmty(images)) {
           errors.noimage = "You do not have any image that is selling";
