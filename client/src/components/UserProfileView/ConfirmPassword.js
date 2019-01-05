@@ -106,7 +106,7 @@ class ConfirmPassword extends Component {
         )
         return (
             <div style={{
-                backgroundImage: `url(https://best-wallpaper.net/wallpaper/1920x1200/1809/Blue-white-and-red-gerbera-flowers-black-background_1920x1200.jpg)`,
+                backgroundImage: `url(https://www.planwallpaper.com/static/images/8ccb4ec4225b290726ae9be975220ff4.jpg)`,
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'

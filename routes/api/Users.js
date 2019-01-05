@@ -214,7 +214,7 @@ router.post("/login", (req, res) => {
           fullName: user.fullName,
           displayName: user.displayName,
           email: user.email,
-          
+          password: user.password,
           accountHolder: user.accountHolder,
           cardNumber: user.cardNumber,
           bankName: user.bankName,

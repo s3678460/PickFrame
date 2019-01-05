@@ -50,12 +50,12 @@ class RouterURL extends Component {
             component={CurrentSellingPage}
           />
           <PrivateRoute path="/saleshistory/:_id" component={SalesHistory} />
-          <Route path="/editprofile" component={EditProfile} />
-          <Route path="/editemail" component={EditAccountEmail} />
-          <Route path="/editpassword" component={EditPassword} />
+          <PrivateRoute path="/editprofile" component={EditProfile} />
+          <PrivateRoute path="/editemail" component={EditAccountEmail} />
+          <PrivateRoute path="/editpassword" component={EditPassword} />
           <Route path="/postregister/" component={PostRegister} />
           <Route path="/postedit" component={PostEditProfile} />
-          <Route path="/confirmpassword" component={ConfirmPassword} />
+          <PrivateRoute path="/confirmpassword" component={ConfirmPassword} />
           <Route path="/verification" component={Verification} />
           <Route path="/Customerchat" component={CustomerChat}/>
           <Route path="/Aboutus" component={Aboutus} />
